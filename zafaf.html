@@ -280,6 +280,13 @@ html{overflow-x:hidden}
 body{overflow-x:clip}
 .hero{overflow:hidden}
 
+
+/* نموذج تأكيد الحضور */
+.rsvp-form{max-width:430px;margin:0 auto 22px;display:grid;grid-template-columns:1.6fr 1fr;gap:12px}
+.rsvp-form label{display:block;font-size:13px;font-weight:700;color:var(--wine);margin-bottom:5px;text-align:right}
+.rsvp-form input{width:100%;background:#fff;border:1.5px solid var(--gold-light);border-radius:12px;padding:11px 14px;font-family:inherit;font-size:15px;outline:none;text-align:center;color:var(--ink)}
+.rsvp-form input:focus{border-color:var(--gold)}
+
 </style>
 </head>
 <body>
@@ -422,6 +429,10 @@ body{overflow-x:clip}
       <div class="divider">❦</div>
       <h2>تأكيد الحضور</h2>
       <p style="color:var(--muted)">أكّدوا حضوركم عشان نجهزلكم أحلى استقبال</p>
+    </div>
+        <div class="rsvp-form">
+      <div><label>الاسم الكريم</label><input id="gName" placeholder="اكتب اسمك"></div>
+      <div><label>عدد الأشخاص</label><input id="gCount" type="number" min="1" max="20" value="1"></div>
     </div>
     <div class="rsvp">
       <button class="btn-rsvp btn-yes" onclick="rsvp(true)">💚 تأكيد الحضور</button>
@@ -566,10 +577,14 @@ document.getElementById('calBtn').href =
 
 /* تأكيد الحضور عبر واتساب */
 function rsvp(attending){
-  const msg=attending
-    ? `أبارك للعريسين ${g} و ${b} 🎉 وأؤكد حضوري لحفل الزفاف بإذن الله`
-    : `أبارك للعريسين ${g} و ${b} 🌸 وأعتذر عن الحضور`;
-  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,'_blank');
+  const gname=(document.getElementById('gName').value||'').trim();
+  const gcount=parseInt(document.getElementById('gCount').value)||1;
+  const NL=String.fromCharCode(10);
+  const head='أبارك للعريسين '+g+' و '+b+(attending?' 🎉':' 🌸');
+  const body=attending
+    ? ['وأؤكد حضوري بإذن الله','الاسم: '+(gname||'ضيف كريم'),'عدد الأشخاص: '+gcount].join(NL)
+    : ['وأعتذر عن الحضور','الاسم: '+(gname||'ضيف كريم')].join(NL);
+  window.open('https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(head+NL+body),'_blank');
 }
 
 /* قلوب متحركة */
