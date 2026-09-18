@@ -90,49 +90,6 @@ if(CONFIG.schedule&&CONFIG.schedule.length){
 }else{document.getElementById('scheduleSec').remove();}
 
 
-/* نثر القصاصات لما بدق الطبلة */
-document.getElementById('drumBtn').addEventListener('click',()=>{
-  const colors=['#D9A62E','#5B2E83','#9A7BC0','#F0DCA8','#c05a72'];
-  for(let i=0;i<28;i++){
-    const p=document.createElement('div');
-    p.style.cssText='position:fixed;z-index:500;left:50%;top:62%;width:9px;height:9px;border-radius:2px;pointer-events:none;background:'+colors[i%5]+';transition:all 1.15s cubic-bezier(.2,.8,.3,1);transform:rotate('+Math.random()*360+'deg)';
-    document.body.appendChild(p);
-    requestAnimationFrame(()=>{
-      const a=Math.random()*Math.PI*2,d=100+Math.random()*170;
-      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) rotate('+Math.random()*720+'deg)';
-      p.style.opacity='0';
-    });
-    setTimeout(()=>p.remove(),1250);
-  }
-});
-
-
-/* ═══ موسيقى الدعوة ═══ */
-let ac=null,playingM=false,stepM=0,timerM=null;
-const MELODY=[67,71,74,71,69,67,69,71, 74,76,74,71,69,67,66,67];
-const BEAT=250;
-function m2f(m){return 440*Math.pow(2,(m-69)/12)}
-function playNote(m,dur){
-  const o=ac.createOscillator(),g=ac.createGain();
-  o.type='triangle';o.frequency.value=m2f(m);
-  g.gain.setValueAtTime(0,ac.currentTime);
-  g.gain.linearRampToValueAtTime(.15,ac.currentTime+.03);
-  g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);
-  o.connect(g);g.connect(ac.destination);
-  o.start();o.stop(ac.currentTime+dur+.05);
-}
-const mBtn=document.getElementById('musicBtn');
-mBtn.addEventListener('click',()=>{
-  if(!ac){ac=new (window.AudioContext||window.webkitAudioContext)();}
-  if(!playingM){
-    ac.resume();playingM=true;mBtn.classList.add('playing');mBtn.textContent='🔊';
-    timerM=setInterval(()=>{playNote(MELODY[stepM%MELODY.length],BEAT/1000*.85);stepM++},BEAT);
-  }else{
-    playingM=false;mBtn.classList.remove('playing');mBtn.textContent='🔇';
-    clearInterval(timerM);
-  }
-});
-
 /* العد التنازلي */
 .countdown{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .cd-box{
@@ -489,6 +446,49 @@ footer a{color:#fff;font-weight:700}
 
 <button id="musicBtn" class="music-btn" title="تشغيل الموسيقى">🔇</button>
 <script>
+/* ═══ موسيقى الدعوة ═══ */
+let ac=null,playingM=false,stepM=0,timerM=null;
+const MELODY=[67,71,74,71,69,67,69,71, 74,76,74,71,69,67,66,67];
+const BEAT=250;
+function m2f(m){return 440*Math.pow(2,(m-69)/12)}
+function playNote(m,dur){
+  const o=ac.createOscillator(),g=ac.createGain();
+  o.type='triangle';o.frequency.value=m2f(m);
+  g.gain.setValueAtTime(0,ac.currentTime);
+  g.gain.linearRampToValueAtTime(.25,ac.currentTime+.02);
+  g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);
+  o.connect(g);g.connect(ac.destination);
+  o.start();o.stop(ac.currentTime+dur+.05);
+}
+const mBtn=document.getElementById('musicBtn');
+mBtn.addEventListener('click',()=>{
+  if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){mBtn.textContent='❌';return;}}
+  if(ac.state==='suspended'){ac.resume();}
+  if(!playingM){
+    playingM=true;mBtn.classList.add('playing');mBtn.textContent='🔊';
+    timerM=setInterval(()=>{playNote(MELODY[stepM%MELODY.length],BEAT/1000*.85);stepM++},BEAT);
+  }else{
+    playingM=false;mBtn.classList.remove('playing');mBtn.textContent='🔇';
+    clearInterval(timerM);
+  }
+});
+
+/* نثر القصاصات لما بدق الطبلة */
+document.getElementById('drumBtn').addEventListener('click',()=>{
+  const colors=['#D9A62E','#5B2E83','#9A7BC0','#F0DCA8','#c05a72'];
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div');
+    p.style.cssText='position:fixed;z-index:500;left:50%;top:62%;width:9px;height:9px;border-radius:2px;pointer-events:none;background:'+colors[i%5]+';transition:all 1.15s cubic-bezier(.2,.8,.3,1);transform:rotate('+Math.random()*360+'deg)';
+    document.body.appendChild(p);
+    requestAnimationFrame(()=>{
+      const a=Math.random()*Math.PI*2,d=100+Math.random()*170;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) rotate('+Math.random()*720+'deg)';
+      p.style.opacity='0';
+    });
+    setTimeout(()=>p.remove(),1250);
+  }
+});
+
 /* ══════════════════════════════════════════════════════════════
    ⚙️ إعدادات الدعوة — عدّل هذا الجزء فقط لكل زبون جديد
    ══════════════════════════════════════════════════════════════ */
