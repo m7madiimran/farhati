@@ -288,6 +288,8 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   display:flex;align-items:center;justify-content:center;font-size:19px;transition:.3s;margin:0;
 }
 .socials a:hover{background:var(--gold);transform:translateY(-4px)}
+.socials svg{width:19px;height:19px;display:block;fill:#e8d5d0;transition:.3s}
+.socials a:hover svg{fill:#fff}
 
 /* ===== زر واتساب العائم ===== */
 .wa-float{
@@ -322,6 +324,33 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   .form-row{grid-template-columns:1fr}
   .order-box{padding:28px}
 }
+
+/* ═══ دعوات تجريبية حية ═══ */
+.demos{background:#fff}
+.demos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:20px}
+.demo-card{border-radius:20px;padding:28px 18px;color:#fff;text-align:center;transition:.35s;display:block}
+.demo-card:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(0,0,0,.22)}
+.demo-royal{background:linear-gradient(150deg,#6d1f38,#42101f)}
+.demo-rose{background:linear-gradient(150deg,#a04a5e,#5e2434)}
+.demo-emerald{background:linear-gradient(150deg,#1f5c46,#0e3628)}
+.demo-henna{background:linear-gradient(150deg,#5b2e83,#33124f)}
+.demo-teal{background:linear-gradient(150deg,#0f4c5c,#082e38)}
+.demo-type{font-size:14px;opacity:.85;font-weight:700}
+.demo-names{font-family:'Amiri',serif;font-size:28px;margin:10px 0 6px}
+.demo-venue{font-size:13px;opacity:.8;margin-bottom:18px}
+.demo-btn{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);border-radius:50px;padding:8px 22px;font-size:14px;font-weight:700;display:inline-block}
+
+/* ═══ تصغير نموذج الطلب ═══ */
+.order{padding:70px 0}
+.order .sec-head{margin-bottom:34px}
+.order-box{padding:26px}
+.order-box .form-group{margin-bottom:12px}
+.order-box .form-group label{font-size:13px;margin-bottom:6px}
+.order-box .form-group input,.order-box .form-group select,.order-box .form-group textarea{padding:11px 15px;font-size:14.5px;border-radius:12px}
+.quick-wa{width:100%;justify-content:center;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-size:17px;padding:15px;margin-bottom:4px;box-shadow:0 10px 26px rgba(18,140,126,.35)}
+.or-divider{text-align:center;color:var(--gold-light);font-size:13.5px;margin:12px 0 2px;opacity:.85}
+@media(max-width:760px){.order-box{padding:20px}}
+
 </style>
 </head>
 <body>
@@ -341,6 +370,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
       <li><a href="#steps">كيف نعمل</a></li>
       <li><a href="#pricing">الباقات</a></li>
       <li><a href="#works">أعمالنا</a></li>
+      <li><a href="#demos">جرّب الدعوات</a></li>
       <li><a href="#faq">الأسئلة الشائعة</a></li>
       <li><a href="#order" class="nav-cta">اطلب الآن</a></li>
     </ul>
@@ -551,6 +581,49 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
+<!-- جرّب دعواتنا التفاعلية -->
+<section class="demos" id="demos">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ جرّب بنفسك ✦</span>
+      <h2>دعواتنا التفاعلية — اضغط وشوف</h2>
+      <p>هاي دعوات تجريبية حيّة — افتحها من جوالك وجرّب الظرف المغلق، العدّاد، الخريطة، وتأكيد الحضور</p>
+    </div>
+    <div class="demos-grid">
+      <a href="mohammad.html" class="demo-card demo-royal reveal">
+        <div class="demo-type">💍 زفاف</div>
+        <div class="demo-names">محمد & ليان</div>
+        <div class="demo-venue">📍 القصر الأبيض — العيزرية</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+      <a href="ahmad.html" class="demo-card demo-rose reveal">
+        <div class="demo-type">💕 خطبة</div>
+        <div class="demo-names">أحمد & ريما</div>
+        <div class="demo-venue">📍 فينيسيا — بيت ساحور</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+      <a href="bassel.html" class="demo-card demo-emerald reveal">
+        <div class="demo-type">📖 عقد قرآن</div>
+        <div class="demo-names">باسل & دانة</div>
+        <div class="demo-venue">📍 القناطر — أريحا</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+      <a href="nour.html" class="demo-card demo-henna reveal">
+        <div class="demo-type">🌿 حنة</div>
+        <div class="demo-names">نور & ملك</div>
+        <div class="demo-venue">📍 قصر الزيتونة — الطور</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+      <a href="majd.html" class="demo-card demo-teal reveal">
+        <div class="demo-type">🎓 طلبة</div>
+        <div class="demo-names">مجد & سلمى</div>
+        <div class="demo-venue">📍 الأقواس السبعة — الطور</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- الأسئلة الشائعة -->
 <section class="faq" id="faq">
   <div class="container">
@@ -596,6 +669,8 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
       <p>عبّئ النموذج وسيصلك الطلب مباشرة على واتساب</p>
     </div>
     <div class="order-box reveal">
+      <a class="btn quick-wa" href="https://wa.me/972528365030?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D9%81%D8%B1%D8%AD%D8%AA%D9%8A" target="_blank">💬 اطلب مباشرة عبر واتساب — أسرع طريقة</a>
+      <p class="or-divider">— أو عبّي النموذج التالي —</p>
       <form id="orderForm">
         <div class="form-row">
           <div class="form-group">
@@ -633,20 +708,22 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
             </select>
           </div>
         </div>
-        <div class="form-group">
-          <label>تاريخ المناسبة</label>
-          <input type="date" id="fDate">
+        <div class="form-row">
+          <div class="form-group">
+            <label>تاريخ المناسبة</label>
+            <input type="date" id="fDate">
+          </div>
+          <div class="form-group">
+            <label>📎 صور على التصميم؟</label>
+            <select id="fPhotos">
+              <option>لا</option>
+              <option>نعم — سأرسلها عبر واتساب</option>
+            </select>
+          </div>
         </div>
         <div class="form-group">
           <label>تفاصيل إضافية (اختياري)</label>
           <textarea id="fNotes" rows="3" placeholder="أخبرنا عن تفضيلاتك: الألوان، الأسلوب، الأفكار..."></textarea>
-        </div>
-        <div class="form-group">
-          <label>📎 هل تريد إضافة صور على التصميم؟</label>
-          <select id="fPhotos">
-            <option>لا</option>
-            <option>نعم — سأرسلها عبر واتساب</option>
-          </select>
         </div>
         <button type="submit" class="btn">إرسال الطلب عبر واتساب 💬</button>
       </form>
@@ -662,10 +739,11 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
         <div class="footer-logo"><img src="logo-circle.png" alt="فرحتي" style="width:88px;height:88px;border-radius:50%;box-shadow:0 8px 24px rgba(0,0,0,.35)"></div>
         <p>متخصصون بتصميم الدعوات الرقمية والفيديوهات وفلاتر سناب شات وصفحات الدعوة التفاعلية — لأن لحظتكم تستحق الأجمل.</p>
         <div class="socials">
-          <a href="https://www.instagram.com/farhati.co" title="انستغرام" target="_blank">📷</a>
-          <a href="https://www.facebook.com/share/1DRjE2YVRX/?mibextid=wwXIfr" title="فيسبوك" target="_blank">📘</a>
-          <a href="#" title="سناب شات">👻</a>
-          <a href="https://wa.me/972528365030" title="واتساب" target="_blank">💬</a>
+          <a href="https://www.instagram.com/farhati.co" title="انستغرام" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.facebook.com/share/1DRjE2YVRX/?mibextid=wwXIfr" title="فيسبوك" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" title="سناب شات"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 2c3.2 0 5.3 2.4 5.3 5.3v2.4c.5.2 1 .1 1.5.1.8 0 1.7.3 1.7 1.2 0 .8-.7 1.1-1.4 1.3-.9.3-1.5.7-1.8 1.4-.1.4-.1.9 0 1.3.5 1.3 1.5 2.3 2.9 2.8.6.2 1.2.4 1.8.7.5.3.8.8.7 1.4-.1.8-.9 1.2-1.7 1.3-.9.1-1.8 0-2.7-.1-1.1-.1-2.2.2-3.2.7-.9.5-1.9.7-2.9.7s-2-.2-2.9-.7c-1-.5-2.1-.8-3.2-.7-.9.1-1.8.2-2.7.1-.8-.1-1.6-.5-1.7-1.3-.1-.6.2-1.1.7-1.4.6-.3 1.2-.5 1.8-.7 1.4-.5 2.4-1.5 2.9-2.8.1-.4.1-.9 0-1.3-.3-.7-.9-1.1-1.8-1.4-.7-.2-1.4-.5-1.4-1.3 0-.9.9-1.2 1.7-1.2.5 0 1 .1 1.5-.1v-2.4C6.7 4.4 8.8 2 12 2z"/></svg></a>
+          <a href="#" title="تيك توك"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://wa.me/972528365030" title="واتساب" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
         </div>
       </div>
       <div>
