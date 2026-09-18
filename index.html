@@ -578,6 +578,16 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
       <div class="addon"><b>تسليم مستعجل</b><span>+15 شيكل</span></div>
       <div class="addon"><b>تعديل أو إضافة بعد التسليم</b><span>5 شيكل</span></div>
     </div>
+<div class="pay-methods reveal">
+      <div class="pay-title">💳 طرق الدفع المتاحة</div>
+      <div class="pay-row">
+        <div class="pay-chip">🅿️ PayPal</div>
+        <div class="pay-chip">📱 BIT — تطبيق بيت</div>
+        <div class="pay-chip">🏦 تحويل بنكي</div>
+        <div class="pay-chip">💵 كاش — القدس</div>
+      </div>
+      <p class="pay-note">الدفع عند الاستلام متاح داخل القدس ◦ باقي الطرق حسب الاتفاق عبر واتساب</p>
+    </div>
   </div>
 </section>
 
@@ -634,21 +644,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- طرق الدفع -->
-<section style="padding:20px 0 60px;background:linear-gradient(160deg,#fff8f6,#fdf1ee)">
-  <div class="container">
-    <div class="pay-methods reveal">
-      <div class="pay-title">💳 طرق الدفع المتاحة</div>
-      <div class="pay-row">
-        <div class="pay-chip">🅿️ PayPal</div>
-        <div class="pay-chip">📱 BIT — تطبيق بيت</div>
-        <div class="pay-chip">🏦 تحويل بنكي</div>
-        <div class="pay-chip">💵 كاش — القدس</div>
-      </div>
-      <p class="pay-note">الدفع عند الاستلام متاح داخل القدس ◦ باقي الطرق حسب الاتفاق عبر واتساب</p>
-    </div>
-  </div>
-</section>
 
 <!-- جرّب دعواتنا التفاعلية -->
 <section class="demos" id="demos">
@@ -808,6 +803,16 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
           </div>
         </div>
         <div class="form-group">
+          <label>💳 طريقة الدفع</label>
+          <select id="fPay">
+            <option>بحددها بعدين عالواتساب</option>
+            <option>PayPal</option>
+            <option>BIT — تطبيق بيت</option>
+            <option>تحويل بنكي</option>
+            <option>كاش — القدس</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>تفاصيل إضافية (اختياري)</label>
           <textarea id="fNotes" rows="3" placeholder="أخبرنا عن تفضيلاتك: الألوان، الأسلوب، الأفكار..."></textarea>
         </div>
@@ -922,7 +927,8 @@ document.getElementById('orderForm').addEventListener('submit',e=>{
 📅 التاريخ: ${document.getElementById('fDate').value||'غير محدد'}
 📱 جوالي: ${document.getElementById('fPhone').value}
 📝 ملاحظات: ${document.getElementById('fNotes').value||'لا يوجد'}
-🎁 كود الخصم: ${document.getElementById('fCode').value||'لا يوجد'}`;
+🎁 كود الخصم: ${document.getElementById('fCode').value||'لا يوجد'}
+💳 طريقة الدفع: ${document.getElementById('fPay').value}`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
 });
 </script>
