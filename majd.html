@@ -422,6 +422,18 @@ document.title='دعوة '+CONFIG.eventType+' | فرحتي';
 const introScreen=document.getElementById('introScreen');
 if(CONFIG.envelope===false){
   introScreen.remove();
+}else{
+  document.body.style.overflow='hidden';
+  document.querySelectorAll('.intro-names').forEach(el=>{el.innerHTML=`${g} <span class="amp">&</span> ${b}`;});
+  const openTarget=introScreen.querySelector('.env')||introScreen;
+  introScreen.addEventListener('click',()=>{
+    openTarget.classList.add('open');
+    introScreen.classList.add('open');
+    setTimeout(()=>{
+      introScreen.classList.add('hidden');
+      document.body.style.overflow='';
+    },CONFIG.theme==='royal'?1900:1500);
+  },{once:true});
 }
 document.getElementById('heroNames').innerHTML = `${g} <span class="amp">&</span> ${b}`;
 document.getElementById('familyNames').textContent = CONFIG.familyLine;
