@@ -212,6 +212,53 @@ footer a{color:#fff;font-weight:700}
 #envelope{background:radial-gradient(circle at 50% 30%,var(--wine),var(--wine-dark) 75%)!important}
 .env-flap{background:linear-gradient(180deg,var(--rose),var(--wine))!important}
 
+
+/* ═══ شاشات الافتتاح المختلفة ═══ */
+#introScreen{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .9s ease,visibility .9s;cursor:pointer}
+#introScreen.hidden{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#introScreen.envelope-bg{background:radial-gradient(circle at 50% 30%,#7a2740,#42101f 75%)}
+#introScreen.seal-mode{background:radial-gradient(circle at 50% 35%,#7a2f42,#4a1224 78%)}
+.seal-letter{position:relative;width:300px;background:var(--cream);border-radius:14px;padding:70px 24px 40px;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.seal-letter::before{content:"";position:absolute;top:-16px;left:22px;right:22px;height:44px;background:#efdcd8;border-radius:14px 14px 0 0;transform:rotate(-1.6deg);box-shadow:0 5px 12px rgba(0,0,0,.12)}
+.seal-label{color:var(--muted);font-size:15px;letter-spacing:2px}
+.seal-names{font-family:'Amiri',serif;font-size:32px;color:#A04A5E;margin-top:12px}
+.wax-seal{position:absolute;top:-30px;right:50%;transform:translateX(50%);width:82px;height:82px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c05a72,#8e2f47 70%);color:#fff;border:3px solid #e8d5a8;cursor:pointer;font-size:12px;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.45);line-height:1.4;font-family:inherit;transition:.4s}
+#introScreen.open .wax-seal{transform:translateX(50%) scale(1.7);opacity:0}
+#introScreen.open .seal-letter{transform:translateY(-34px) scale(1.04);transition:.9s}
+.intro-hint{margin-top:38px;color:var(--gold-light);font-size:15px;animation:bob 1.8s infinite}
+#introScreen.light-mode{background:#060606;transition:clip-path 1.4s ease-in-out;clip-path:circle(150% at 50% 50%)}
+.lantern{font-size:60px;animation:bob 1.8s infinite;filter:drop-shadow(0 0 26px rgba(232,213,168,.55))}
+#introScreen.light-mode.open{clip-path:circle(0% at 50% 50%)}
+#introScreen.curtain-mode{background:transparent}
+.curtain{position:absolute;top:0;bottom:0;width:51%;background:linear-gradient(160deg,#5B2E83,#33124F);transition:transform 1.15s cubic-bezier(.7,0,.3,1);z-index:2;box-shadow:0 0 40px rgba(0,0,0,.4)}
+.curtain.c-left{left:0;border-right:4px solid var(--gold)}
+.curtain.c-right{right:0;border-left:4px solid var(--gold)}
+#introScreen.curtain-mode.open .c-left{transform:translateX(-103%)}
+#introScreen.curtain-mode.open .c-right{transform:translateX(103%)}
+.curtain-hint{position:absolute;bottom:14%;right:50%;transform:translateX(50%);color:#F0DCA8;font-size:17px;z-index:3;animation:bob 1.8s infinite;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+#introScreen.minimal-mode{background:linear-gradient(160deg,#0d3a47,#082E38)}
+.enter-btn{background:rgba(255,255,255,.04);border:2px solid #C0B283;color:#E6DFC8;padding:17px 46px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;transition:.35s;animation:pulseGlow 2.2s infinite}
+.enter-btn:hover{background:#C0B283;color:#082E38}
+#introScreen.minimal-mode.open{transform:translateY(-101%);transition:transform .95s cubic-bezier(.7,0,.3,1)}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(192,178,131,.45)}50%{box-shadow:0 0 0 16px rgba(192,178,131,0)}}
+
+
+/* ═══ فروقات التصميم بين الدعوات ═══ */
+.theme-rose .frame{border-radius:170px 170px 16px 16px;padding-top:60px}
+.theme-rose .cd-box{border-radius:44px}
+.theme-emerald .frame{border-radius:6px;border:2px solid var(--gold);padding-top:52px}
+.theme-emerald .date-line{border-radius:6px}
+.theme-emerald .cd-box{border-radius:8px}
+.theme-henna .frame{border:3px double var(--gold);border-radius:30px}
+.theme-henna .cd-box{background:repeating-linear-gradient(45deg,#fff,#fff 10px,#f6efff 10px,#f6efff 20px);border:1px solid var(--gold)}
+.theme-teal .frame{border:none;box-shadow:0 30px 80px rgba(8,46,56,.25)}
+.theme-teal .frame::before{border-style:solid}
+.theme-teal .cd-box{border-radius:10px;border-top:4px solid var(--gold);box-shadow:none}
+.theme-teal .date-line{border-radius:8px}
+.theme-rose .names,.theme-rose .env-names{color:#A04A5E}
+.theme-henna .names,.theme-henna .env-names{color:#5B2E83}
+.theme-teal .names,.theme-teal .env-names{color:#0F4C5C}
+
 </style>
 </head>
 <body>
@@ -367,31 +414,27 @@ footer a{color:#fff;font-weight:700}
    ⚙️ إعدادات الدعوة — عدّل هذا الجزء فقط لكل زبون جديد
    ══════════════════════════════════════════════════════════════ */
 const CONFIG = {
-  theme: "royal",          // royal وردي/زمردي/حنة/تركواز: rose, emerald, henna, teal
-  eventType: "حفل زفاف",    // نوع المناسبة
-  groomName: "أحمد",
-  brideName: "وفاء",
-  familyLine: "عائلة أبو سبيتان وأبو الهوى",    // عبارت "يتشرف ..."
-  eventDate: "2027-06-15T19:00:00",             // التاريخ والوقت (صيغة ISO)
+  theme: "royal",
+  eventType: "حفل زفاف",
+  groomName: "مصطفى",
+  brideName: "ليان",
+  familyLine: "عائلة أبو سبيتان وأبو غنام",
+  eventDate: "2026-11-20T19:00:00",
   venueName: "قاعة القصر الأبيض",
-  venueAddress: "العيزرية - القدس",              // يظهر في الاتجاهات
-  whatsapp: "966500000000",                     // رقم العرسان لوصول التأكيدات
-  farhatiPhone: "972528365030",                 // رقم فرحتي (بالفوتر)
-  // خريطة جوجل: افتح maps.google.com وابحث عن القاعة، ثم:
-  // أضغط "مشاركة" ← "تضمين خريطة" وانسخ الرابط من src وضعه هنا:
-  mapEmbedUrl: "",
-  // رابط القاعة على جوجل ماب (لزر الاتجاهات):
-  mapLink: "",
-  quranVerse: true,       // عرض الآية القرآنية — حط false لإخفائها
+  venueAddress: "العيزرية - القدس",
+  whatsapp: "972528365030",
+  farhatiPhone: "972528365030",
+  mapEmbedUrl: "https://maps.google.com/maps?q=%D9%82%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%A3%D8%A8%D9%8A%D8%B6%20%D8%A7%D9%84%D8%B9%D9%8A%D8%B2%D8%B1%D9%8A%D8%A9%20-%20%D8%A7%D9%84%D9%82%D8%AF%D8%B3&output=embed",
+  mapLink: "https://www.google.com/maps/search/?api=1&query=%D9%82%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%A3%D8%A8%D9%8A%D8%B6%20%D8%A7%D9%84%D8%B9%D9%8A%D8%B2%D8%B1%D9%8A%D8%A9%20-%20%D8%A7%D9%84%D9%82%D8%AF%D8%B3",
+  quranVerse: true,
   welcomeMsg: "يسعدنا ويشرفنا حضوركم ومشاركتكم أجمل لحظات فرحتنا.. ننتظركم لنحتفل معاً ونصنع ذكريات لا تُنسى",
-  // برنامج اليوم — عدّل الأوقات والعناوين واحذف أي سطر.. ولإخفاء القسم كامل: خلي schedule: []
   schedule: [
     { time: "18:00", title: "استقبال الضيوف", desc: "فتح الأبواب والاستقبال" },
     { time: "19:00", title: "العشاء", desc: "بوفيه فاخر" },
     { time: "20:00", title: "دخول العرسان", desc: "بدء المراسم والاحتفال" },
     { time: "21:00", title: "السهرة", desc: "ليالي الفرح" }
   ],
-  envelope: true          // غلاف مغلق "اضغط لفتح الدعوة" — حط false إذا بدك الدعوة تفتح مباشرة
+  envelope: true
 };
 /* ══════════════════════════════════════════════════════════════ */
 
@@ -400,20 +443,33 @@ const g=CONFIG.groomName, b=CONFIG.brideName;
 document.body.classList.add('theme-'+CONFIG.theme);
 document.title='دعوة '+CONFIG.eventType+' | فرحتي';
 
-/* ═══ غلاف الدعوة المغلق ═══ */
-const env=document.getElementById('envelope');
+/* ═══ شاشة الافتتاح — تختلف حسب الثيم ═══ */
+const introScreen=document.getElementById('introScreen');
 if(CONFIG.envelope===false){
-  env.remove();
+  introScreen.remove();
 }else{
   document.body.style.overflow='hidden';
-  document.getElementById('envNames').innerHTML=`${g} <span class="amp">&</span> ${b}`;
-  document.getElementById('envSub').textContent='يتشرفان بدعوتكم';
-  env.addEventListener('click',()=>{
-    env.querySelector('.env').classList.add('open');
+  document.querySelectorAll('.intro-names').forEach(el=>{el.innerHTML=`${g} <span class="amp">&</span> ${b}`;});
+  const openTarget=introScreen.querySelector('.env')||introScreen;
+  introScreen.addEventListener('click',()=>{
+    openTarget.classList.add('open');
+    introScreen.classList.add('open');
     setTimeout(()=>{
-      env.classList.add('hidden');
+      introScreen.classList.add('hidden');
       document.body.style.overflow='';
-    },1900);
+    },CONFIG.theme==='royal'?1900:1500);
+  },{once:true});
+}else{
+  document.body.style.overflow='hidden';
+  document.querySelectorAll('.intro-names').forEach(el=>{el.innerHTML=`${g} <span class="amp">&</span> ${b}`;});
+  const openTarget=introScreen.querySelector('.env')||introScreen;
+  introScreen.addEventListener('click',()=>{
+    openTarget.classList.add('open');
+    introScreen.classList.add('open');
+    setTimeout(()=>{
+      introScreen.classList.add('hidden');
+      document.body.style.overflow='';
+    },CONFIG.theme==='royal'?1900:1500);
   },{once:true});
 }
 document.getElementById('heroNames').innerHTML = `${g} <span class="amp">&</span> ${b}`;
