@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>فرحتي | دعوات رقمية تليق بلحظتكم</title>
-<meta name="description" content="فرحتي - مشروع متخصص بالدعوات الرقمية، فيديوهات الدعوات، فلاتر سناب شات، وصفحات الدعوة التفاعلية للأفراح والمناسبات.">
+<meta name="description" content="فرحتي - متخصصون بالدعوات الرقمية، فيديوهات الدعوات، فلاتر سناب شات، وصفحات الدعوة التفاعلية للأفراح والمناسبات.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -267,6 +267,8 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 }
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
 .order-box .btn{width:100%;justify-content:center;background:linear-gradient(135deg,#25d366,#128c7e);font-size:18px;padding:17px}
+.file-btn{display:inline-block;background:#fff;border:2px dashed var(--gold);color:var(--wine);padding:12px 26px;border-radius:14px;cursor:pointer;font-weight:700;font-size:15px;transition:.3s}
+.file-btn:hover{background:var(--gold);color:#fff}
 .order-box .btn:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(18,140,126,.4)}
 
 /* ===== الفوتر ===== */
@@ -351,7 +353,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   <div class="hearts" id="hearts"></div>
   <div class="container hero-inner">
     <div>
-      <span class="hero-badge">💍 مشروع متخصص بالدعوات الرقمية للأفراح</span>
+      <span class="hero-badge">💍 متخصصون بالدعوات الرقمية للأفراح</span>
       <h1>دعوتك الرقمية… <em>بداية فرحتك</em> الحقيقية</h1>
       <p>نصمم لك دعوات رقمية فاخرة، فيديوهات دعوة ساحرة، فلاتر سناب شات خاصة، وصفحات دعوة تفاعلية برابط خاص — تشاركها مع من تحب بضغطة زر.</p>
       <div class="hero-btns">
@@ -629,6 +631,12 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
           <label>تفاصيل إضافية (اختياري)</label>
           <textarea id="fNotes" rows="3" placeholder="أخبرنا عن تفضيلاتك: الألوان، الأسلوب، الأفكار..."></textarea>
         </div>
+        <div class="form-group">
+          <label>📎 صور المناسبة (اختياري)</label>
+          <label class="file-btn" for="fPhotos">＋ اختيار الصور من الجوال</label>
+          <input type="file" id="fPhotos" accept="image/*" multiple hidden>
+          <div id="photosList" style="font-size:14px;color:var(--muted);margin-top:10px"></div>
+        </div>
         <button type="submit" class="btn">إرسال الطلب عبر واتساب 💬</button>
       </form>
     </div>
@@ -641,7 +649,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
     <div class="footer-grid">
       <div>
         <div class="footer-logo">فرحـ<span>ـتي</span></div>
-        <p>مشروع متخصص بتصميم الدعوات الرقمية والفيديوهات وفلاتر سناب شات وصفحات الدعوة التفاعلية — لأن لحظتكم تستحق الأجمل.</p>
+        <p>متخصصون بتصميم الدعوات الرقمية والفيديوهات وفلاتر سناب شات وصفحات الدعوة التفاعلية — لأن لحظتكم تستحق الأجمل.</p>
         <div class="socials">
           <a href="https://www.instagram.com/farhati.co" title="انستغرام" target="_blank">📷</a>
           <a href="https://www.facebook.com/share/1DRjE2YVRX/?mibextid=wwXIfr" title="فيسبوك" target="_blank">📘</a>
@@ -727,17 +735,31 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
 });
 
 /* نموذج الطلب → واتساب */
+/* رفع الصور: اختيار + عرض */
+const fPhotos=document.getElementById('fPhotos');
+const photosList=document.getElementById('photosList');
+fPhotos.addEventListener('change',()=>{
+  if(fPhotos.files.length){
+    photosList.textContent='✓ تم اختيار '+fPhotos.files.length+' صورة: '+[...fPhotos.files].map(f=>f.name).slice(0,3).join('، ')+(fPhotos.files.length>3?'...':'');
+  } else { photosList.textContent=''; }
+});
+
 document.getElementById('orderForm').addEventListener('submit',e=>{
   e.preventDefault();
+  const photosCount=fPhotos.files.length;
   const msg=
 `السلام عليكم، أنا ${document.getElementById('fName').value}
-أرغب بطلب من مشروع فرحتي:
+أرغب بالطلب من فرحتي:
 
 📌 نوع المناسبة: ${document.getElementById('fEvent').value}
 🎁 الباقة: ${document.getElementById('fPackage').value}
 📅 التاريخ: ${document.getElementById('fDate').value||'غير محدد'}
 📱 جوالي: ${document.getElementById('fPhone').value}
-📝 ملاحظات: ${document.getElementById('fNotes').value||'لا يوجد'}`;
+📝 ملاحظات: ${document.getElementById('fNotes').value||'لا يوجد'}
+📎 صور المناسبة: ${photosCount ? photosCount+' صورة جاهزة — سأرفقها بالمحادثة' : 'سأرسلها لاحقاً'}`;
+  if(photosCount){
+    alert('📎 خطوة أخيرة مهمة:\nبعد ما يفتح الواتساب، أرفق الصور اللي اخترتها بنفسك بالمحادثة — المتصفح ما بيرفقها تلقائياً.');
+  }
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
 });
 </script>
