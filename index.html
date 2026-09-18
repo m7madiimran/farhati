@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فرحتي | دعوات رقمية تليق بلحظتكم</title>
+<meta name="description" content="فرحتي - مشروع متخصص بالدعوات الرقمية، فيديوهات الدعوات، فلاتر سناب شات، وصفحات الدعوة التفاعلية للأفراح والمناسبات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#6d1f38;
+  --wine-dark:#4a1224;
+  --rose:#b76e79;
+  --gold:#c9a24b;
+  --gold-light:#e8d5a8;
+  --cream:#fff8f6;
+  --ink:#3b2530;
+  --muted:#8a6f78;
+  --white:#ffffff;
+  --shadow:0 20px 50px rgba(109,31,56,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Tajawal',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+  line-height:1.8;
+}
+h1,h2,h3,.amiri{font-family:'Amiri',serif}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+.container{max-width:1150px;margin:0 auto;padding:0 20px}
+section{padding:90px 0}
+
+/* ===== التحميل ===== */
+#loader{
+  position:fixed;inset:0;background:var(--wine-dark);z-index:9999;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;
+  transition:opacity .6s,visibility .6s;
+}
+#loader.hide{opacity:0;visibility:hidden}
+#loader .heart{width:52px;height:52px;position:relative;animation:beat 1.2s infinite}
+#loader .heart::before,#loader .heart::after{
+  content:"";position:absolute;top:0;width:26px;height:40px;background:var(--gold);border-radius:26px 26px 0 0;
+}
+#loader .heart::before{left:26px;transform:rotate(-45deg);transform-origin:0 100%}
+#loader .heart::after{left:0;transform:rotate(45deg);transform-origin:100% 100%}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+#loader p{color:var(--gold-light);letter-spacing:2px;font-size:14px}
+
+/* ===== شريط التنقل ===== */
+nav{
+  position:fixed;top:0;right:0;left:0;z-index:100;
+  background:rgba(255,248,246,.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(201,162,75,.25);
+  transition:.3s;
+}
+nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:'Amiri',serif;font-size:30px;font-weight:700;color:var(--wine)}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{font-weight:500;color:var(--ink);transition:.25s;position:relative}
+.nav-links a::after{content:"";position:absolute;bottom:-6px;right:0;width:0;height:2px;background:var(--gold);transition:.3s}
+.nav-links a:hover{color:var(--wine)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:linear-gradient(135deg,var(--wine),var(--rose));color:#fff!important;
+  padding:10px 24px;border-radius:50px;font-weight:700;
+}
+.nav-cta::after{display:none}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.burger span{width:26px;height:3px;background:var(--wine);border-radius:3px;transition:.3s}
+
+/* ===== القسم الرئيسي ===== */
+.hero{
+  min-height:100vh;display:flex;align-items:center;position:relative;
+  background:radial-gradient(circle at 80% 20%,#f7e8e2 0%,transparent 50%),
+             radial-gradient(circle at 10% 85%,#f0e3ef 0%,transparent 45%),
+             linear-gradient(160deg,#fff8f6 0%,#fbeceb 100%);
+  padding-top:72px;overflow:hidden;
+}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--gold-light);
+  color:var(--wine);padding:8px 20px;border-radius:50px;font-size:14px;font-weight:700;
+  box-shadow:0 6px 18px rgba(201,162,75,.15);margin-bottom:22px;
+}
+.hero h1{font-size:clamp(38px,5.5vw,64px);color:var(--wine-dark);line-height:1.35;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--rose);position:relative}
+.hero p{font-size:19px;color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:50px;
+  font-weight:700;font-size:16px;transition:.3s;border:none;cursor:pointer;font-family:inherit;
+}
+.btn-primary{background:linear-gradient(135deg,var(--wine),var(--rose));color:#fff;box-shadow:0 12px 30px rgba(109,31,56,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(109,31,56,.4)}
+.btn-outline{background:#fff;color:var(--wine);border:2px solid var(--gold)}
+.btn-outline:hover{background:var(--gold);color:#fff;transform:translateY(-3px)}
+.hero-stats{display:flex;gap:40px;margin-top:50px}
+.stat h3{font-size:32px;color:var(--wine)}
+.stat p{color:var(--muted);font-size:14px}
+.hero-art{position:relative}
+.invite-card{
+  background:#fff;border-radius:28px;padding:40px 30px;text-align:center;
+  box-shadow:var(--shadow);border:1px solid #f5e6de;position:relative;transform:rotate(-2deg);
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-14px)}}
+.invite-card::before{
+  content:"";position:absolute;inset:12px;border:1px dashed var(--gold);border-radius:20px;pointer-events:none;
+}
+.invite-card .names{font-family:'Amiri',serif;font-size:36px;color:var(--wine);margin:14px 0 6px}
+.invite-card .amp{color:var(--gold);font-size:26px}
+.invite-card .date-badge{
+  display:inline-block;background:var(--cream);border:1px solid var(--gold-light);
+  padding:8px 22px;border-radius:12px;color:var(--wine);font-weight:700;margin-top:12px;
+}
+.hearts span{position:absolute;bottom:-20px;color:var(--rose);opacity:.35;animation:rise linear infinite;z-index:1}
+@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+
+/* ===== عناوين الأقسام ===== */
+.sec-head{text-align:center;max-width:640px;margin:0 auto 60px}
+.sec-tag{color:var(--gold);font-weight:700;letter-spacing:3px;font-size:14px;margin-bottom:10px;display:block}
+.sec-head h2{font-size:clamp(30px,4vw,44px);color:var(--wine-dark);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:17px}
+
+/* ===== الخدمات ===== */
+.services{background:#fff}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.serv-card{
+  background:var(--cream);border:1px solid #f3e4dd;border-radius:24px;padding:38px 28px;
+  transition:.35s;position:relative;overflow:hidden;
+}
+.serv-card:hover{transform:translateY(-10px);box-shadow:var(--shadow);border-color:var(--gold-light)}
+.serv-icon{
+  width:70px;height:70px;border-radius:20px;display:flex;align-items:center;justify-content:center;
+  font-size:32px;margin-bottom:20px;background:linear-gradient(135deg,#fbe9ec,#fdf3e3);
+  border:1px solid var(--gold-light);
+}
+.serv-card h3{font-size:23px;color:var(--wine);margin-bottom:10px}
+.serv-card p{color:var(--muted);font-size:15px}
+
+/* ===== خطوات العمل ===== */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.step{
+  text-align:center;padding:40px 24px;background:#fff;border-radius:24px;
+  box-shadow:0 8px 30px rgba(109,31,56,.06);border:1px solid #f7ebe5;position:relative;
+}
+.step-num{
+  width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--wine),var(--rose));
+  color:#fff;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;box-shadow:0 10px 22px rgba(109,31,56,.3);
+}
+.step h3{color:var(--wine-dark);font-size:21px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+
+/* ===== الباقات ===== */
+.pricing{background:linear-gradient(160deg,#fff8f6,#fdf1ee)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;align-items:stretch}
+.plan{
+  background:#fff;border-radius:26px;padding:42px 32px;border:1px solid #f3e2da;
+  position:relative;transition:.35s;display:flex;flex-direction:column;
+}
+.plan:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.plan.featured{
+  background:linear-gradient(160deg,var(--wine),var(--wine-dark));color:#fff;
+  transform:scale(1.04);box-shadow:0 25px 60px rgba(74,18,36,.4);
+}
+.plan.featured:hover{transform:scale(1.04) translateY(-8px)}
+.plan-badge{
+  position:absolute;top:-14px;right:50%;transform:translateX(50%);
+  background:linear-gradient(135deg,var(--gold),#e0c078);color:var(--wine-dark);
+  padding:6px 22px;border-radius:50px;font-size:13px;font-weight:800;white-space:nowrap;
+  box-shadow:0 8px 20px rgba(201,162,75,.4);
+}
+.plan h3{font-size:25px;margin-bottom:6px}
+.plan .desc{font-size:14px;opacity:.75;margin-bottom:20px}
+.plan .price{font-family:'Amiri',serif;font-size:44px;color:var(--rose);margin-bottom:24px}
+.plan.featured .price{color:var(--gold-light)}
+.plan .price small{font-size:16px;font-family:'Tajawal',sans-serif;opacity:.7}
+.plan ul{list-style:none;margin-bottom:30px;flex:1}
+.plan ul li{padding:9px 0;font-size:15px;display:flex;gap:10px;align-items:flex-start}
+.plan ul li::before{content:"✦";color:var(--gold);flex-shrink:0}
+.plan .btn{justify-content:center}
+.addons{
+  margin-top:50px;background:#fff;border-radius:22px;padding:34px;border:1px dashed var(--gold);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;
+}
+.addon{display:flex;justify-content:space-between;align-items:center;padding:12px 6px;border-bottom:1px solid #f5e9e2;font-size:15px}
+.addon b{color:var(--wine)}
+.addon span{color:var(--gold);font-weight:700}
+
+/* ===== أعمالنا ===== */
+.works{background:#fff}
+.works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.work{
+  border-radius:22px;height:300px;position:relative;overflow:hidden;cursor:pointer;
+  display:flex;align-items:flex-end;
+}
+.work-1{background:linear-gradient(150deg,#b76e79,#6d1f38)}
+.work-2{background:linear-gradient(150deg,#c9a24b,#8a6a1f)}
+.work-3{background:linear-gradient(150deg,#8e5b8f,#4a2a52)}
+.work-4{background:linear-gradient(150deg,#5b7a8e,#2a4052)}
+.work-5{background:linear-gradient(150deg,#a8585b,#5c2426)}
+.work-6{background:linear-gradient(150deg,#6b8e5b,#2f4a2a)}
+.work::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 60%);
+}
+.work-info{position:relative;z-index:2;padding:24px;color:#fff;width:100%}
+.work-info h3{font-size:21px;margin-bottom:4px}
+.work-info p{font-size:13px;opacity:.85}
+.work .deco{position:absolute;top:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08)}
+
+/* ===== آراء الزبائن ===== */
+.testimonials{background:linear-gradient(160deg,#fdf1ee,#fff8f6)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.testi{
+  background:#fff;border-radius:22px;padding:34px;border:1px solid #f5e4dd;position:relative;
+}
+.testi .stars{color:var(--gold);font-size:18px;margin-bottom:14px;letter-spacing:3px}
+.testi p{color:var(--muted);font-size:15.5px;margin-bottom:20px;font-style:italic}
+.testi .who{display:flex;align-items:center;gap:12px}
+.testi .avatar{
+  width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--wine));
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;
+}
+.testi .who h4{font-size:16px;color:var(--wine-dark)}
+.testi .who span{font-size:13px;color:var(--muted)}
+
+/* ===== الأسئلة الشائعة ===== */
+.faq{background:#fff}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border:1px solid #f0e0d8;border-radius:16px;margin-bottom:14px;overflow:hidden;background:var(--cream)}
+.faq-q{
+  width:100%;background:none;border:none;padding:20px 26px;display:flex;justify-content:space-between;
+  align-items:center;cursor:pointer;font-family:inherit;font-size:17px;font-weight:700;color:var(--wine-dark);
+  text-align:right;gap:12px;
+}
+.faq-q .arrow{transition:.3s;color:var(--gold);font-size:20px;flex-shrink:0}
+.faq-item.open .arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--muted);font-size:15.5px}
+.faq-a p{padding:0 26px 22px}
+
+/* ===== نموذج الطلب ===== */
+.order{background:linear-gradient(135deg,var(--wine-dark),var(--wine));position:relative;overflow:hidden}
+.order::before{
+  content:"❦";position:absolute;font-size:300px;color:rgba(201,162,75,.07);top:-60px;left:-40px;
+  font-family:serif;
+}
+.order .sec-head h2,.order .sec-head p{color:#fff}
+.order .sec-tag{color:var(--gold-light)}
+.order-box{
+  max-width:680px;margin:0 auto;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);
+  border:1px solid rgba(232,213,168,.3);border-radius:26px;padding:44px;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;color:var(--gold-light);font-size:14px;margin-bottom:8px;font-weight:700}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;background:rgba(255,255,255,.95);border:2px solid transparent;border-radius:14px;
+  padding:14px 18px;font-family:inherit;font-size:15px;color:var(--ink);transition:.3s;outline:none;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.order-box .btn{width:100%;justify-content:center;background:linear-gradient(135deg,#25d366,#128c7e);font-size:18px;padding:17px}
+.order-box .btn:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(18,140,126,.4)}
+
+/* ===== الفوتر ===== */
+footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:44px}
+.footer-grid h4{color:var(--gold-light);font-size:19px;margin-bottom:18px;font-family:'Amiri',serif}
+.footer-grid p,.footer-grid a{color:#c9aaa6;font-size:15px;display:block;margin-bottom:10px;transition:.25s}
+.footer-grid a:hover{color:var(--gold-light);transform:translateX(-4px)}
+.footer-logo{font-family:'Amiri',serif;font-size:34px;color:#fff;margin-bottom:12px}
+.footer-logo span{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(232,213,168,.15);padding:22px 0;text-align:center;font-size:14px;color:#a98784}
+.socials{display:flex;gap:12px;margin-top:18px}
+.socials a{
+  width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;font-size:19px;transition:.3s;margin:0;
+}
+.socials a:hover{background:var(--gold);transform:translateY(-4px)}
+
+/* ===== زر واتساب العائم ===== */
+.wa-float{
+  position:fixed;bottom:26px;left:26px;width:60px;height:60px;border-radius:50%;
+  background:#25d366;display:flex;align-items:center;justify-content:center;font-size:30px;
+  box-shadow:0 12px 30px rgba(37,211,102,.45);z-index:90;transition:.3s;animation:pulse 2.5s infinite;
+}
+.wa-float:hover{transform:scale(1.12)}
+@keyframes pulse{0%,100%{box-shadow:0 12px 30px rgba(37,211,102,.45)}50%{box-shadow:0 12px 30px rgba(37,211,102,.7),0 0 0 12px rgba(37,211,102,.12)}}
+
+/* ===== الظهور عند التمرير ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.22,.8,.36,1)}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* ===== الجوال ===== */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero p{margin:0 auto 34px}
+  .hero-btns,.hero-stats{justify-content:center}
+  .hero-art{max-width:380px;margin:0 auto}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .nav-links{
+    position:fixed;top:72px;right:0;left:0;background:#fff;flex-direction:column;
+    padding:26px;gap:22px;box-shadow:0 20px 40px rgba(0,0,0,.1);
+    transform:translateY(-150%);transition:.4s;border-bottom:1px solid #f0e0d8;
+  }
+  .nav-links.open{transform:translateY(0)}
+  .burger{display:flex}
+  section{padding:64px 0}
+  .form-row{grid-template-columns:1fr}
+  .order-box{padding:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- شاشة التحميل -->
+<div id="loader">
+  <div class="heart"></div>
+  <p>فرحتي</p>
+</div>
+
+<!-- شريط التنقل -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">فرحـ<span>ـتي</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#steps">كيف نعمل</a></li>
+      <li><a href="#pricing">الباقات</a></li>
+      <li><a href="#works">أعمالنا</a></li>
+      <li><a href="#faq">الأسئلة الشائعة</a></li>
+      <li><a href="#order" class="nav-cta">اطلب الآن</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- القسم الرئيسي -->
+<header class="hero" id="hero">
+  <div class="hearts" id="hearts"></div>
+  <div class="container hero-inner">
+    <div>
+      <span class="hero-badge">💍 مشروع متخصص بالدعوات الرقمية للأفراح</span>
+      <h1>دعوتك الرقمية… <em>بداية فرحتك</em> الحقيقية</h1>
+      <p>نصمم لك دعوات رقمية فاخرة، فيديوهات دعوة ساحرة، فلاتر سناب شات خاصة، وصفحات دعوة تفاعلية برابط خاص — تشاركها مع من تحب بضغطة زر.</p>
+      <div class="hero-btns">
+        <a href="#pricing" class="btn btn-primary">شاهد الباقات ✦</a>
+        <a href="#order" class="btn btn-outline">اطلب دعوتك الآن</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><h3>+500</h3><p>دعوة تم تصميمها</p></div>
+        <div class="stat"><h3>+300</h3><p>عائلة سعيدة</p></div>
+        <div class="stat"><h3>24h</h3><p>أسرع تسليم</p></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="invite-card">
+        <div style="font-size:38px">🕊️</div>
+        <p style="color:var(--gold);letter-spacing:4px;font-size:13px">بسم الله الرحمن الرحيم</p>
+        <div class="names">أحمد <span class="amp">&</span> وفاء</div>
+        <p style="color:var(--muted);font-size:15px">يتشرفان بدعوتكم لحضور حفل زفافهما</p>
+        <div class="date-badge">الخميس · 15 يونيو 2027</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- الخدمات -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ خدماتنا ✦</span>
+      <h2>كل ما تحتاجه لدعوتك في مكان واحد</h2>
+      <p>أربع خدمات متكاملة نصممها بإتقان لتليق بمناسبتك</p>
+    </div>
+    <div class="services-grid">
+      <div class="serv-card reveal">
+        <div class="serv-icon">💌</div>
+        <h3>دعوات رقمية</h3>
+        <p>تصاميم دعوات فاخرة بأنماط متعددة: كلاسيكي، مودرن، تراثي — مع تعديلات حتى الرضا الكامل.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon">🎬</div>
+        <h3>فيديوهات الدعوات</h3>
+        <p>فيديوهات دعوة سينمائية بمؤثرات وموسيقى راقية، جاهزة للمشاركة على واتساب وإنستغرام.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon">👻</div>
+        <h3>فلاتر سناب شات</h3>
+        <p>فلاتر خاصة بمناسبتك يستخدمها ضيوفك أثناء الحفل — لحظاتكم تبقى خالدة في الذكريات.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon">🔗</div>
+        <h3>صفحة الدعوة التفاعلية</h3>
+        <p>رابط خاص بضيوفك: صوركم، تفاصيل الحفل، الموقع على الخريطة، عدّاد للمناسبة، وتأكيد الحضور.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- كيف نعمل -->
+<section id="steps">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ كيف نعمل ✦</span>
+      <h2>ثلاث خطوات وتصير دعوتك جاهزة</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>اختر باقتك</h3>
+        <p>تصفح الباقات أدناه واختر ما يناسبك، أو تواصل معنا للباقات المخصصة.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>أرسل التفاصيل</h3>
+        <p>الأسماء، التاريخ، القاعة، الصور، والتفضيلات — عبر واتساب مباشرة.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>استلم دعوتك</h3>
+        <p>نجهز التصميم خلال 2-5 أيام مع تعديلات مجانية حتى تكتمل فرحتك.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- الباقات -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ باقاتنا ✦</span>
+      <h2>أسعار واضحة، بلا مفاجآت</h2>
+      <p>اختر الباقة اللي تناسبك — والإضافات متاحة لأي باقة</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>الباقة الفضية 🥈</h3>
+        <p class="desc">دعوتك الأنيقة ببساطة تليق بك</p>
+        <div class="price">40 <small>شيكل</small></div>
+        <ul>
+          <li>كرت الدعوة الرقمية بتصميم أنيق</li>
+          <li>اختيار التصميم من معرض أعمالنا</li>
+          <li>تعديلان مجانيان</li>
+          <li>تسليم خلال 2-3 أيام</li>
+        </ul>
+        <a href="#order" class="btn btn-outline">اطلب هذه الباقة</a>
+      </div>
+      <div class="plan featured reveal">
+        <span class="plan-badge">⭐ الأكثر طلباً</span>
+        <h3>الباقة الذهبية 🥇</h3>
+        <p class="desc">التوليفة المثالية بين الصورة والحركة</p>
+        <div class="price">85 <small>شيكل</small></div>
+        <ul>
+          <li>كل ما في الباقة الفضية</li>
+          <li>فيديو دعوة (30-60 ثانية)</li>
+          <li>تعديلات غير محدودة</li>
+          <li>تسليم خلال 2-4 أيام</li>
+          <li>نسخة بحجم Story للسوشيال ميديا</li>
+        </ul>
+        <a href="#order" class="btn btn-primary">اطلب هذه الباقة</a>
+      </div>
+      <div class="plan reveal">
+        <h3>الباقة البلاتينية 💠</h3>
+        <p class="desc">التجربة الكاملة والفاخرة</p>
+        <div class="price">195 <small>شيكل</small></div>
+        <ul>
+          <li>كل ما في الباقة الذهبية</li>
+          <li>فلتر سناب شات خاص بالمناسبة</li>
+          <li>صفحة دعوة تفاعلية برابط خاص <b style="color:var(--gold)">(توفّر 85 شيكل!)</b></li>
+          <li>أولوية في التسليم</li>
+          <li>تهنئة مصممة للعائلة</li>
+        </ul>
+        <a href="#order" class="btn btn-outline">اطلب هذه الباقة</a>
+      </div>
+    </div>
+    <div class="addons reveal">
+      <div class="addon"><b>كرت دعوة رقمي (منفرد)</b><span>40 شيكل</span></div>
+      <div class="addon"><b>فيديو دعوة (منفرد)</b><span>50 شيكل</span></div>
+      <div class="addon"><b>فلتر سناب شات (منفرد)</b><span>120 شيكل</span></div>
+      <div class="addon"><b>صفحة دعوة تفاعلية برابط خاص (منفردة)</b><span>70 شيكل</span></div>
+      <div class="addon"><b>تسليم مستعجل</b><span>+15 شيكل</span></div>
+      <div class="addon"><b>تعديل أو إضافة بعد التسليم</b><span>5 شيكل</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- أعمالنا -->
+<section class="works" id="works">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ أعمالنا ✦</span>
+      <h2>نماذج من دعوات صممناها</h2>
+      <p>استبدل هذه البطاقات بصور أعمالك الحقيقية لاحقاً</p>
+    </div>
+    <div class="works-grid">
+      <div class="work work-1 reveal"><div class="deco"></div><div class="work-info"><h3>دعوة أميرية</h3><p>تصميم كلاسيكي فاخر</p></div></div>
+      <div class="work work-2 reveal"><div class="deco"></div><div class="work-info"><h3>ذهب العائلة</h3><p>أسلوب تراثي ملكي</p></div></div>
+      <div class="work work-3 reveal"><div class="deco"></div><div class="work-info"><h3>حلم البنفسج</h3><p>تصميم مودرن هادئ</p></div></div>
+      <div class="work work-4 reveal"><div class="deco"></div><div class="work-info"><h3>سكون المحيط</h3><p>ألوان مائية راقية</p></div></div>
+      <div class="work work-5 reveal"><div class="deco"></div><div class="work-info"><h3>نبض القلب</h3><p>دعوة رومانسية دافئة</p></div></div>
+      <div class="work work-6 reveal"><div class="deco"></div><div class="work-info"><h3>ربيع الأمل</h3><p>طبيعة وإشراقة</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- آراء الزبائن -->
+<section class="testimonials">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ قالوا عنا ✦</span>
+      <h2>فرحتهم بدأت من هنا</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"تعاملت معهم لدعوة زواج أختي، التصميم أبكى أمي من جماله! والتسليم كان أسرع من المتوقع."</p>
+        <div class="who"><div class="avatar">س</div><div><h4>سارة م.</h4><span>الباقة الذهبية</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"فلتر السناب كان حديث كل الضيوف! صار كل الناس تصور فيه، وطلعت الذكريات ولا أروع."</p>
+        <div class="who"><div class="avatar">ع</div><div><h4>عبدالله ر.</h4><span>الباقة البلاتينية</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"صفحة الدعوة بالرابط فكرة عبقرية — جدتي فتحتها من جوالها وشافت كل التفاصيل والخريطة بسهولة."</p>
+        <div class="who"><div class="avatar">ن</div><div><h4>نورة خ.</h4><span>الباقة البلاتينية</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- الأسئلة الشائعة -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ الأسئلة الشائعة ✦</span>
+      <h2>عندك سؤال؟ عندنا الجواب</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">كم يستغرق تجهيز الدعوة؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>من 2-5 أيام حسب الباقة المختارة، والتسليم المستعجل متاح خلال 24 ساعة بإضافة بسيطة.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">هل يمكنني طلب تعديلات على التصميم؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>بالتأكيد! الباقة الفضية تشمل تعديلين، وباقتا السعادة والحلم تشملان تعديلات غير محدودة حتى الرضا التام.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">كيف يعمل فلتر سناب شات؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>نصمم الفلتر ونفعّله على منطقة قاعتك ولفترة الحفل، فيستخدمه ضيوفك بكل سهولة عند التصوير.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">ما هي صفحة الدعوة التفاعلية؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>رابط خاص تشاركه مع ضيوفك، يجدون فيه صوركم، تفاصيل الحفل، موقع القاعة على الخريطة، عدّاد تنازلي للمناسبة، وزر تأكيد الحضور.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">هل الباقات توفّر فعلاً مقارنة بالخدمات المنفردة؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>نعم! شراء الخدمات منفردة يكلف 280 شيكل، بينما الباقة البلاتينية تجمع كل شيء بـ 195 شيكل فقط — توفير 85 شيكل كاملة 🎉</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">هل تتعاملون مع مناسبات غير الأفراح؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>نعم! نصمم لجميع المناسبات: تخرج، مواليد، خطوبة، ملكة، وتدشين مشاريع. تواصل معنا بخصوص باقات المناسبات الخاصة.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- نموذج الطلب -->
+<section class="order" id="order">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ ابدأ فرحتك ✦</span>
+      <h2>اطلب دعوتك الآن</h2>
+      <p>عبّئ النموذج وسيصلك الطلب مباشرة على واتساب</p>
+    </div>
+    <div class="order-box reveal">
+      <form id="orderForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>الاسم الكريم</label>
+            <input type="text" id="fName" placeholder="اكتب اسمك" required>
+          </div>
+          <div class="form-group">
+            <label>رقم الجوال (واتساب)</label>
+            <input type="tel" id="fPhone" placeholder="05xxxxxxxx" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>نوع المناسبة</label>
+            <select id="fEvent">
+              <option>زواج</option>
+              <option>خطوبة</option>
+              <option>ملكة</option>
+              <option>تخرج</option>
+              <option>مواليد</option>
+              <option>أخرى</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>الباقة المطلوبة</label>
+            <select id="fPackage">
+              <option>الباقة الفضية - 40 شيكل</option>
+              <option>الباقة الذهبية - 85 شيكل</option>
+              <option>الباقة البلاتينية - 195 شيكل</option>
+              <option>صفحة دعوة تفاعلية منفردة - 70 شيكل</option>
+              <option>باقة مخصصة</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>تاريخ المناسبة</label>
+          <input type="date" id="fDate">
+        </div>
+        <div class="form-group">
+          <label>تفاصيل إضافية (اختياري)</label>
+          <textarea id="fNotes" rows="3" placeholder="أخبرنا عن تفضيلاتك: الألوان، الأسلوب، الأفكار..."></textarea>
+        </div>
+        <button type="submit" class="btn">إرسال الطلب عبر واتساب 💬</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- الفوتر -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">فرحـ<span>ـتي</span></div>
+        <p>مشروع متخصص بتصميم الدعوات الرقمية والفيديوهات وفلاتر سناب شات وصفحات الدعوة التفاعلية — لأن لحظتكم تستحق الأجمل.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/farhetee" title="انستغرام" target="_blank">📷</a>
+          <a href="https://www.facebook.com/share/1DRjE2YVRX/?mibextid=wwXIfr" title="فيسبوك" target="_blank">📘</a>
+          <a href="#" title="سناب شات">👻</a>
+          <a href="https://wa.me/970528365030" title="واتساب" target="_blank">💬</a>
+        </div>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <a href="#services">خدماتنا</a>
+        <a href="#pricing">الباقات</a>
+        <a href="#works">أعمالنا</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+      </div>
+      <div>
+        <h4>تواصل معنا</h4>
+        <p>📱 واتساب: 970528365030+</p>
+        <p>📍 القدس - فلسطين</p>
+        <p>🚚 نخدم جميع المناطق عن بُعد</p>
+      </div>
+    </div>
+    <div class="footer-bottom">فرحتي © 2026 — جميع الحقوق محفوظة · صُنع بحُب ❤</div>
+  </div>
+</footer>
+
+<!-- زر واتساب العائم -->
+<a href="https://wa.me/970528365030" class="wa-float" title="تواصل واتساب">💬</a>
+
+<script>
+/* ============================================================
+   ⚠️ مهم: غيّر رقم الواتساب الخاص بك في الأسطر التالية
+   رقم الواتساب الحالي: 970528365030 (رقمك بصيغة دولية بدون +)
+   مثال لفلسطين: 9705XXXXXXXX
+============================================================ */
+const WHATSAPP_NUMBER = "970528365030";
+
+/* شاشة التحميل */
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').classList.add('hide'),900);
+});
+
+/* شريط التنقل */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+const burger=document.getElementById('burger');
+const navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+/* قلوب متحركة في الواجهة */
+const heartsBox=document.getElementById('hearts');
+for(let i=0;i<14;i++){
+  const h=document.createElement('span');
+  h.textContent='❤';
+  h.style.right=Math.random()*100+'%';
+  h.style.fontSize=(12+Math.random()*20)+'px';
+  h.style.animationDuration=(7+Math.random()*10)+'s';
+  h.style.animationDelay=Math.random()*8+'s';
+  heartsBox.appendChild(h);
+}
+
+/* الظهور عند التمرير */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* الأسئلة الشائعة */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight=null;
+    });
+    if(!wasOpen){
+      item.classList.add('open');
+      const a=item.querySelector('.faq-a');
+      a.style.maxHeight=a.scrollHeight+'px';
+    }
+  });
+});
+
+/* نموذج الطلب → واتساب */
+document.getElementById('orderForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const msg=
+`السلام عليكم، أنا ${document.getElementById('fName').value}
+أرغب بطلب من مشروع فرحتي:
+
+📌 نوع المناسبة: ${document.getElementById('fEvent').value}
+🎁 الباقة: ${document.getElementById('fPackage').value}
+📅 التاريخ: ${document.getElementById('fDate').value||'غير محدد'}
+📱 جوالي: ${document.getElementById('fPhone').value}
+📝 ملاحظات: ${document.getElementById('fNotes').value||'لا يوجد'}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
+});
+</script>
+</body>
+</html>
