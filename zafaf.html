@@ -425,12 +425,13 @@ footer a{color:#fff;font-weight:700}
   <p style="margin-top:6px">لطلب دعوتك الخاصة: واتساب <span dir="ltr" id="footerPhone"></span></p>
 </footer>
 
-<audio id="bgMusic" src="melody-zafaf.mp3" loop preload="auto"></audio>
+<audio id="bgMusic" src="song-zafaf.mp3" loop preload="auto"></audio>
 <button id="musicBtn" class="music-btn" title="تشغيل الموسيقى">🔇</button>
 <script>
 /* الموسيقى */
 const mBtn=document.getElementById('musicBtn');
 const bgM=document.getElementById('bgMusic');
+bgM.addEventListener('error',()=>{mBtn.textContent='❌';});
 mBtn.addEventListener('click',()=>{
   if(bgM.paused){
     bgM.volume=.9;
