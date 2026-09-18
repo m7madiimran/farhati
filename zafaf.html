@@ -425,34 +425,21 @@ footer a{color:#fff;font-weight:700}
   <p style="margin-top:6px">لطلب دعوتك الخاصة: واتساب <span dir="ltr" id="footerPhone"></span></p>
 </footer>
 
+<audio id="bgMusic" src="melody-zafaf.mp3" loop preload="auto"></audio>
 <button id="musicBtn" class="music-btn" title="تشغيل الموسيقى">🔇</button>
 <script>
-/* ═══ موسيقى الدعوة ═══ */
-let ac=null,playingM=false,stepM=0,timerM=null;
-const MELODY=[62,66,67,69,67,66,63,62, 62,66,67,71,69,67,66,63];
-const BEAT=300;
-function m2f(m){return 440*Math.pow(2,(m-69)/12)}
-function playNote(m,dur){
-  const o=ac.createOscillator(),g=ac.createGain();
-  o.type='triangle';o.frequency.value=m2f(m);
-  g.gain.setValueAtTime(0,ac.currentTime);
-  g.gain.linearRampToValueAtTime(.25,ac.currentTime+.02);
-  g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);
-  o.connect(g);g.connect(ac.destination);
-  o.start();o.stop(ac.currentTime+dur+.05);
-}
+/* الموسيقى */
 const mBtn=document.getElementById('musicBtn');
+const bgM=document.getElementById('bgMusic');
 mBtn.addEventListener('click',()=>{
-  if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){mBtn.textContent='❌';return;}}
-  if(ac.state==='suspended'){ac.resume();}
-  if(!playingM){
-    playingM=true;mBtn.classList.add('playing');mBtn.textContent='🔊';
-    timerM=setInterval(()=>{playNote(MELODY[stepM%MELODY.length],BEAT/1000*.85);stepM++},BEAT);
+  if(bgM.paused){
+    bgM.volume=.9;
+    bgM.play().then(()=>{mBtn.textContent='🔊';mBtn.classList.add('playing')}).catch(()=>{mBtn.textContent='❌'});
   }else{
-    playingM=false;mBtn.classList.remove('playing');mBtn.textContent='🔇';
-    clearInterval(timerM);
+    bgM.pause();mBtn.textContent='🔇';mBtn.classList.remove('playing');
   }
 });
+
 
 /* ══════════════════════════════════════════════════════════════
    ⚙️ إعدادات الدعوة — عدّل هذا الجزء فقط لكل زبون جديد
