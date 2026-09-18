@@ -248,19 +248,36 @@ async function buildPdf(){
 function readyLibs(){if(!window.jspdf||!window.html2canvas){alert('مكتبات PDF لسا بتحمل.. استنى ثواني وحاول تاني');return false}return true}
 function custPhone(){return (val('fPhone')||'').replace(/[^0-9]/g,'').replace(/^0/,'972')}
 
+async function getPdfFile(){
+  const pdf=await buildPdf();
+  const blob=pdf.output('blob');
+  return new File([blob],'fatoora-farhati-'+val('fNum')+'.pdf',{type:'application/pdf'});
+}
+function saveFile(file){
+  // آيفون/أندرويد حديث: قائمة المشاركة (حفظ بالملفات / واتساب...)
+  if(navigator.canShare&&navigator.canShare({files:[file]})){
+    return navigator.share({files:[file],title:'فاتورة فرحتي'});
+  }
+  // وإلا: تحميل مباشر بالمتصفح
+  const url=URL.createObjectURL(file);
+  const a=document.createElement('a');
+  a.href=url;a.download=file.name;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(function(){URL.revokeObjectURL(url)},4000);
+  return Promise.resolve();
+}
 async function directSend(){
   if(!readyLibs()){return}
   const ph=custPhone();
   if(!ph){alert('اكتب جوال الزبون أولاً');return}
   try{
-    const pdf=await buildPdf();
-    pdf.save('fatoora-farhati-'+val('fNum')+'.pdf');
+    const file=await getPdfFile();
+    await saveFile(file);
     const c=calc();
-    const msg=['مرحباً '+val('fName')+' 🌸','فاتورتك من فرحتي مرفقة هاي الرسالة ✅','رقم الفاتورة: '+val('fNum'),'الإجمالي: '+shekel(c.grand),'شكراً لثقتكم! 💍'].join(NL);
+    const msg=['مرحباً '+val('fName')+' 🌸','فاتورتك من فرحتي مرفقة بإذن الله ✅','رقم الفاتورة: '+val('fNum'),'الإجمالي: '+shekel(c.grand),'شكراً لثقتكم! 💍'].join(NL);
     window.open('https://wa.me/'+ph+'?text='+encodeURIComponent(msg),'_blank');
-    alert('⬇️ حُمّلت الفاتورة'+NL+'📎 بواتساب: اضغط المشبك ← مستندات ← أول ملف ← إرسال');
     nextInv();
-  }catch(e){alert('خطأ: '+e.message)}
+  }catch(e){if(e.name!=='AbortError'){alert('خطأ: '+e.message)}}
 }
 function sendShop(){
   const c=calc();
@@ -271,10 +288,10 @@ function sendShop(){
 async function downloadPdf(){
   if(!readyLibs()){return}
   try{
-    const pdf=await buildPdf();
-    pdf.save('fatoora-farhati-'+val('fNum')+'.pdf');
+    const file=await getPdfFile();
+    await saveFile(file);
     nextInv();
-  }catch(e){alert('خطأ: '+e.message)}
+  }catch(e){if(e.name!=='AbortError'){alert('خطأ: '+e.message)}}
 }
 render();
 </script>
