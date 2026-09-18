@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-store">
+<title>فواتير فرحتي | أداة خاصة</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{--wine:#6d1f38;--wine-d:#42101f;--gold:#c9a24b;--gold-l:#e8d5a8;--cream:#fff8f6;--muted:#8a6f78;--ink:#3b2530}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;background:var(--cream);color:var(--ink);line-height:1.8}
+h1,h2,h3,.amiri{font-family:'Amiri',serif}
+/* بوابة الكود */
+#gate{position:fixed;inset:0;z-index:500;background:linear-gradient(160deg,var(--wine-d),var(--wine));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+#gate h1{color:var(--gold-l);font-size:34px}
+#gate input{background:#fff;border:2px solid var(--gold);border-radius:14px;padding:14px 20px;font-size:20px;text-align:center;letter-spacing:6px;width:230px;font-family:inherit;outline:none}
+#gate button{background:var(--gold);color:var(--wine-d);border:none;padding:13px 44px;border-radius:50px;font-weight:800;font-size:17px;cursor:pointer;font-family:inherit}
+#gateErr{color:#ff9aa8;font-size:14px;display:none}
+/* الأداة */
+#app{display:none;max-width:1150px;margin:0 auto;padding:24px 16px 60px}
+.app-head{text-align:center;margin-bottom:24px}
+.app-head h1{color:var(--wine);font-size:34px}
+.app-head p{color:var(--muted);font-size:14px}
+.cols{display:grid;grid-template-columns:380px 1fr;gap:22px;align-items:start}
+@media(max-width:900px){.cols{grid-template-columns:1fr}}
+.panel{background:#fff;border:1px solid #f0e0d8;border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(109,31,56,.07)}
+.panel h2{font-size:21px;color:var(--wine);margin-bottom:16px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:13px;font-weight:700;color:var(--wine);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;border:1.5px solid #eedcd4;border-radius:10px;padding:10px 13px;font-family:inherit;font-size:14.5px;outline:none}
+.fg input:focus,.fg select:focus{border-color:var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.srow{display:grid;grid-template-columns:1fr 90px 34px;gap:8px;margin-bottom:8px;align-items:center}
+.srow input{border:1.5px solid #eedcd4;border-radius:10px;padding:9px 11px;font-family:inherit;font-size:13.5px;width:100%}
+.srow button{background:#fdeef0;color:var(--wine);border:none;border-radius:9px;height:37px;cursor:pointer;font-size:16px}
+.addrow{background:var(--cream);border:2px dashed var(--gold);color:var(--wine);width:100%;padding:9px;border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;font-size:14px;margin-top:4px}
+.totals{background:var(--cream);border-radius:14px;padding:14px 16px;margin-top:14px;font-size:15px}
+.totals .tr{display:flex;justify-content:space-between;padding:3px 0}
+.totals .grand{font-size:20px;font-weight:800;color:var(--wine);border-top:1px dashed var(--gold);margin-top:8px;padding-top:10px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.actions button{flex:1;min-width:130px;border:none;border-radius:13px;padding:14px 8px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;transition:.25s}
+#btnPdf{background:linear-gradient(135deg,var(--wine),#8e2f47);color:#fff}
+#btnWa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+#btnWa2{background:linear-gradient(135deg,#6d1f38,#8e2f47);color:#fff}
+#btnPrint{background:#fff;color:var(--wine);border:2px solid var(--gold)}
+.actions button:active{transform:scale(.97)}
+.hint{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+/* معاينة الفاتورة */
+#previewWrap{background:#e9e9ee;border-radius:18px;padding:22px;overflow-x:auto}
+#inv{width:800px;background:#fff;margin:0 auto;direction:rtl;color:#222;box-shadow:0 6px 24px rgba(0,0,0,.12)}
+#inv .pad{padding:38px 44px}
+#inv .top{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid var(--wine);padding-bottom:18px}
+#inv .brand{font-family:'Amiri',serif;font-size:40px;color:var(--wine);line-height:1.2}
+#inv .brand small{display:block;font-family:'Tajawal',sans-serif;font-size:13px;color:var(--muted);letter-spacing:1px}
+#inv .meta{text-align:left;font-size:13.5px;color:#444}
+#inv .meta b{color:var(--wine)}
+#inv .who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0;font-size:14px}
+#inv .who .box{background:var(--cream);border-radius:12px;padding:13px 16px}
+#inv .who b{color:var(--wine);display:block;margin-bottom:3px;font-size:13px}
+#inv table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+#inv th{background:var(--wine);color:#fff;padding:11px 14px;font-weight:700}
+#inv th:first-child{border-radius:0 10px 10px 0}
+#inv th:last-child{border-radius:10px 0 0 10px}
+#inv td{padding:11px 14px;border-bottom:1px solid #f0e2dc}
+#inv tr:nth-child(even) td{background:#fdf7f4}
+#inv .tots{display:flex;justify-content:flex-end;margin-top:18px}
+#inv .tots .in{width:290px;font-size:14.5px}
+#inv .tots .tr{display:flex;justify-content:space-between;padding:5px 0}
+#inv .tots .grand{border-top:2px solid var(--gold);font-weight:800;font-size:19px;color:var(--wine);margin-top:6px;padding-top:9px}
+#inv .foot{margin-top:26px;border-top:1px dashed var(--gold);padding-top:14px;font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+#inv .thanks{text-align:center;margin-top:16px;font-family:'Amiri',serif;font-size:22px;color:var(--wine)}
+@media print{body *{visibility:hidden}#previewWrap,#previewWrap *{visibility:visible}#previewWrap{position:absolute;inset:0;background:#fff}#inv{box-shadow:none}}
+</style>
+</head>
+<body>
+
+<!-- بوابة الدخول -->
+<div id="gate">
+  <h1>🔒 فواتير فرحتي</h1>
+  <p style="color:var(--gold-l);font-size:14px">هاي الصفحة خاصة فيك — أدخل الكود</p>
+  <input type="password" id="pin" inputmode="numeric" maxlength="8" placeholder="••••">
+  <button onclick="unlock()">دخول</button>
+  <p id="gateErr">❌ كود غلط — حاول تاني</p>
+</div>
+
+<!-- الأداة -->
+<div id="app">
+  <div class="app-head">
+    <h1>🧾 إنشاء فاتورة</h1>
+    <p>عبي البيانات ← المعاينة بتتحدث لحالها ← حمّل PDF وابعتها واتساب</p>
+  </div>
+  <div class="cols">
+    <div class="panel">
+      <h2>📋 بيانات الفاتورة</h2>
+      <div class="row2">
+        <div class="fg"><label>رقم الفاتورة</label><input type="text" id="fNum" readonly style="background:var(--cream)"></div>
+        <div class="fg"><label>التاريخ</label><input type="text" id="fDate" readonly style="background:var(--cream)"></div>
+      </div>
+      <div class="fg"><label>اسم الزبون</label><input type="text" id="fName" placeholder="مثال: أحمد أبو سبيتان" oninput="render()"></div>
+      <div class="fg"><label>جوال الزبون (واتساب)</label><input type="tel" id="fPhone" placeholder="05xxxxxxxx" oninput="render()"></div>
+      <div class="fg"><label>الخدمات المطلوبة</label><div id="rows"></div><button class="addrow" onclick="addRow()">＋ إضافة بند</button></div>
+      <div class="row2">
+        <div class="fg"><label>خصم (شيكل)</label><input type="number" id="fDisc" value="0" min="0" oninput="render()"></div>
+        <div class="fg"><label>طريقة الدفع</label><select id="fPay" onchange="render()"><option>كاش — القدس</option><option>PayPal</option><option>BIT</option><option>تحويل بنكي</option><option>واتساب للتنسيق</option></select></div>
+      </div>
+      <div class="fg"><label>ملاحظات</label><textarea id="fNotes" rows="2" placeholder="مثال: التسليم خلال 3 أيام" oninput="render()"></textarea></div>
+      <div class="totals">
+        <div class="tr"><span>المجموع</span><span id="tSub">0 شيكل</span></div>
+        <div class="tr"><span>الخصم</span><span id="tDisc">0 شيكل</span></div>
+        <div class="tr grand"><span>الإجمالي</span><span id="tGrand">0 شيكل</span></div>
+      </div>
+      <div class="actions">
+        <button id="btnPdf" onclick="makePdf()">📄 تحميل PDF</button>
+        <button id="btnWa" onclick="sendWa('customer')">💬 إرسال للزبون</button>
+        <button id="btnWa2" onclick="sendWa('shop')">🏪 نسخة للمحل</button>
+        <button id="btnPrint" onclick="window.print()">🖨️ طباعة</button>
+      </div>
+      <p class="hint">📎 بعد تحميل الـ PDF: افتح واتساب الزبون وأرفق الملف يدوياً</p>
+    </div>
+
+    <div id="previewWrap"><div id="inv"><div class="pad">
+      <div class="top">
+        <div class="brand">فرحـتي<small>دعوات رقمية تليق بلحظتكم 💍</small></div>
+        <div class="meta">فاتورة رسمية<br>رقم: <b id="pNum">—</b><br>التاريخ: <b id="pDate">—</b></div>
+      </div>
+      <div class="who">
+        <div class="box"><b>فاتورة إلى</b><span id="pName">—</span><br><span id="pPhone" style="color:var(--muted);font-size:13px">—</span></div>
+        <div class="box"><b>من</b>فرحتي — دعوات رقمية<br><span style="color:var(--muted);font-size:13px">📍 القدس ◦ farhati.co ◦ 0528365030</span></div>
+      </div>
+      <table><thead><tr><th>البند</th><th>المبلغ</th></tr></thead><tbody id="pRows"></tbody></table>
+      <div class="tots"><div class="in">
+        <div class="tr"><span>المجموع</span><span id="pSub">0 شيكل</span></div>
+        <div class="tr"><span>الخصم</span><span id="pDisc">0 شيكل</span></div>
+        <div class="tr grand"><span>الإجمالي المستحق</span><span id="pGrand">0 شيكل</span></div>
+        <div class="tr" style="font-size:12.5px;color:var(--muted)"><span>طريقة الدفع</span><span id="pPay">—</span></div>
+      </div></div>
+      <div id="pNotesWrap" style="display:none;margin-top:14px;font-size:13px;background:var(--cream);border-radius:10px;padding:10px 14px">📝 <span id="pNotes"></span></div>
+      <div class="thanks">شكراً لثقتكم — فرحتكم تهمنا 🌸</div>
+      <div class="foot"><span>farhati.co</span><span>انستغرام: @farhati.co</span><span>واتساب: 0528365030</span></div>
+    </div></div></div>
+  </div>
+</div>
+
+<script>
+/* ⚠️ غيّر الكود السري من هان — حط رقمك الخاص */
+const PIN_CODE='1231mhmd1231M';
+
+const COMPANY_WA='972528365030';
+function unlock(){
+  if(document.getElementById('pin').value===PIN_CODE){
+    sessionStorage.setItem('inv_ok','1');
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+  }else{document.getElementById('gateErr').style.display='block';}
+}
+document.getElementById('pin').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+if(sessionStorage.getItem('inv_ok')==='1'){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+
+/* رقم فاتورة تلقائي */
+let invNo=parseInt(localStorage.getItem('farhati_inv')||'100');
+document.getElementById('fNum').value=invNo;
+const today=new Date();
+document.getElementById('fDate').value=today.toLocaleDateString('ar-PS');
+
+let rows=[{name:'',price:''}];
+function addRow(){rows.push({name:'',price:''});drawRows()}
+function delRow(i){rows.splice(i,1);if(!rows.length)rows.push({name:'',price:''});drawRows()}
+function setRow(i,k,v){rows[i][k]=v;drawRows();render()}
+function drawRows(){
+  const box=document.getElementById('rows');
+  box.innerHTML=rows.map((r,i)=>`<div class="srow">
+    <input placeholder="اسم الخدمة — مثال: الباقة الذهبية" value="${r.name}" oninput="setRow(${i},'name',this.value)">
+    <input type="number" placeholder="السعر" value="${r.price}" oninput="setRow(${i},'price',this.value)">
+    <button onclick="delRow(${i})">✕</button></div>`).join('');
+  render();
+}
+drawRows();
+
+const shekel=n=>`${(+n||0).toLocaleString('ar-PS')} شيكل`;
+function calc(){
+  const sub=rows.reduce((s,r)=>s+(+r.price||0),0);
+  const disc=+document.getElementById('fDisc').value||0;
+  return {sub,disc,grand:Math.max(sub-disc,0)};
+}
+function render(){
+  const {sub,disc,grand}=calc();
+  document.getElementById('tSub').textContent=shekel(sub);
+  document.getElementById('tDisc').textContent=shekel(disc);
+  document.getElementById('tGrand').textContent=shekel(grand);
+  document.getElementById('pNum').textContent=document.getElementById('fNum').value;
+  document.getElementById('pDate').textContent=document.getElementById('fDate').value;
+  document.getElementById('pName').textContent=document.getElementById('fName').value||'—';
+  document.getElementById('pPhone').textContent=document.getElementById('fPhone').value?'📱 '+document.getElementById('fPhone').value:'';
+  document.getElementById('pRows').innerHTML=rows.filter(r=>r.name||r.price).map(r=>`<tr><td>${r.name||'—'}</td><td>${shekel(r.price)}</td></tr>`).join('')||'<tr><td colspan="2" style="text-align:center;color:#999">—</td></tr>';
+  document.getElementById('pSub').textContent=shekel(sub);
+  document.getElementById('pDisc').textContent=shekel(disc);
+  document.getElementById('pGrand').textContent=shekel(grand);
+  document.getElementById('pPay').textContent=document.getElementById('fPay').value;
+  const nt=document.getElementById('fNotes').value.trim();
+  document.getElementById('pNotesWrap').style.display=nt?'block':'none';
+  document.getElementById('pNotes').textContent=nt;
+}
+
+function nextInv(){invNo++;localStorage.setItem('farhati_inv',invNo);}
+
+async function makePdf(){
+  const {jsPDF}=window.jspdf;
+  const canvas=await html2canvas(document.getElementById('inv'),{scale:2,useCORS:true,backgroundColor:'#ffffff'});
+  const pdf=new jsPDF('p','mm','a4');
+  const pw=pdf.internal.pageSize.getWidth();
+  const ratio=canvas.height/canvas.width;
+  const w=pw-16, h=w*ratio;
+  pdf.addImage(canvas.toDataURL('image/jpeg',0.95),'JPEG',8,Math.max((297-h)/2,8),w,h);
+  pdf.save(`فاتورة-فرحتي-${document.getElementById('fNum').value}.pdf`);
+  nextInv();
+  document.getElementById('fNum').value=invNo;
+  render();
+}
+function sendWa(to){
+  const {grand}=calc();
+  const name=document.getElementById('fName').value||'';
+  let phone,msg;
+  if(to==='shop'){
+    phone=COMPANY_WA;
+    msg=`🏪 نسخة محل — فاتورة فرحتي\nالزبون: ${name}\nرقم الفاتورة: ${document.getElementById('fNum').value}\nالإجمالي: ${shekel(grand)}\nالدفع: ${document.getElementById('fPay').value}`;
+  }else{
+    phone=(document.getElementById('fPhone').value||'').replace(/\D/g,'').replace(/^0/,'972');
+    msg=`مرحباً ${name} 🌸\nفاتورتك من فرحتي جاهزة ✅\nرقم الفاتورة: ${document.getElementById('fNum').value}\nالإجمالي: ${shekel(grand)}\nشكراً لثقتكم! 💍`;
+  }
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+render();
+</script>
+</body>
+</html>
