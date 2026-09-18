@@ -98,7 +98,7 @@ h1,h2,h3,.amiri{font-family:'Amiri',serif}
     <div class="panel">
       <h2>📋 بيانات الفاتورة</h2>
       <div class="row2">
-        <div class="fg"><label>رقم الفاتورة</label><input type="text" id="fNum" readonly style="background:var(--cream)"></div>
+        <div class="fg"><label>رقم الفاتورة</label><input type="text" id="fNum" style="background:var(--cream);font-weight:800;color:var(--wine)"></div>
         <div class="fg"><label>التاريخ</label><input type="text" id="fDate" readonly style="background:var(--cream)"></div>
       </div>
       <div class="fg"><label>اسم الزبون</label><input type="text" id="fName" placeholder="مثال: أحمد أبو سبيتان" oninput="render()"></div>
@@ -173,7 +173,7 @@ document.getElementById('fDate').value=today.toLocaleDateString('ar-PS');
 let rows=[{name:'',price:''}];
 function addRow(){rows.push({name:'',price:''});drawRows()}
 function delRow(i){rows.splice(i,1);if(!rows.length)rows.push({name:'',price:''});drawRows()}
-function setRow(i,k,v){rows[i][k]=v;drawRows();render()}
+function setRow(i,k,v){rows[i][k]=v;render()}
 function drawRows(){
   const box=document.getElementById('rows');
   box.innerHTML=rows.map((r,i)=>`<div class="srow">
@@ -236,6 +236,7 @@ function sendWa(to){
     msg=`مرحباً ${name} 🌸\nفاتورتك من فرحتي جاهزة ✅\nرقم الفاتورة: ${document.getElementById('fNum').value}\nالإجمالي: ${shekel(grand)}\nشكراً لثقتكم! 💍`;
   }
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank');
+  nextInv();document.getElementById('fNum').value=invNo;render();
 }
 render();
 </script>
