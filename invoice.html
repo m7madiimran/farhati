@@ -47,6 +47,7 @@ h1,h2,h3,.amiri{font-family:'Amiri',serif}
 #btnPdf{background:linear-gradient(135deg,var(--wine),#8e2f47);color:#fff}
 #btnWa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
 #btnShare{background:linear-gradient(135deg,#128c7e,#0d6e5f);color:#fff}
+#btnDirect{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
 #btnWa2{background:linear-gradient(135deg,#6d1f38,#8e2f47);color:#fff}
 #btnPrint{background:#fff;color:var(--wine);border:2px solid var(--gold)}
 .actions button:active{transform:scale(.97)}
@@ -117,7 +118,8 @@ h1,h2,h3,.amiri{font-family:'Amiri',serif}
       </div>
       <div class="actions">
         <button id="btnPdf" onclick="makePdf()">📄 تحميل PDF</button>
-        <button id="btnShare" onclick="sharePdf()">📤 إرسال الفاتورة PDF</button>
+        <button id="btnDirect" onclick="directSend()">🚀 إرسال مباشر للزبون</button>
+        <button id="btnShare" onclick="sharePdf()">📤 مشاركة PDF</button>
         <button id="btnWa" onclick="sendWa('customer')">💬 رسالة نصية للزبون</button>
         <button id="btnWa2" onclick="sendWa('shop')">🏪 نسخة للمحل</button>
         <button id="btnPrint" onclick="window.print()">🖨️ طباعة</button>
@@ -275,6 +277,22 @@ async function sharePdf(){
       nextInv();
     }
   }catch(e){if(e.name!=='AbortError'){alert('خطأ: '+e.message)}}
+}
+
+
+async function directSend(){
+  if(!window.jspdf||!window.html2canvas){alert('مكتبات PDF لسا بتحمل.. استنى ثواني وحاول تاني');return}
+  const phoneRaw=(val('fPhone')||'').replace(/[^0-9]/g,'').replace(/^0/,'972');
+  if(!phoneRaw){alert('اكتب جوال الزبون أولاً');return}
+  try{
+    const pdf=await buildPdf();
+    pdf.save('fatoora-farhati-'+val('fNum')+'.pdf');
+    const c=calc();
+    const msg=['مرحباً '+val('fName')+' 🌸','فاتورتك من فرحتي مرفقة بإذن الله ✅','رقم الفاتورة: '+val('fNum'),'الإجمالي: '+shekel(c.grand),'شكراً لثقتكم! 💍'].join(NL);
+    window.open('https://wa.me/'+phoneRaw+'?text='+encodeURIComponent(msg),'_blank');
+    alert('⬇️ حُمّلت الفاتورة\n📎 بواتساب الزبون: اضغط المشبك ← المستندات ← أول ملف ← إرسال');
+    nextInv();
+  }catch(e){alert('خطأ: '+e.message)}
 }
 
 function sendWa(to){
