@@ -106,6 +106,33 @@ document.getElementById('drumBtn').addEventListener('click',()=>{
   }
 });
 
+
+/* ═══ موسيقى الدعوة ═══ */
+let ac=null,playingM=false,stepM=0,timerM=null;
+const MELODY=[67,71,74,71,69,67,69,71, 74,76,74,71,69,67,66,67];
+const BEAT=250;
+function m2f(m){return 440*Math.pow(2,(m-69)/12)}
+function playNote(m,dur){
+  const o=ac.createOscillator(),g=ac.createGain();
+  o.type='triangle';o.frequency.value=m2f(m);
+  g.gain.setValueAtTime(0,ac.currentTime);
+  g.gain.linearRampToValueAtTime(.15,ac.currentTime+.03);
+  g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);
+  o.connect(g);g.connect(ac.destination);
+  o.start();o.stop(ac.currentTime+dur+.05);
+}
+const mBtn=document.getElementById('musicBtn');
+mBtn.addEventListener('click',()=>{
+  if(!ac){ac=new (window.AudioContext||window.webkitAudioContext)();}
+  if(!playingM){
+    ac.resume();playingM=true;mBtn.classList.add('playing');mBtn.textContent='🔊';
+    timerM=setInterval(()=>{playNote(MELODY[stepM%MELODY.length],BEAT/1000*.85);stepM++},BEAT);
+  }else{
+    playingM=false;mBtn.classList.remove('playing');mBtn.textContent='🔇';
+    clearInterval(timerM);
+  }
+});
+
 /* العد التنازلي */
 .countdown{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .cd-box{
@@ -290,6 +317,13 @@ footer a{color:#fff;font-weight:700}
 .drum-btn{margin-top:20px;background:linear-gradient(135deg,#D9A62E,#b07c1c);color:#3a2a10;font-family:inherit;font-weight:800;font-size:17px;padding:13px 36px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 10px 24px rgba(217,166,46,.35);transition:.3s}
 .drum-btn:hover{transform:translateY(-3px) scale(1.04)}
 
+
+/* ═══ زرار الموسيقى ═══ */
+.music-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:var(--wine);border:2px solid var(--gold);font-size:22px;z-index:150;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:.3s}
+.music-btn:hover{transform:scale(1.12)}
+.music-btn.playing{animation:musicPulse 1.6s infinite}
+@keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.5)}50%{box-shadow:0 0 0 12px rgba(201,162,75,0)}}
+
 </style>
 </head>
 <body>
@@ -391,7 +425,7 @@ footer a{color:#fff;font-weight:700}
       <div class="row"><b>📅 التاريخ</b><span id="detailDate"></span></div>
       <div class="row"><b>🕗 الوقت</b><span id="detailTime"></span></div>
       <div class="row"><b>📍 القاعة</b><span id="detailVenue"></span></div>
-      <div class="row"><b>👗 الدعوة</b><span>حضوركم أغلى هدية — منزّلين عالفرح</span></div>
+      <div class="row"><b>👗 الدعوة</b><span>حضوركم أغلى هدية — عالراس والعين ❤️</span></div>
     </div>
   </div>
 </section>
@@ -453,6 +487,7 @@ footer a{color:#fff;font-weight:700}
   <p style="margin-top:6px">لطلب دعوتك الخاصة: واتساب <span dir="ltr" id="footerPhone"></span></p>
 </footer>
 
+<button id="musicBtn" class="music-btn" title="تشغيل الموسيقى">🔇</button>
 <script>
 /* ══════════════════════════════════════════════════════════════
    ⚙️ إعدادات الدعوة — عدّل هذا الجزء فقط لكل زبون جديد
