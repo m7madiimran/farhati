@@ -351,6 +351,28 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .or-divider{text-align:center;color:var(--gold-light);font-size:13.5px;margin:12px 0 2px;opacity:.85}
 @media(max-width:760px){.order-box{padding:20px}}
 
+
+/* ═══ أعمال حقيقية (صور كروت) ═══ */
+.work-img{height:auto;min-height:0;padding:0}
+.work-img img{width:100%;display:block;transition:.5s}
+.work-img:hover img{transform:scale(1.05)}
+.work-img::after{display:none}
+.work-tag{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(transparent,rgba(30,8,16,.85));color:#fff;padding:38px 22px 18px;font-weight:700;font-size:16px;z-index:2;text-align:right}
+.works-note{text-align:center;color:var(--muted);font-size:13.5px;margin-top:22px}
+
+/* ═══ قسم فلاتر سناب شات ═══ */
+.snaps{background:linear-gradient(160deg,#2b1220,#42101f)}
+.snaps .sec-head h2{color:#fff}
+.snaps .sec-head p{color:rgba(255,255,255,.7)}
+.snaps .sec-tag{color:#fffc00;letter-spacing:3px}
+.snaps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.snap-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,252,0,.22);border-radius:24px;padding:38px 26px;text-align:center;transition:.35s;display:block}
+.snap-card:hover{transform:translateY(-8px);border-color:#fffc00;box-shadow:0 22px 50px rgba(255,252,0,.13)}
+.snap-ghost{font-size:48px;margin-bottom:16px;filter:drop-shadow(0 4px 14px rgba(255,252,0,.4))}
+.snap-card h3{color:#fff;font-size:20px;margin-bottom:6px}
+.snap-card p{color:rgba(255,255,255,.6);font-size:14px;margin-bottom:22px}
+.snap-btn{display:inline-block;background:#fffc00;color:#1a1a1a;font-weight:800;padding:11px 30px;border-radius:50px;font-size:15px}
+
 </style>
 </head>
 <body>
@@ -544,12 +566,49 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
       <p>استبدل هذه البطاقات بصور أعمالك الحقيقية لاحقاً</p>
     </div>
     <div class="works-grid">
-      <div class="work work-1 reveal"><div class="deco"></div><div class="work-info"><h3>دعوة أميرية</h3><p>تصميم كلاسيكي فاخر</p></div></div>
-      <div class="work work-2 reveal"><div class="deco"></div><div class="work-info"><h3>ذهب العائلة</h3><p>أسلوب تراثي ملكي</p></div></div>
-      <div class="work work-3 reveal"><div class="deco"></div><div class="work-info"><h3>حلم البنفسج</h3><p>تصميم مودرن هادئ</p></div></div>
-      <div class="work work-4 reveal"><div class="deco"></div><div class="work-info"><h3>سكون المحيط</h3><p>ألوان مائية راقية</p></div></div>
-      <div class="work work-5 reveal"><div class="deco"></div><div class="work-info"><h3>نبض القلب</h3><p>دعوة رومانسية دافئة</p></div></div>
-      <div class="work work-6 reveal"><div class="deco"></div><div class="work-info"><h3>ربيع الأمل</h3><p>طبيعة وإشراقة</p></div></div>
+      <div class="work work-img reveal">
+        <img src="work-1.jpg" alt="دعوة زفاف - أفراح آل أبو جمصة">
+        <div class="work-tag">💍 زفاف — أفراح آل أبو جمصة</div>
+      </div>
+      <div class="work work-img reveal">
+        <img src="work-2.jpg" alt="دعوة زفاف - أفراح آل أبو غنام">
+        <div class="work-tag">💍 زفاف — أفراح آل أبو غنام</div>
+      </div>
+    </div>
+    <p class="works-note reveal">📸 شغل حقيقي لزبائننا — الوجوه مغبّشة حفاظاً على الخصوصية</p>
+  </div>
+</section>
+
+
+
+<!-- فلاتر سناب شات -->
+<section class="snaps" id="snaps">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">👻 فلاتر سناب شات</span>
+      <h2>جرّب فلاترنا بنفسك</h2>
+      <p>اضغط على أي فلتر وبيفتح مباشرة عندك على سناب شات — جرّبه وشوف شغلنا</p>
+    </div>
+    <div class="snaps-grid">
+      <!-- بدك تغيّر اسم الفلتر؟ عدّل الكلمة بين h3 -->
+      <a href="https://snapchat.com/t/R4ousTDL" target="_blank" class="snap-card reveal">
+        <div class="snap-ghost">👻</div>
+        <h3>فلتر مناسبة ١</h3>
+        <p>اضغط وجرّبه الآن</p>
+        <span class="snap-btn">افتح الفلتر</span>
+      </a>
+      <a href="https://snapchat.com/t/RAZQrJYJ" target="_blank" class="snap-card reveal">
+        <div class="snap-ghost">👻</div>
+        <h3>فلتر مناسبة ٢</h3>
+        <p>اضغط وجرّبه الآن</p>
+        <span class="snap-btn">افتح الفلتر</span>
+      </a>
+      <a href="https://snapchat.com/t/AEDUzdjk" target="_blank" class="snap-card reveal">
+        <div class="snap-ghost">👻</div>
+        <h3>فلتر مناسبة ٣</h3>
+        <p>اضغط وجرّبه الآن</p>
+        <span class="snap-btn">افتح الفلتر</span>
+      </a>
     </div>
   </div>
 </section>
