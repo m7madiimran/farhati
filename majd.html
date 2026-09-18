@@ -212,6 +212,36 @@ footer a{color:#fff;font-weight:700}
 #envelope{background:radial-gradient(circle at 50% 30%,var(--wine),var(--wine-dark) 75%)!important}
 .env-flap{background:linear-gradient(180deg,var(--rose),var(--wine))!important}
 
+
+/* ═══ شاشات الافتتاح المختلفة ═══ */
+#introScreen{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .9s ease,visibility .9s;cursor:pointer}
+#introScreen.hidden{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#introScreen.envelope-bg{background:radial-gradient(circle at 50% 30%,#7a2740,#42101f 75%)}
+#introScreen.seal-mode{background:radial-gradient(circle at 50% 35%,#7a2f42,#4a1224 78%)}
+.seal-letter{position:relative;width:300px;background:var(--cream);border-radius:14px;padding:70px 24px 40px;text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.seal-letter::before{content:"";position:absolute;top:-16px;left:22px;right:22px;height:44px;background:#efdcd8;border-radius:14px 14px 0 0;transform:rotate(-1.6deg);box-shadow:0 5px 12px rgba(0,0,0,.12)}
+.seal-label{color:var(--muted);font-size:15px;letter-spacing:2px}
+.seal-names{font-family:'Amiri',serif;font-size:32px;color:#A04A5E;margin-top:12px}
+.wax-seal{position:absolute;top:-30px;right:50%;transform:translateX(50%);width:82px;height:82px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c05a72,#8e2f47 70%);color:#fff;border:3px solid #e8d5a8;cursor:pointer;font-size:12px;font-weight:800;box-shadow:0 10px 24px rgba(0,0,0,.45);line-height:1.4;font-family:inherit;transition:.4s}
+#introScreen.open .wax-seal{transform:translateX(50%) scale(1.7);opacity:0}
+#introScreen.open .seal-letter{transform:translateY(-34px) scale(1.04);transition:.9s}
+.intro-hint{margin-top:38px;color:var(--gold-light);font-size:15px;animation:bob 1.8s infinite}
+#introScreen.light-mode{background:#060606;transition:clip-path 1.4s ease-in-out;clip-path:circle(150% at 50% 50%)}
+.lantern{font-size:60px;animation:bob 1.8s infinite;filter:drop-shadow(0 0 26px rgba(232,213,168,.55))}
+#introScreen.light-mode.open{clip-path:circle(0% at 50% 50%)}
+#introScreen.curtain-mode{background:transparent}
+.curtain{position:absolute;top:0;bottom:0;width:51%;background:linear-gradient(160deg,#5B2E83,#33124F);transition:transform 1.15s cubic-bezier(.7,0,.3,1);z-index:2;box-shadow:0 0 40px rgba(0,0,0,.4)}
+.curtain.c-left{left:0;border-right:4px solid var(--gold)}
+.curtain.c-right{right:0;border-left:4px solid var(--gold)}
+#introScreen.curtain-mode.open .c-left{transform:translateX(-103%)}
+#introScreen.curtain-mode.open .c-right{transform:translateX(103%)}
+.curtain-hint{position:absolute;bottom:14%;right:50%;transform:translateX(50%);color:#F0DCA8;font-size:17px;z-index:3;animation:bob 1.8s infinite;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+#introScreen.minimal-mode{background:linear-gradient(160deg,#0d3a47,#082E38)}
+.enter-btn{background:rgba(255,255,255,.04);border:2px solid #C0B283;color:#E6DFC8;padding:17px 46px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:inherit;transition:.35s;animation:pulseGlow 2.2s infinite}
+.enter-btn:hover{background:#C0B283;color:#082E38}
+#introScreen.minimal-mode.open{transform:translateY(-101%);transition:transform .95s cubic-bezier(.7,0,.3,1)}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(192,178,131,.45)}50%{box-shadow:0 0 0 16px rgba(192,178,131,0)}}
+
 </style>
 </head>
 <body>
