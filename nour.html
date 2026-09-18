@@ -258,6 +258,13 @@ footer a{color:#fff;font-weight:700}
 .theme-henna .map-wrap{border:2px solid rgba(217,166,46,.45)}
 .theme-henna .cd-box{box-shadow:0 12px 30px rgba(91,46,131,.12)}
 
+
+/* ═══ صور حقيقية بقسم العرسان ═══ */
+.photo{background-size:cover;background-position:center 20%;position:relative}
+.photo .ph-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.55))}
+.photo h3,.photo p{position:relative;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.photo .ph-ico{display:none}
+
 </style>
 </head>
 <body>
@@ -276,7 +283,7 @@ footer a{color:#fff;font-weight:700}
     <div class="frame">
       <p class="bism">بسم الله الرحمن الرحيم</p>
       <h1 class="names" id="heroNames"></h1>
-      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl"></span> <span id="coupleShort"></span><br>وإثراء الليلة بوجودكم</p>
+      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl"></span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
       <div class="date-line">
         <span id="dayName"></span><span class="d"></span><span id="dateStr"></span><span class="d"></span><span id="timeStr"></span>
       </div>
@@ -328,9 +335,9 @@ footer a{color:#fff;font-weight:700}
       <h2>عروسان تكتمل بهما الفرحة</h2>
     </div>
     <div class="photos">
-      <div class="photo p1"><div class="ph-ico">🤵</div><h3 id="groomName"></h3><p>العريس</p></div>
-      <div class="photo p2"><div class="ph-ico">💍</div><h3>والد العريس والعروسة</h3><p>يحيونكم</p></div>
-      <div class="photo p3"><div class="ph-ico">👰</div><h3 id="brideName"></h3><p>العروسة</p></div>
+      <div class="photo" style="background-image:url('w-h1.jpg')"><div class="ph-shade"></div><h3 id="groomName"></h3><p>العريس</p></div>
+      <div class="photo" style="background-image:url('w-h2.jpg')"><div class="ph-shade"></div><h3>والد العريس والعروسة</h3><p>يحيونكم</p></div>
+      <div class="photo" style="background-image:url('w-h3.jpg')"><div class="ph-shade"></div><h3 id="brideName"></h3><p>العروسة</p></div>
     </div>
   </div>
 </section>
@@ -346,7 +353,7 @@ footer a{color:#fff;font-weight:700}
       <div class="row"><b>📅 التاريخ</b><span id="detailDate"></span></div>
       <div class="row"><b>🕗 الوقت</b><span id="detailTime"></span></div>
       <div class="row"><b>📍 القاعة</b><span id="detailVenue"></span></div>
-      <div class="row"><b>👗 الدعوة</b><span>الحضور يزيد الليلة جمالاً — بدعوة كريمة منكم</span></div>
+      <div class="row"><b>👗 الدعوة</b><span>حضوركم أغلى هدية — منزّلين عالفرح</span></div>
     </div>
   </div>
 </section>
@@ -386,7 +393,7 @@ footer a{color:#fff;font-weight:700}
     <div class="sec-head">
       <div class="divider">✿</div>
       <h2>تأكيد الحضور</h2>
-      <p style="color:var(--muted)">أخبرونا بتواجدكم الكريم لنتشرف بخدمتكم</p>
+      <p style="color:var(--muted)">أكّدوا حضوركم عشان نجهزلكم أحلى استقبال</p>
     </div>
     <div class="rsvp">
       <button class="btn-rsvp btn-yes" onclick="rsvp(true)">💚 تأكيد الحضور</button>
@@ -423,9 +430,10 @@ const CONFIG = {
   welcomeMsg: "ليلة الحنة ليلة الفرح والألوان.. يسعدنا حضوركم بين أهلنا وأحبابنا",
   schedule: [
     { time: "17:00", title: "استقبال الضيوف", desc: "أهلاً وسهلاً" },
-    { time: "18:00", title: "الحنة", desc: "ليلة الزينة والأهازيج" },
-    { time: "19:30", title: "العشاء", desc: "موائد فاخرة" },
-    { time: "20:30", title: "الدبكة والرقص", desc: "سهرة الحنة" }
+    { time: "18:00", title: "الحنة", desc: "زينة وأهازيج" },
+    { time: "19:30", title: "الطبلة والدبكة", desc: "ليلة الحنة" },
+    { time: "21:00", title: "العشاء", desc: "موائد فاخرة" },
+    { time: "22:30", title: "نختم اليوم", desc: "مع الفرح 🌙" }
   ],
   envelope: true
 };

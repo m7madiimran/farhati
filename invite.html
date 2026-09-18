@@ -259,6 +259,13 @@ footer a{color:#fff;font-weight:700}
 .theme-henna .names,.theme-henna .env-names{color:#5B2E83}
 .theme-teal .names,.theme-teal .env-names{color:#0F4C5C}
 
+
+/* ═══ صور حقيقية بقسم العرسان ═══ */
+.photo{background-size:cover;background-position:center 20%;position:relative}
+.photo .ph-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.55))}
+.photo h3,.photo p{position:relative;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.photo .ph-ico{display:none}
+
 </style>
 </head>
 <body>
@@ -283,7 +290,7 @@ footer a{color:#fff;font-weight:700}
     <div class="frame">
       <p class="bism">بسم الله الرحمن الرحيم</p>
       <h1 class="names" id="heroNames"></h1>
-      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl"></span> <span id="coupleShort"></span><br>وإثراء الليلة بوجودكم</p>
+      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl"></span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
       <div class="date-line">
         <span id="dayName"></span><span class="d"></span><span id="dateStr"></span><span class="d"></span><span id="timeStr"></span>
       </div>
@@ -353,7 +360,7 @@ footer a{color:#fff;font-weight:700}
       <div class="row"><b>📅 التاريخ</b><span id="detailDate"></span></div>
       <div class="row"><b>🕗 الوقت</b><span id="detailTime"></span></div>
       <div class="row"><b>📍 القاعة</b><span id="detailVenue"></span></div>
-      <div class="row"><b>👗 الدعوة</b><span>الحضور يزيد الليلة جمالاً — بدعوة كريمة منكم</span></div>
+      <div class="row"><b>👗 الدعوة</b><span>حضوركم أغلى هدية — منزّلين عالفرح</span></div>
     </div>
   </div>
 </section>
@@ -393,7 +400,7 @@ footer a{color:#fff;font-weight:700}
     <div class="sec-head">
       <div class="divider">❦</div>
       <h2>تأكيد الحضور</h2>
-      <p style="color:var(--muted)">أخبرونا بتواجدكم الكريم لنتشرف بخدمتكم</p>
+      <p style="color:var(--muted)">أكّدوا حضوركم عشان نجهزلكم أحلى استقبال</p>
     </div>
     <div class="rsvp">
       <button class="btn-rsvp btn-yes" onclick="rsvp(true)">💚 تأكيد الحضور</button>
