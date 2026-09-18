@@ -216,11 +216,11 @@ footer a{color:#fff;font-weight:700}
 </head>
 <body>
 <!-- ✉️ غلاف الدعوة المغلق -->
-<div id="envelope">
+<div id="introScreen" class="envelope-bg">
   <div class="env">
     <div class="env-flap"></div>
     <div class="env-card">
-      <div class="env-names" id="envNames"></div>
+      <div class="env-names intro-names"></div>
       <div class="env-sub" id="envSub"></div>
     </div>
     <div class="env-body"></div>
@@ -396,21 +396,10 @@ const g=CONFIG.groomName, b=CONFIG.brideName;
 document.body.classList.add('theme-'+CONFIG.theme);
 document.title='دعوة '+CONFIG.eventType+' | فرحتي';
 
-/* ═══ غلاف الدعوة المغلق ═══ */
-const env=document.getElementById('envelope');
+/* ═══ شاشة الافتتاح — تختلف حسب الثيم ═══ */
+const introScreen=document.getElementById('introScreen');
 if(CONFIG.envelope===false){
-  env.remove();
-}else{
-  document.body.style.overflow='hidden';
-  document.getElementById('envNames').innerHTML=`${g} <span class="amp">&</span> ${b}`;
-  document.getElementById('envSub').textContent='يتشرفان بدعوتكم';
-  env.addEventListener('click',()=>{
-    env.querySelector('.env').classList.add('open');
-    setTimeout(()=>{
-      env.classList.add('hidden');
-      document.body.style.overflow='';
-    },1900);
-  },{once:true});
+  introScreen.remove();
 }
 document.getElementById('heroNames').innerHTML = `${g} <span class="amp">&</span> ${b}`;
 document.getElementById('familyNames').textContent = CONFIG.familyLine;
