@@ -281,6 +281,11 @@ footer a{color:#fff;font-weight:700}
 .music-btn.playing{animation:musicPulse 1.6s infinite}
 @keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.5)}50%{box-shadow:0 0 0 12px rgba(201,162,75,0)}}
 
+
+/* زرار الرجوع للرئيسية */
+.home-btn{position:fixed;top:16px;left:16px;z-index:150;background:rgba(255,255,255,.92);color:var(--wine);padding:9px 18px;border-radius:50px;font-weight:800;font-size:14px;box-shadow:0 6px 18px rgba(0,0,0,.18);border:1.5px solid var(--gold);text-decoration:none;transition:.3s}
+.home-btn:hover{background:var(--gold);color:#fff}
+
 </style>
 </head>
 <body>
@@ -293,6 +298,7 @@ footer a{color:#fff;font-weight:700}
   </div>
   <p class="intro-hint">👆 اضغطي على الختم يفتح الدعوة</p>
 </div>
+<a href="index.html" class="home-btn">🏠 الرئيسية</a>
 <div class="bg-deco"></div>
 <div class="hearts" id="hearts"></div>
 
@@ -442,7 +448,7 @@ footer a{color:#fff;font-weight:700}
 
 <footer>
   <div class="logo"><img src="logo-circle.png" alt="فرحتي" style="width:72px;height:72px;border-radius:50%;box-shadow:0 6px 18px rgba(0,0,0,.35)"></div>
-  <p>صُممت هذه الدعوة بحُب عبر <a href="#">فرحتي</a> للدعوات الرقمية</p>
+  <p>صُممت هذه الدعوة بحُب عبر <a href="index.html">فرحتي</a> للدعوات الرقمية</p>
   <p style="margin-top:6px">لطلب دعوتك الخاصة: واتساب <span dir="ltr" id="footerPhone"></span></p>
 </footer>
 
