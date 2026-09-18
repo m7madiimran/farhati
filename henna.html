@@ -462,6 +462,13 @@ body{overflow-x:clip}
 /* الموسيقى */
 const mBtn=document.getElementById('musicBtn');
 const bgM=document.getElementById('bgMusic');
+/* تشغيل تلقائي مع فتح الدعوة */
+function autoStart(){
+  bgM.volume=.9;
+  bgM.play().then(function(){mBtn.textContent='🔊';mBtn.classList.add('playing')}).catch(function(){});
+}
+introScreen.addEventListener('click',autoStart,{once:true});
+
 bgM.addEventListener('error',()=>{mBtn.textContent='❌';});
 mBtn.addEventListener('click',()=>{
   if(bgM.paused){
