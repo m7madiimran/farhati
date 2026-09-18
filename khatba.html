@@ -469,7 +469,6 @@ function autoStart(){
   bgM.volume=.9;
   bgM.play().then(function(){mBtn.textContent='🔊';mBtn.classList.add('playing')}).catch(function(){});
 }
-introScreen.addEventListener('click',autoStart,{once:true});
 
 bgM.addEventListener('error',()=>{mBtn.textContent='❌';});
 mBtn.addEventListener('click',()=>{
@@ -536,6 +535,7 @@ if(CONFIG.envelope===false){
     },CONFIG.theme==='royal'?1900:1500);
   },{once:true});
 }
+introScreen.addEventListener('click',autoStart,{once:true});
 document.getElementById('heroNames').innerHTML = `${g} <span class="amp">&</span> ${b}`;
 document.getElementById('familyNames').textContent = CONFIG.familyLine;
 document.getElementById('coupleShort').textContent = `${g} و ${b}`;
