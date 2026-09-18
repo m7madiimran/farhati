@@ -6,7 +6,9 @@
 <title>دعوة زفاف | فرحتي</title>
 <meta name="description" content="نتشرف بدعوتكم لحضور حفل زفافنا">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --wine:#6d1f38;--wine-dark:#42101f;--rose:#c98a94;--gold:#d4b26a;
@@ -63,7 +65,7 @@ a{text-decoration:none;color:inherit}
 @keyframes bob{0%,100%{transform:translate(50%,0)}50%{transform:translate(50%,8px)}}
 
 /* الأقسام */
-section{padding:70px 0;position:relative;z-index:2}
+section{padding:70px 0;position:relative;z-index:2;content-visibility:auto;contain-intrinsic-size:auto 700px}
 .sec-head{text-align:center;margin-bottom:44px}
 .sec-head .tag{color:var(--gold);letter-spacing:4px;font-size:13px;font-weight:800;display:block;margin-bottom:8px}
 .sec-head h2{font-size:clamp(28px,4vw,38px);color:var(--wine-dark)}
@@ -166,7 +168,7 @@ footer a{color:#fff;font-weight:700}
 /* ═══ غلاف الدعوة المغلق ═══ */
 #envelope{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 30%,#7a2740,#42101f 75%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .9s ease,visibility .9s}
 #envelope.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.env{position:relative;width:320px;height:215px;perspective:900px;cursor:pointer;animation:envFloat 3.5s ease-in-out infinite}
+.env{position:relative;width:320px;height:215px;perspective:900px;cursor:pointer;}
 @keyframes envFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .env-body{position:absolute;inset:0;background:var(--cream);border-radius:12px;box-shadow:0 30px 70px rgba(0,0,0,.45);z-index:1;border:1px solid var(--gold-light)}
 .env-body::after{content:"";position:absolute;inset:0;border-radius:12px;background:linear-gradient(160deg,transparent 49.4%,rgba(201,162,75,.25) 50%,transparent 50.6%),linear-gradient(200deg,transparent 49.4%,rgba(201,162,75,.25) 50%,transparent 50.6%)}
@@ -355,7 +357,7 @@ footer a{color:#fff;font-weight:700}
 const CONFIG = {
   groomName: "أحمد",
   brideName: "وفاء",
-  familyLine: "عائلتا العتيبي والحربي",        // عبارت "يتشرف ..."
+  familyLine: "عائلة أبو سبيتان وأبو الهوى",    // عبارت "يتشرف ..."
   eventDate: "2027-06-15T19:00:00",             // التاريخ والوقت (صيغة ISO)
   venueName: "قاعة القصر الأبيض",
   venueAddress: "العيزرية - القدس",              // يظهر في الاتجاهات
@@ -460,7 +462,7 @@ function rsvp(attending){
 
 /* قلوب متحركة */
 const hb=document.getElementById('hearts');
-for(let i=0;i<12;i++){
+for(let i=0;i<6;i++){
   const h=document.createElement('span');
   h.textContent='❤';
   h.style.right=Math.random()*100+'%';

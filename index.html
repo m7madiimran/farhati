@@ -6,7 +6,9 @@
 <title>فرحتي | دعوات رقمية تليق بلحظتكم</title>
 <meta name="description" content="فرحتي - متخصصون بالدعوات الرقمية، فيديوهات الدعوات، فلاتر سناب شات، وصفحات الدعوة التفاعلية للأفراح والمناسبات.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --wine:#6d1f38;
@@ -700,7 +702,7 @@ navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLink
 
 /* قلوب متحركة في الواجهة */
 const heartsBox=document.getElementById('hearts');
-for(let i=0;i<14;i++){
+for(let i=0;i<8;i++){
   const h=document.createElement('span');
   h.textContent='❤';
   h.style.right=Math.random()*100+'%';
