@@ -76,17 +76,6 @@ section{padding:70px 0;position:relative;z-index:2}
 .divider::before,.divider::after{content:"";width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
 .divider::after{background:linear-gradient(90deg,var(--gold),transparent)}
 
-/* ═══ الآية + الترحيب + برنامج اليوم ═══ */
-if(CONFIG.quranVerse===false){document.getElementById('verseSec').remove();}
-const tlBox=document.getElementById('timeline');
-if(CONFIG.schedule&&CONFIG.schedule.length){
-  CONFIG.schedule.forEach(s=>{
-    tlBox.insertAdjacentHTML('beforeend',
-      `<div class="tl-item"><span class="tl-dot"></span><div class="tl-time">${s.time}</div><div class="tl-title">${s.title}</div><div class="tl-desc">${s.desc||''}</div></div>`);
-  });
-}else{document.getElementById('scheduleSec').remove();}
-
-
 /* العد التنازلي */
 .countdown{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
 .cd-box{
@@ -446,18 +435,19 @@ body{overflow-x:clip}
   <p style="margin-top:6px">لطلب دعوتك الخاصة: واتساب <span dir="ltr" id="footerPhone"></span></p>
 </footer>
 
-<audio id="bgMusic" src="song-zafaf.mp3" loop preload="none"></audio>
+<audio id="bgMusic" loop preload="none"></audio>
 <button id="musicBtn" class="music-btn" title="تشغيل الموسيقى">🔇</button>
 <script>
-/* الموسيقى */
 const mBtn=document.getElementById('musicBtn');
 const bgM=document.getElementById('bgMusic');
-/* تشغيل تلقائي مع فتح الدعوة */
+function applySong(){
+  const q=new URLSearchParams(location.search).get('song');
+  bgM.src=q||CONFIG.song;
+}
 function autoStart(){
   bgM.volume=.9;
   bgM.play().then(function(){mBtn.textContent='🔊';mBtn.classList.add('playing')}).catch(function(){});
 }
-
 bgM.addEventListener('error',()=>{mBtn.textContent='❌';});
 mBtn.addEventListener('click',()=>{
   if(bgM.paused){
@@ -494,9 +484,11 @@ const CONFIG = {
     { time: "19:00", title: "الزفاف", desc: "دخول العرسان وبدء الفرح" },
     { time: "22:00", title: "نختم اليوم", desc: "مع السلامة 👋" }
   ],
-  envelope: true
+  envelope: true,
+  song: "song-zafaf.mp3"
 };
 /* ══════════════════════════════════════════════════════════════ */
+applySong();
 
 /* تعبئة البيانات */
 const g=CONFIG.groomName, b=CONFIG.brideName;
