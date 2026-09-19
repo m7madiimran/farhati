@@ -43,8 +43,8 @@ a{text-decoration:none;color:inherit}
 }
 .hero-inner{position:relative;z-index:2}
 .frame{
-  position:relative;display:inline-block;padding:44px 40px;background:rgba(255,255,255,.85);
-  backdrop-filter:blur(8px);border-radius:6px;box-shadow:0 30px 80px rgba(109,31,56,.15);
+  position:relative;display:inline-block;padding:44px 40px;background:rgba(255,255,255,.97);
+  border-radius:6px;box-shadow:0 20px 50px rgba(109,31,56,.15);
   max-width:560px;
 }
 .frame::before{
@@ -267,7 +267,7 @@ footer a{color:#fff;font-weight:700}
 
 
 html{overflow-x:hidden}
-body{overflow-x:clip}
+body{overflow-x:hidden}
 .hero{overflow:hidden}
 
 
@@ -472,7 +472,7 @@ mBtn.addEventListener('click',()=>{
 
 
 
-setInterval(()=>{const s=document.createElement('span');s.textContent='💗';s.style.cssText='position:fixed;bottom:-30px;right:'+(Math.random()*100)+'%;font-size:'+(14+Math.random()*16)+'px;opacity:.35;z-index:1;pointer-events:none;transition:transform 8s linear,opacity 8s';document.body.appendChild(s);requestAnimationFrame(()=>{s.style.transform='translateY(-108vh)';s.style.opacity='0'});setTimeout(()=>s.remove(),8300)},1100);
+setInterval(()=>{const s=document.createElement('span');s.textContent='💗';s.style.cssText='position:fixed;bottom:-30px;right:'+(Math.random()*100)+'%;font-size:'+(14+Math.random()*16)+'px;opacity:.35;z-index:1;pointer-events:none;transition:transform 9s linear,opacity 9s';document.body.appendChild(s);requestAnimationFrame(()=>{s.style.transform='translateY(-108vh)';s.style.opacity='0'});setTimeout(()=>s.remove(),9300)},2000);
 
 const CONFIG = {
   theme: "rose",
