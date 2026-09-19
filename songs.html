@@ -49,7 +49,7 @@ a{text-decoration:none;color:inherit}
 <div class="wrap">
   <div class="tabs" id="tabs"></div>
   <div class="grid" id="grid"></div>
-  <p class="note">💡 لإضافة أغنية جديدة: ارفع ملف mp3 جنب صفحات الموقع وضيف سطرها لقائمة الأغاني بالكود تحت</p>
+  <p class="note">💡 لإضافة أغنية: ارفع ملف mp3 جنب الصفحات وضيف سطرها لقائمة الأغاني بأول السكربت</p>
 </div>
 
 <script>
@@ -65,6 +65,10 @@ const LIB={
   ]},
   henna:{label:"🌿 حنة",page:"henna.html",songs:[
     {f:"song-henna.mp3",n:"أغنية الحنة ١"},
+    {f:"song-henna2.mp3",n:"أغنية الحنة ٢"},
+    {f:"song-henna3.mp3",n:"أغنية الحنة ٣"},
+    {f:"song-henna4.mp3",n:"أغنية الحنة ٤"},
+    {f:"song-henna5.mp3",n:"أغنية الحنة ٥"},
   ]},
   khatba:{label:"💕 خطبة",page:"khatba.html",songs:[
     {f:"song-khatba.mp3",n:"أغنية الخطبة ١"},
@@ -89,7 +93,7 @@ function stopPlay(){if(player){player.pause();player=null}if(playingBtn){playing
 function render(){
   stopPlay();
   grid.innerHTML='';
-  LIB[cur].songs.forEach((s,i)=>{
+  LIB[cur].songs.forEach(s=>{
     const c=document.createElement('div');
     c.className='card';
     c.innerHTML=`<div class="ic">🎵</div><h3>${s.n}</h3><p>${s.f}</p>
