@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta name="robots" content="noindex">
+<title>اختار أغنيتك | فرحتي</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#6d1f38;--wine-d:#42101f;--gold:#c9a24b;--gold-l:#e8d5a8;--cream:#fff8f6;--muted:#8a6f78;--ink:#3b2530}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;line-height:1.8}
+h1,h2{font-family:'Amiri',serif}
+.wrap{max-width:640px;margin:0 auto;padding:26px 16px 140px}
+.head{text-align:center;padding:26px 16px 20px;background:linear-gradient(160deg,var(--wine),var(--wine-d));color:#fff;border-radius:0 0 34px 34px}
+.head h1{font-size:32px;color:var(--gold-l)}
+.head p{font-size:14px;opacity:.9;margin-top:6px}
+.cat-title{font-family:'Amiri',serif;font-size:24px;color:var(--wine);margin:30px 0 14px;display:flex;align-items:center;gap:12px}
+.cat-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.song{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #f0e0d8;border-radius:16px;padding:13px 16px;margin-bottom:10px;box-shadow:0 6px 16px rgba(109,31,56,.05);transition:.25s}
+.song:hover{border-color:var(--gold)}
+.song.playing{border-color:var(--gold);background:#fffdf5;box-shadow:0 8px 22px rgba(201,162,75,.18)}
+.play-btn{width:46px;height:46px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--wine),#8e2f47);color:#fff;font-size:17px;cursor:pointer;flex-shrink:0;transition:.25s;display:flex;align-items:center;justify-content:center}
+.play-btn:hover{transform:scale(1.08)}
+.song.playing .play-btn{background:linear-gradient(135deg,#b07c1c,var(--gold))}
+.song-info{flex:1;min-width:0}
+.song-name{font-weight:700;font-size:15.5px;color:var(--wine)}
+.song-cat{font-size:12px;color:var(--muted)}
+.song-dur{font-size:12.5px;color:var(--muted);flex-shrink:0}
+.picked-badge{display:none;font-size:11px;background:var(--gold);color:var(--wine-d);padding:3px 10px;border-radius:50px;font-weight:800;flex-shrink:0}
+.song.picked .picked-badge{display:inline-block}
+.empty{background:#fff;border:1.5px dashed var(--gold);border-radius:14px;padding:14px;text-align:center;color:var(--muted);font-size:13.5px;margin-bottom:10px}
+.bar{position:fixed;bottom:0;right:0;left:0;background:rgba(255,255,255,.97);border-top:1px solid var(--gold);padding:14px 16px;display:flex;gap:10px;align-items:center;z-index:100;box-shadow:0 -8px 30px rgba(0,0,0,.08)}
+.bar .chosen{flex:1;font-size:13px;color:var(--muted)}
+.bar .chosen b{color:var(--wine);display:block;font-size:14.5px}
+.send-btn{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border:none;border-radius:50px;padding:14px 26px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;transition:.25s;white-space:nowrap}
+.send-btn:active{transform:scale(.96)}
+.send-btn:disabled{opacity:.45;cursor:not-allowed}
+.foot{text-align:center;margin-top:34px;color:var(--muted);font-size:12.5px}
+.foot a{color:var(--wine);font-weight:700}
+</style>
+</head>
+<body>
+<div class="head">
+  <h1>🎵 اختار أغنيتك</h1>
+  <p>اسمع الأغاني واختار اللي بتحبها لدعوتك..<br>وبعدين اضغط "إرسال اختياري" وخلصنا! 💬</p>
+</div>
+<div class="wrap" id="list"></div>
+<div class="bar">
+  <div class="chosen">أغنيتك المختارة:<b id="chosenName">لم تختر بعد</b></div>
+  <button class="send-btn" id="sendBtn" disabled onclick="sendChoice()">إرسال اختياري 💬</button>
+</div>
+
+<script>
+const OWNER_WA="972528365030";
+const SONGS=[
+  {cat:"حنة",name:"حنة ١ 🥁",file:"song-henna1.mp3"},
+  {cat:"حنة",name:"حنة ٢ 🥁",file:"song-henna2.mp3"},
+  {cat:"حنة",name:"حنة ٣ 🥁",file:"song-henna3.mp3"},
+  {cat:"حنة",name:"حنة ٤ 🥁",file:"song-henna4.mp3"},
+  {cat:"حنة",name:"حنة ٥ 🥁",file:"song-henna5.mp3"},
+  {cat:"حنة",name:"حنة ٦ 🥁",file:"song-henna6.mp3"}
+];
+const CATS=[
+  {key:"zafaf",label:"💍 أغاني الزفاف",icon:"💍"},
+  {key:"khatba",label:"💕 أغاني الخطبة",icon:"💕"},
+  {key:"henna",label:"🥁 أغاني الحنة",icon:"🥁"}
+];
+let currentAudio=null,currentRow=null,chosen=null;
+
+function fmt(s){if(!isFinite(s))return"—:—";const m=Math.floor(s/60),ss=Math.floor(s%60);return m+":"+String(ss).padStart(2,"0")}
+
+function render(){
+  const list=document.getElementById("list");
+  let html="";
+  CATS.forEach(function(c){
+    const items=SONGS.filter(function(s){return s.cat===c.key});
+    html+='<div class="cat-title">'+c.label+'</div>';
+    if(!items.length){html+='<div class="empty">أغاني جديدة قريباً ✨</div>';return}
+    items.forEach(function(s,i){
+      const idx=SONGS.indexOf(s);
+      html+='<div class="song" id="row'+idx+'">'
+        +'<button class="play-btn" id="btn'+idx+'" onclick="toggle('+idx+')">▶</button>'
+        +'<div class="song-info"><div class="song-name">'+s.name+'</div><div class="song-cat">'+c.label+'</div></div>'
+        +'<span class="picked-badge">✓ مختارة</span>'
+        +'<span class="song-dur" id="dur'+idx+'">—:—</span>'
+        +'</div>';
+    });
+  });
+  html+='<div class="foot">فرحتي — دعوات رقمية 💍 | <a href="https://farhati.co">farhati.co</a></div>';
+  list.innerHTML=html;
+}
+
+function toggle(i){
+  const s=SONGS[i],btn=document.getElementById("btn"+i),row=document.getElementById("row"+i);
+  if(currentAudio&&currentRow===row){
+    if(currentAudio.paused){currentAudio.play();btn.textContent="⏸";row.classList.add("playing")}
+    else{currentAudio.pause();btn.textContent="▶";row.classList.remove("playing")}
+    return;
+  }
+  stopAll();
+  const a=new Audio(s.file);a.preload="auto";
+  currentAudio=a;currentRow=row;
+  btn.textContent="⏸";row.classList.add("playing");
+  a.addEventListener("loadedmetadata",function(){document.getElementById("dur"+i).textContent=fmt(a.duration)});
+  a.addEventListener("ended",function(){btn.textContent="▶";row.classList.remove("playing");currentAudio=null;currentRow=null});
+  a.play().catch(function(){});
+  chosen=s;
+  document.querySelectorAll(".song").forEach(function(r){r.classList.remove("picked")});
+  row.classList.add("picked");
+  document.getElementById("chosenName").textContent=s.name;
+  document.getElementById("sendBtn").disabled=false;
+}
+function stopAll(){
+  if(currentAudio){currentAudio.pause();currentAudio=null}
+  if(currentRow){currentRow.classList.remove("playing");const b=currentRow.querySelector(".play-btn");if(b)b.textContent="▶";currentRow=null}
+}
+function sendChoice(){
+  if(!chosen)return;
+  const msg="السلام عليكم 🌸\nاخترت أغنية لدعوتي:\n🎵 "+chosen.name+"\n(قسم: "+chosen.cat+")\nمشروع فرحتي";
+  window.open("https://wa.me/"+OWNER_WA+"?text="+encodeURIComponent(msg),"_blank");
+}
+render();
+</script>
+</body>
+</html>
