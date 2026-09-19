@@ -385,6 +385,22 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .ic-steps div{background:rgba(255,255,255,.07);border-radius:10px;padding:8px 12px;font-size:12.5px;margin-bottom:6px;line-height:1.8}
 .ic-steps b{color:var(--gold-light)}
 
+
+}
+
+
+55%,100%{left:115%}}
+
+
+
+
+.contest{background:linear-gradient(160deg,#fdf1ee,#fff8f6)}
+.contest-box{max-width:520px;margin:0 auto;background:#fff;border:1.5px solid var(--gold-light);border-radius:24px;padding:32px 26px;box-shadow:var(--shadow)}
+.contest-box label{display:block;font-size:14px;font-weight:700;color:var(--wine);margin-bottom:6px}
+.contest-box input,.contest-box select{width:100%;background:var(--cream);border:1.5px solid var(--gold-light);border-radius:12px;padding:12px 15px;font-family:inherit;font-size:15px;outline:none;color:var(--ink);margin-bottom:16px;text-align:center}
+.contest-box input:focus,.contest-box select:focus{border-color:var(--gold)}
+.contest-box .btn{width:100%;justify-content:center}
+
 </style>
 </head>
 <body>
@@ -508,11 +524,11 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
       <h2>أسعار واضحة، بلا مفاجآت</h2>
       <p>اختر الباقة اللي تناسبك — والإضافات متاحة لأي باقة</p>
     </div>
-    <div class="plans">
+        <div class="plans">
       <div class="plan reveal">
         <h3>الباقة الفضية 🥈</h3>
         <p class="desc">دعوتك الأنيقة ببساطة تليق بك</p>
-        <div class="price">40 <small>شيكل</small></div>
+        <div class="price"><span class="new"><s>40</s></span> 25 <small>شيكل</small></div>
         <ul>
           <li>كرت دعوة رقمية — <b>تصميم خاص فيك من الصفر</b></li>
           <li>أو اختار تصميم جاهز من أعمالنا (إذا متوفر)</li>
@@ -525,7 +541,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
         <span class="plan-badge">⭐ الأكثر طلباً</span>
         <h3>الباقة الذهبية 🥇</h3>
         <p class="desc">التوليفة المثالية بين الصورة والحركة</p>
-        <div class="price">85 <small>شيكل</small></div>
+        <div class="price"><span class="new"><s>85</s></span> 70 <small>شيكل</small></div>
         <ul>
           <li>كل ما في الباقة الفضية</li>
           <li>فيديو دعوة (30-60 ثانية)</li>
@@ -712,6 +728,23 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
         <button class="faq-q">هل تتعاملون مع مناسبات غير الأفراح؟ <span class="arrow">▾</span></button>
         <div class="faq-a"><p>نعم! نصمم لجميع المناسبات: زفاف، خطبة، تخرج، عقد قرآن، حنة، عقيقة، مولود جديد، وطلبة. تواصل معنا بخصوص باقات المناسبات الخاصة.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="contest" id="contest">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">🎁 مسابقة الافتتاح</span>
+      <h2>مسابقة فرحتي الكبرى</h2>
+      <p>جوائز بقيمة 195 شيكل — <b>الشروط كاملة على حسابنا بالانستغرام 📸</b><br>⭐ الجائزة صالحة لمدة 6 أشهر — السحب السبت 26 أيلول الساعة 6:00 مساءً</p>
+    </div>
+    <div class="contest-box reveal">
+      <div><label>الاسم الحقيقي</label><input id="cName" placeholder="اكتب اسمك"></div>
+      <div><label>يوزر حسابك بالانستغرام</label><input id="cInsta" placeholder="@username"></div>
+      <div><label>هل أكملت جميع الشروط؟</label>
+        <select id="cDone"><option>نعم ✅</option><option>لا ❌</option></select></div>
+      <button class="btn btn-primary" type="button" onclick="joinContest()">🎁 إرسال مشاركتي عبر واتساب</button>
     </div>
   </div>
 </section>
@@ -904,6 +937,16 @@ setTimeout(function(){
 function dismissInstall(){
   document.getElementById('installCard').classList.remove('show');
   localStorage.setItem('farhati_install_hide','1');
+}
+
+
+function joinContest(){
+  const n=(document.getElementById('cName').value||'').trim()||'—';
+  const i=(document.getElementById('cInsta').value||'').trim()||'—';
+  const d=document.getElementById('cDone').value;
+  const NL=String.fromCharCode(10);
+  const msg='🎉 مشاركة جديدة بمسابقة فرحتي!'+NL+'الاسم: '+n+NL+'يوزر انستا: '+i+NL+'أكملت جميع الشروط: '+d;
+  window.open('https://wa.me/972528365030?text='+encodeURIComponent(msg),'_blank');
 }
 
 </script>
