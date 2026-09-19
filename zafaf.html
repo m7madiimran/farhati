@@ -74,8 +74,6 @@ section{padding:70px 0;position:relative;z-index:2}
 .divider::after{background:linear-gradient(90deg,var(--gold),transparent)}
 
 if(CONFIG.quranVerse===false){document.getElementById('verseSec').remove();}
-if(CONFIG.welcomeMsg){document.getElementById('welcomeMsg').textContent=CONFIG.welcomeMsg;}
-else{document.getElementById('welcomeSec').remove();}
 const tlBox=document.getElementById('timeline');
 if(CONFIG.schedule&&CONFIG.schedule.length){
   CONFIG.schedule.forEach(s=>{
@@ -279,7 +277,7 @@ body{overflow-x:clip}
     <div class="frame">
       <p class="bism">بسم الله الرحمن الرحيم</p>
       <h1 class="names" id="heroNames"></h1>
-      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl"></span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
+      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl">حفل زفاف</span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
       <div class="date-line">
         <span id="dayName"></span><span class="d"></span><span id="dateStr"></span><span class="d"></span><span id="timeStr"></span>
       </div>
@@ -300,7 +298,7 @@ body{overflow-x:clip}
   <div class="container" style="text-align:center">
     <div class="divider">❦</div>
     <h2 style="font-size:clamp(28px,4vw,36px);color:var(--wine-dark)">يسعدنا حضوركم</h2>
-    <div class="welcome-card"><p class="welcome-msg" id="welcomeMsg"></p></div>
+    <div class="welcome-card"><p class="welcome-msg" id="welcomeMsg">يسعدنا ويشرفنا حضوركم ومشاركتكم أجمل لحظات فرحتنا.. ننتظركم لنحتفل معاً ونصنع ذكريات لا تُنسى</p></div>
   </div>
 </section>
 
@@ -429,7 +427,6 @@ mBtn.addEventListener('click',()=>{
   }
 });
 
-/* Invitation config */
 const CONFIG = {
   theme: "royal",
   eventType: "حفل زفاف",
