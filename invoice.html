@@ -254,11 +254,11 @@ async function getPdfFile(){
   return new File([blob],'fatoora-farhati-'+val('fNum')+'.pdf',{type:'application/pdf'});
 }
 function saveFile(file){
-  // آيفون/أندرويد حديث: قائمة المشاركة (حفظ بالملفات / واتساب...)
+
   if(navigator.canShare&&navigator.canShare({files:[file]})){
     return navigator.share({files:[file],title:'فاتورة فرحتي'});
   }
-  // وإلا: تحميل مباشر بالمتصفح
+
   const url=URL.createObjectURL(file);
   const a=document.createElement('a');
   a.href=url;a.download=file.name;

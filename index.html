@@ -40,7 +40,6 @@ img{max-width:100%}
 .container{max-width:1150px;margin:0 auto;padding:0 20px}
 section{padding:90px 0}
 
-/* ===== التحميل ===== */
 #loader{
   position:fixed;inset:0;background:var(--wine-dark);z-index:9999;
   display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;
@@ -56,7 +55,6 @@ section{padding:90px 0}
 @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
 #loader p{color:var(--gold-light);letter-spacing:2px;font-size:14px}
 
-/* ===== شريط التنقل ===== */
 nav{
   position:fixed;top:0;right:0;left:0;z-index:100;
   background:rgba(255,248,246,.85);backdrop-filter:blur(14px);
@@ -80,7 +78,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
 .burger span{width:26px;height:3px;background:var(--wine);border-radius:3px;transition:.3s}
 
-/* ===== القسم الرئيسي ===== */
 .hero{
   min-height:100vh;display:flex;align-items:center;position:relative;
   background:radial-gradient(circle at 80% 20%,#f7e8e2 0%,transparent 50%),
@@ -128,13 +125,11 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .hearts span{position:absolute;bottom:-20px;color:var(--rose);opacity:.35;animation:rise linear infinite;z-index:1}
 @keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
 
-/* ===== عناوين الأقسام ===== */
 .sec-head{text-align:center;max-width:640px;margin:0 auto 60px}
 .sec-tag{color:var(--gold);font-weight:700;letter-spacing:3px;font-size:14px;margin-bottom:10px;display:block}
 .sec-head h2{font-size:clamp(30px,4vw,44px);color:var(--wine-dark);margin-bottom:14px}
 .sec-head p{color:var(--muted);font-size:17px}
 
-/* ===== الخدمات ===== */
 .services{background:#fff}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
 .serv-card{
@@ -150,7 +145,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .serv-card h3{font-size:23px;color:var(--wine);margin-bottom:10px}
 .serv-card p{color:var(--muted);font-size:15px}
 
-/* ===== خطوات العمل ===== */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
 .step{
   text-align:center;padding:40px 24px;background:#fff;border-radius:24px;
@@ -164,7 +158,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .step h3{color:var(--wine-dark);font-size:21px;margin-bottom:8px}
 .step p{color:var(--muted);font-size:15px}
 
-/* ===== الباقات ===== */
 .pricing{background:linear-gradient(160deg,#fff8f6,#fdf1ee)}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;align-items:stretch}
 .plan{
@@ -200,7 +193,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .addon b{color:var(--wine)}
 .addon span{color:var(--gold);font-weight:700}
 
-/* ===== أعمالنا ===== */
 .works{background:#fff}
 .works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
 .work{
@@ -221,7 +213,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .work-info p{font-size:13px;opacity:.85}
 .work .deco{position:absolute;top:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08)}
 
-/* ===== آراء الزبائن ===== */
 .testimonials{background:linear-gradient(160deg,#fdf1ee,#fff8f6)}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
 .testi{
@@ -237,7 +228,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .testi .who h4{font-size:16px;color:var(--wine-dark)}
 .testi .who span{font-size:13px;color:var(--muted)}
 
-/* ===== الأسئلة الشائعة ===== */
 .faq{background:#fff}
 .faq-list{max-width:760px;margin:0 auto}
 .faq-item{border:1px solid #f0e0d8;border-radius:16px;margin-bottom:14px;overflow:hidden;background:var(--cream)}
@@ -251,7 +241,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--muted);font-size:15.5px}
 .faq-a p{padding:0 26px 22px}
 
-/* ===== نموذج الطلب ===== */
 .order{background:linear-gradient(135deg,var(--wine-dark),var(--wine));position:relative;overflow:hidden}
 .order::before{
   content:"❦";position:absolute;font-size:300px;color:rgba(201,162,75,.07);top:-60px;left:-40px;
@@ -274,7 +263,6 @@ nav.scrolled{box-shadow:0 4px 25px rgba(109,31,56,.12)}
 .order-box .btn{width:100%;justify-content:center;background:linear-gradient(135deg,#25d366,#128c7e);font-size:18px;padding:17px}
 .order-box .btn:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(18,140,126,.4)}
 
-/* ===== الفوتر ===== */
 footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:44px}
 .footer-grid h4{color:var(--gold-light);font-size:19px;margin-bottom:18px;font-family:'Amiri',serif}
@@ -292,7 +280,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .socials svg{width:19px;height:19px;display:block;fill:#e8d5d0;transition:.3s}
 .socials a:hover svg{fill:#fff}
 
-/* ===== زر واتساب العائم ===== */
 .wa-float{
   position:fixed;bottom:26px;left:26px;width:60px;height:60px;border-radius:50%;
   background:#25d366;display:flex;align-items:center;justify-content:center;font-size:30px;
@@ -301,11 +288,9 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .wa-float:hover{transform:scale(1.12)}
 @keyframes pulse{0%,100%{box-shadow:0 12px 30px rgba(37,211,102,.45)}50%{box-shadow:0 12px 30px rgba(37,211,102,.7),0 0 0 12px rgba(37,211,102,.12)}}
 
-/* ===== الظهور عند التمرير ===== */
 .reveal{opacity:0;transform:translateY(40px);transition:.8s cubic-bezier(.22,.8,.36,1)}
 .reveal.show{opacity:1;transform:translateY(0)}
 
-/* ===== الجوال ===== */
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;text-align:center}
   .hero p{margin:0 auto 34px}
@@ -326,7 +311,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   .order-box{padding:28px}
 }
 
-/* ═══ دعوات تجريبية حية ═══ */
 .demos{background:#fff}
 .demos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:20px}
 .demo-card{border-radius:20px;padding:28px 18px;color:#fff;text-align:center;transition:.35s;display:block}
@@ -341,7 +325,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .demo-venue{font-size:13px;opacity:.8;margin-bottom:18px}
 .demo-btn{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);border-radius:50px;padding:8px 22px;font-size:14px;font-weight:700;display:inline-block}
 
-/* ═══ تصغير نموذج الطلب ═══ */
 .order{padding:70px 0}
 .order .sec-head{margin-bottom:34px}
 .order-box{padding:26px}
@@ -352,8 +335,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .or-divider{text-align:center;color:var(--gold-light);font-size:13.5px;margin:12px 0 2px;opacity:.85}
 @media(max-width:760px){.order-box{padding:20px}}
 
-
-/* ═══ أعمال حقيقية (صور كروت) ═══ */
 .work-img{height:auto;min-height:0;padding:0}
 .work-img img{width:100%;display:block;transition:.5s}
 .work-img:hover img{transform:scale(1.05)}
@@ -361,7 +342,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .work-tag{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(transparent,rgba(30,8,16,.85));color:#fff;padding:38px 22px 18px;font-weight:700;font-size:16px;z-index:2;text-align:right}
 .works-note{text-align:center;color:var(--muted);font-size:13.5px;margin-top:22px}
 
-/* ═══ قسم فلاتر سناب شات ═══ */
 .snaps{background:linear-gradient(160deg,#2b1220,#42101f)}
 .snaps .sec-head h2{color:#fff}
 .snaps .sec-head p{color:rgba(255,255,255,.7)}
@@ -374,8 +354,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .snap-card p{color:rgba(255,255,255,.6);font-size:14px;margin-bottom:22px}
 .snap-btn{display:inline-block;background:#fffc00;color:#1a1a1a;font-weight:800;padding:11px 30px;border-radius:50px;font-size:15px}
 
-
-/* ═══ شريط الأعمال المتحرك ═══ */
 .works-strip{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
 .works-strip::-webkit-scrollbar{height:6px}
 .works-strip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:6px}
@@ -388,8 +366,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 
 .promo-bar b{color:#8e2f47}
 
-
-/* ═══ طرق الدفع ═══ */
 .pay-methods{margin-top:46px;text-align:center}
 .pay-title{font-family:'Amiri',serif;font-size:26px;color:var(--wine-dark);margin-bottom:20px}
 .pay-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
@@ -397,8 +373,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .pay-chip:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 28px rgba(109,31,56,.14)}
 .pay-note{color:var(--muted);font-size:13.5px;margin-top:18px}
 
-
-/* بطاقة الإضافة للشاشة الرئيسية */
 #installCard{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(150%);width:min(92vw,430px);background:linear-gradient(150deg,var(--wine),var(--wine-dark));color:#fff;border:1px solid var(--gold);border-radius:20px;padding:18px 20px;z-index:95;box-shadow:0 18px 50px rgba(0,0,0,.35);transition:transform .6s cubic-bezier(.2,.8,.3,1)}
 #installCard.show{transform:translateX(-50%) translateY(0)}
 #installClose{position:absolute;top:10px;left:12px;background:rgba(255,255,255,.12);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:13px}
@@ -411,13 +385,11 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 </head>
 <body>
 
-<!-- شاشة التحميل -->
 <div id="loader">
   <div class="heart"></div>
   <p>فرحتي</p>
 </div>
 
-<!-- شريط التنقل -->
 <nav id="nav">
   <div class="container nav-inner">
     <a href="#" class="logo"><img src="logo-circle.png" alt="فرحتي" style="height:46px;width:46px;border-radius:50%;vertical-align:middle;box-shadow:0 4px 14px rgba(109,31,56,.3)"></a>
@@ -436,7 +408,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </nav>
 
-<!-- القسم الرئيسي -->
 <header class="hero" id="hero">
   <div class="hearts" id="hearts"></div>
   <div class="container hero-inner">
@@ -466,12 +437,10 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </header>
 
-<!-- بنر الهوية -->
 <section style="padding:0;line-height:0">
   <img src="cover.jpg" alt="فرحتي - دعوات رقمية" loading="lazy" style="width:100%;display:block">
 </section>
 
-<!-- الخدمات -->
 <section class="services" id="services">
   <div class="container">
     <div class="sec-head reveal">
@@ -504,7 +473,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- كيف نعمل -->
 <section id="steps">
   <div class="container">
     <div class="sec-head reveal">
@@ -531,7 +499,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- الباقات -->
 <section class="pricing" id="pricing">
   <div class="container">
     <div class="sec-head reveal">
@@ -601,7 +568,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- أعمالنا -->
 <section class="works" id="works">
   <div class="container">
     <div class="sec-head reveal">
@@ -620,9 +586,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-
-
-<!-- فلاتر سناب شات -->
 <section class="snaps" id="snaps">
   <div class="container">
     <div class="sec-head reveal">
@@ -631,7 +594,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
       <p>اضغط على أي فلتر وبيفتح مباشرة عندك على سناب شات — جرّبه وشوف شغلنا</p>
     </div>
     <div class="snaps-grid">
-      <!-- بدك تغيّر اسم الفلتر؟ عدّل الكلمة بين h3 -->
+      
       <a href="https://snapchat.com/t/R4ousTDL" target="_blank" class="snap-card reveal">
         <div class="snap-ghost">👻</div>
         <h3>فلتر مناسبة ١</h3>
@@ -654,8 +617,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-
-<!-- جرّب دعواتنا التفاعلية -->
 <section class="demos" id="demos">
   <div class="container">
     <div class="sec-head reveal">
@@ -686,7 +647,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- آراء الزبائن -->
 <section class="testimonials">
   <div class="container">
     <div class="sec-head reveal">
@@ -713,7 +673,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- الأسئلة الشائعة -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="sec-head reveal">
@@ -753,7 +712,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- نموذج الطلب -->
 <section class="order" id="order">
   <div class="container">
     <div class="sec-head reveal">
@@ -833,7 +791,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
-<!-- الفوتر -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -866,23 +823,16 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </footer>
 
-<!-- زر واتساب العائم -->
 <a href="https://wa.me/972528365030" class="wa-float" title="تواصل واتساب">💬</a>
 
 <script>
-/* ============================================================
-   ⚠️ مهم: غيّر رقم الواتساب الخاص بك في الأسطر التالية
-   رقم الواتساب الحالي: 972528365030 (رقمك بصيغة دولية بدون +)
-   مثال لفلسطين: 9705XXXXXXXX
-============================================================ */
+
 const WHATSAPP_NUMBER = "972528365030";
 
-/* شاشة التحميل */
 window.addEventListener('load',()=>{
   setTimeout(()=>document.getElementById('loader').classList.add('hide'),900);
 });
 
-/* شريط التنقل */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
 const burger=document.getElementById('burger');
@@ -890,7 +840,6 @@ const navLinks=document.getElementById('navLinks');
 burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
 
-/* قلوب متحركة في الواجهة */
 const heartsBox=document.getElementById('hearts');
 for(let i=0;i<8;i++){
   const h=document.createElement('span');
@@ -902,13 +851,11 @@ for(let i=0;i<8;i++){
   heartsBox.appendChild(h);
 }
 
-/* الظهور عند التمرير */
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* الأسئلة الشائعة */
 document.querySelectorAll('.faq-q').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const item=btn.parentElement;
@@ -925,7 +872,6 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 
-/* نموذج الطلب → واتساب */
 document.getElementById('orderForm').addEventListener('submit',e=>{
   e.preventDefault();
   const msg=
@@ -942,7 +888,6 @@ document.getElementById('orderForm').addEventListener('submit',e=>{
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
 });
 
-/* بطاقة الإضافة للشاشة — بتظهر بعد ٨ ثواني، مرة وحدة بس */
 setTimeout(function(){
   if(!localStorage.getItem('farhati_install_hide')){
     document.getElementById('installCard').classList.add('show');
@@ -955,7 +900,6 @@ function dismissInstall(){
 
 </script>
 
-<!-- إضافة للشاشة الرئيسية -->
 <div id="installCard">
   <button id="installClose" onclick="dismissInstall()" aria-label="إغلاق">✕</button>
   <div class="ic-title">📲 أضف فرحتي على شاشتك!</div>
