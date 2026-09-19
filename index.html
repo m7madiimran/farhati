@@ -10,8 +10,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --wine:#6d1f38;
@@ -407,8 +407,480 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .ic-steps div{background:rgba(255,255,255,.07);border-radius:10px;padding:8px 12px;font-size:12.5px;margin-bottom:6px;line-height:1.8}
 .ic-steps b{color:var(--gold-light)}
 
+</style>
+</head>
+<body>
 
-);
+<!-- شاشة التحميل -->
+<div id="loader">
+  <div class="heart"></div>
+  <p>فرحتي</p>
+</div>
+
+<!-- شريط التنقل -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo"><img src="logo-circle.png" alt="فرحتي" style="height:46px;width:46px;border-radius:50%;vertical-align:middle;box-shadow:0 4px 14px rgba(109,31,56,.3)"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#steps">كيف نعمل</a></li>
+      <li><a href="#pricing">الباقات</a></li>
+      <li><a href="#works">أعمالنا</a></li>
+      <li><a href="#demos">جرّب الدعوات</a></li>
+      <li><a href="#faq">الأسئلة الشائعة</a></li>
+      <li><a href="#order" class="nav-cta">اطلب الآن</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- القسم الرئيسي -->
+<header class="hero" id="hero">
+  <div class="hearts" id="hearts"></div>
+  <div class="container hero-inner">
+    <div>
+      <span class="hero-badge">💍 متخصصون بالدعوات الرقمية للأفراح</span>
+      <h1>دعوتك الرقمية… <em>بداية فرحتك</em> الحقيقية</h1>
+      <p>نصمم لك دعوات رقمية فاخرة، فيديوهات دعوة ساحرة، فلاتر سناب شات خاصة، وصفحات دعوة تفاعلية برابط خاص — تشاركها مع من تحب بضغطة زر.</p>
+      <div class="hero-btns">
+        <a href="#pricing" class="btn btn-primary">شاهد الباقات ✦</a>
+        <a href="#order" class="btn btn-outline">اطلب دعوتك الآن</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><h3>+250</h3><p>دعوة تم تصميمها</p></div>
+        <div class="stat"><h3>+180</h3><p>عائلة سعيدة</p></div>
+        <div class="stat"><h3>24h</h3><p>أسرع تسليم</p></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="invite-card">
+        <div style="font-size:38px">🕊️</div>
+        <p style="color:var(--gold);letter-spacing:4px;font-size:13px">بسم الله الرحمن الرحيم</p>
+        <div class="names">أحمد <span class="amp">&</span> وفاء</div>
+        <p style="color:var(--muted);font-size:15px">يتشرفان بدعوتكم لحضور حفل زفافهما</p>
+        <div class="date-badge">الخميس · 15 يونيو 2027</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- بنر الهوية -->
+<section style="padding:0;line-height:0">
+  <img src="cover.jpg" alt="فرحتي - دعوات رقمية" loading="lazy" style="width:100%;display:block">
+</section>
+
+<!-- الخدمات -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ خدماتنا ✦</span>
+      <h2>كل ما تحتاجه لدعوتك في مكان واحد</h2>
+      <p>أربع خدمات متكاملة نصممها بإتقان لتليق بمناسبتك</p>
+    </div>
+    <div class="services-grid">
+      <div class="serv-card reveal">
+        <div class="serv-icon">💌</div>
+        <h3>دعوات رقمية</h3>
+        <p>تصاميم دعوات فاخرة بأنماط متعددة: كلاسيكي، مودرن، تراثي — مع تعديلات حتى الرضا الكامل.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon">🎬</div>
+        <h3>فيديوهات الدعوات</h3>
+        <p>فيديوهات دعوة سينمائية بمؤثرات وموسيقى راقية، جاهزة للمشاركة على واتساب وإنستغرام.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon">👻</div>
+        <h3>فلاتر سناب شات</h3>
+        <p>فلاتر خاصة بمناسبتك يستخدمها ضيوفك أثناء الحفل — لحظاتكم تبقى خالدة في الذكريات.</p>
+      </div>
+      <div class="serv-card reveal">
+        <div class="serv-icon">🔗</div>
+        <h3>صفحة الدعوة التفاعلية</h3>
+        <p>رابط خاص بضيوفك: صوركم، تفاصيل الحفل، الموقع على الخريطة، عدّاد للمناسبة، وتأكيد الحضور.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- كيف نعمل -->
+<section id="steps">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ كيف نعمل ✦</span>
+      <h2>ثلاث خطوات وتصير دعوتك جاهزة</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>اختر باقتك</h3>
+        <p>تصفح الباقات أدناه واختر ما يناسبك، أو تواصل معنا للباقات المخصصة.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>أرسل التفاصيل</h3>
+        <p>الأسماء، التاريخ، القاعة، الصور، والتفضيلات — عبر واتساب مباشرة.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>استلم دعوتك</h3>
+        <p>نجهز التصميم خلال 2-5 أيام مع تعديلات مجانية حتى تكتمل فرحتك.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- الباقات -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ باقاتنا ✦</span>
+      <h2>أسعار واضحة، بلا مفاجآت</h2>
+      <p>اختر الباقة اللي تناسبك — والإضافات متاحة لأي باقة</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>الباقة الفضية 🥈</h3>
+        <p class="desc">دعوتك الأنيقة ببساطة تليق بك</p>
+        <div class="price">40 <small>شيكل</small></div>
+        <ul>
+          <li>كرت دعوة رقمية — <b>تصميم خاص فيك من الصفر</b></li>
+          <li>أو اختار تصميم جاهز من أعمالنا (إذا متوفر)</li>
+          <li>تعديلان مجانيان</li>
+          <li>تسليم خلال 2-3 أيام</li>
+        </ul>
+        <a href="#order" class="btn btn-outline">اطلب هذه الباقة</a>
+      </div>
+      <div class="plan featured reveal">
+        <span class="plan-badge">⭐ الأكثر طلباً</span>
+        <h3>الباقة الذهبية 🥇</h3>
+        <p class="desc">التوليفة المثالية بين الصورة والحركة</p>
+        <div class="price">85 <small>شيكل</small></div>
+        <ul>
+          <li>كل ما في الباقة الفضية</li>
+          <li>فيديو دعوة (30-60 ثانية)</li>
+          <li>تعديلات غير محدودة</li>
+          <li>تسليم خلال 2-4 أيام</li>
+          <li>نسخة بحجم Story للسوشيال ميديا</li>
+        </ul>
+        <a href="#order" class="btn btn-primary">اطلب هذه الباقة</a>
+      </div>
+      <div class="plan reveal">
+        <h3>الباقة البلاتينية 💠</h3>
+        <p class="desc">التجربة الكاملة والفاخرة</p>
+        <div class="price">195 <small>شيكل</small></div>
+        <ul>
+          <li>كل ما في الباقة الذهبية</li>
+          <li>فلتر سناب شات خاص بالمناسبة</li>
+          <li>صفحة دعوة تفاعلية برابط خاص <b style="color:var(--gold)">(توفّر 85 شيكل!)</b></li>
+          <li>أولوية في التسليم</li>
+          <li>تهنئة مصممة للعائلة</li>
+        </ul>
+        <a href="#order" class="btn btn-outline">اطلب هذه الباقة</a>
+      </div>
+    </div>
+    <div class="addons reveal">
+      <div class="addon"><b>كرت دعوة رقمي (منفرد)</b><span>40 شيكل</span></div>
+      <div class="addon"><b>فيديو دعوة (منفرد)</b><span>50 شيكل</span></div>
+      <div class="addon"><b>فلتر سناب شات (منفرد)</b><span>120 شيكل</span></div>
+      <div class="addon"><b>صفحة دعوة تفاعلية برابط خاص (منفردة)</b><span>70 شيكل</span></div>
+      <div class="addon"><b>تسليم مستعجل</b><span>+15 شيكل</span></div>
+      <div class="addon"><b>تعديل أو إضافة بعد التسليم</b><span>5 شيكل</span></div>
+    </div>
+<div class="pay-methods reveal">
+      <div class="pay-title">💳 طرق الدفع المتاحة</div>
+      <div class="pay-row">
+        <div class="pay-chip">🅿️ PayPal</div>
+        <div class="pay-chip">📱 BIT — تطبيق بيت</div>
+        <div class="pay-chip">🏦 تحويل بنكي</div>
+        <div class="pay-chip">💵 كاش — القدس</div>
+      </div>
+      <p class="pay-note">الدفع عند الاستلام متاح داخل القدس ◦ باقي الطرق حسب الاتفاق عبر واتساب</p>
+    </div>
+  </div>
+</section>
+
+<!-- أعمالنا -->
+<section class="works" id="works">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ أعمالنا ✦</span>
+      <h2>نماذج من دعوات صممناها</h2>
+      <p>📸 الصور هان بتتحدث كل أسبوع — تعالوا تشوفوا أحدث أعمالنا</p>
+    </div>
+    <div class="works-strip">
+      <div class="work-card reveal"><img src="work-1.jpg" alt="دعوة زفاف - أفراح آل أبو جُمعة" loading="lazy"><div class="work-tag2">💍 زفاف<br>أفراح آل أبو جُمعة</div></div>
+      <div class="work-card reveal"><img src="work-2.jpg" alt="دعوة زفاف - أفراح آل أبو غنام" loading="lazy"><div class="work-tag2">💍 زفاف<br>أفراح آل أبو غنام</div></div>
+      <div class="work-card reveal"><img src="work-3.jpg" alt="دعوة برايدل شاور - حنين" loading="lazy"><div class="work-tag2">🌸 برايدل شاور<br>حنين — الطور</div></div>
+      <div class="work-card reveal"><img src="work-4.jpg" alt="دعوة زفاف من أم العروس - حنين وخالد" loading="lazy"><div class="work-tag2">💍 زفاف — دعوة أم العروس<br>حنين & خالد</div></div>
+      <div class="work-card reveal"><img src="work-5.jpg" alt="دعوة عيد ميلاد - صلاح" loading="lazy"><div class="work-tag2">🎂 عيد ميلاد<br>صلاح</div></div>
+    </div>
+    <p class="works-note reveal">📸 شغل حقيقي لزبايننا — الوجوه مغبّشة حفاظاً على الخصوصية ← اسحب لشوف الكل</p>
+  </div>
+</section>
+
+
+
+<!-- فلاتر سناب شات -->
+<section class="snaps" id="snaps">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">👻 فلاتر سناب شات</span>
+      <h2>جرّب فلاترنا بنفسك</h2>
+      <p>اضغط على أي فلتر وبيفتح مباشرة عندك على سناب شات — جرّبه وشوف شغلنا</p>
+    </div>
+    <div class="snaps-grid">
+      <!-- بدك تغيّر اسم الفلتر؟ عدّل الكلمة بين h3 -->
+      <a href="https://snapchat.com/t/R4ousTDL" target="_blank" class="snap-card reveal">
+        <div class="snap-ghost">👻</div>
+        <h3>فلتر مناسبة ١</h3>
+        <p>اضغط وجرّبه الآن</p>
+        <span class="snap-btn">افتح الفلتر</span>
+      </a>
+      <a href="https://snapchat.com/t/RAZQrJYJ" target="_blank" class="snap-card reveal">
+        <div class="snap-ghost">👻</div>
+        <h3>فلتر مناسبة ٢</h3>
+        <p>اضغط وجرّبه الآن</p>
+        <span class="snap-btn">افتح الفلتر</span>
+      </a>
+      <a href="https://snapchat.com/t/AEDUzdjk" target="_blank" class="snap-card reveal">
+        <div class="snap-ghost">👻</div>
+        <h3>فلتر مناسبة ٣</h3>
+        <p>اضغط وجرّبه الآن</p>
+        <span class="snap-btn">افتح الفلتر</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- جرّب دعواتنا التفاعلية -->
+<section class="demos" id="demos">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ جرّب بنفسك ✦</span>
+      <h2>دعواتنا التفاعلية — اضغط وشوف</h2>
+      <p>هاي دعوات تجريبية حيّة — افتحها من جوالك وجرّب الظرف المغلق، العدّاد، الخريطة، وتأكيد الحضور</p>
+    </div>
+    <div class="demos-grid">
+      <a href="zafaf.html" class="demo-card demo-royal reveal">
+        <div class="demo-type">💍 زفاف</div>
+        <div class="demo-names">مصطفى & ليان</div>
+        <div class="demo-venue">📍 القصر الأبيض — العيزرية</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+      <a href="khatba.html" class="demo-card demo-rose reveal">
+        <div class="demo-type">💕 خطبة</div>
+        <div class="demo-names">أحمد & ريما</div>
+        <div class="demo-venue">📍 فينيسيا — بيت ساحور</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+      <a href="henna.html" class="demo-card demo-henna reveal">
+        <div class="demo-type">🌿 حنة</div>
+        <div class="demo-names">نور & ملك</div>
+        <div class="demo-venue">📍 قصر الزيتونة — الطور</div>
+        <span class="demo-btn">افتح الدعوة 👀</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- آراء الزبائن -->
+<section class="testimonials">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">⭐ شو بيحكوا زبايننا ⭐</span>
+      <h2>كلام زبايننا من قلبهم</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"طلبت كرت لخطبة بنتي.. التصميم طلع نظيف وحلو، وسلّموه قبل الموعد بيوم. بس نصيحة: حددوا الألوان والتفاصيل معاهم بأول مشوار عشان الشغل يطلع مظبوط من أول مرة."</p>
+        <div class="who"><div class="avatar">ش</div><div><h4>شادية</h4><span>الباقة الفضية — العيزرية</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"بصراحة كنت مترددة، بس الشغل طلع أحلى من الصور. كل تعديل طلبته عالواتساب انعمل بسرعة وبدون وجع راس — جربوهم ما بتندموا."</p>
+        <div class="who"><div class="avatar">م</div><div><h4>ملاك</h4><span>الباقة الذهبية — بيت ساحور</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"حجزت البلاتينية — الفلتر والفيديو والصفحة التفاعلية. الضيوق كلهم سألوا من وين طلبنا، والفلتر صار حديث السهرة. شغل منظم وتسليم عالوقت."</p>
+        <div class="who"><div class="avatar">م</div><div><h4>محمد</h4><span>الباقة البلاتينية — القدس</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- الأسئلة الشائعة -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ الأسئلة الشائعة ✦</span>
+      <h2>عندك سؤال؟ عندنا الجواب</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">كم يستغرق تجهيز الدعوة؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>من 2-5 أيام حسب الباقة المختارة، والتسليم المستعجل متاح خلال 24 ساعة بإضافة بسيطة.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">هل يمكنني طلب تعديلات على التصميم؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>بالتأكيد! الباقة الفضية تشمل تعديلين، والباقتان الذهبية والبلاتينية تشملان تعديلات غير محدودة حتى الرضا التام.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">كيف يعمل فلتر سناب شات؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>نصمم الفلتر ونفعّله على منطقة قاعتك ولفترة الحفل، فيستخدمه ضيوفك بكل سهولة عند التصوير.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">ما هي صفحة الدعوة التفاعلية؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>رابط خاص تشاركه مع ضيوفك، يجدون فيه صوركم، تفاصيل الحفل، موقع القاعة على الخريطة، عدّاد تنازلي للمناسبة، وزر تأكيد الحضور.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">هل الباقات توفّر فعلاً مقارنة بالخدمات المنفردة؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>نعم! شراء الخدمات منفردة يكلف 280 شيكل، بينما الباقة البلاتينية تجمع كل شيء بـ 195 شيكل فقط — توفير 85 شيكل كاملة 🎉</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">كيف أدفع؟ وهل في دفع عند الاستلام؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>نوفر PayPal وBIT (تطبيق بيت) والتحويل البنكي — والدفع الكاش عند الاستلام داخل القدس. التفاصيل بتتم عبر واتساب بعد تأكيد طلبك 💳</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">هل تتعاملون مع مناسبات غير الأفراح؟ <span class="arrow">▾</span></button>
+        <div class="faq-a"><p>نعم! نصمم لجميع المناسبات: زفاف، خطبة، تخرج، عقد قرآن، حنة، عقيقة، مولود جديد، وطلبة. تواصل معنا بخصوص باقات المناسبات الخاصة.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- نموذج الطلب -->
+<section class="order" id="order">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">✦ ابدأ فرحتك ✦</span>
+      <h2>اطلب دعوتك الآن</h2>
+      <p>عبّئ النموذج وسيصلك الطلب مباشرة على واتساب</p>
+    </div>
+    <div class="order-box reveal">
+      
+      <a class="btn quick-wa" href="https://wa.me/972528365030?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%B7%D9%84%D8%A8%20%D9%85%D9%86%20%D9%81%D8%B1%D8%AD%D8%AA%D9%8A" target="_blank">💬 اطلب مباشرة عبر واتساب — أسرع طريقة</a>
+      <p class="or-divider">— أو عبّي النموذج التالي —</p>
+      <form id="orderForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>الاسم الكريم</label>
+            <input type="text" id="fName" placeholder="اكتب اسمك" required>
+          </div>
+          <div class="form-group">
+            <label>رقم الجوال (واتساب)</label>
+            <input type="tel" id="fPhone" placeholder="05xxxxxxxx" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>نوع المناسبة</label>
+            <select id="fEvent">
+              <option>زفاف</option>
+              <option>طلبة</option>
+              <option>خطبة</option>
+              <option>تخرج</option>
+              <option>عقد قرآن</option>
+              <option>حنة</option>
+              <option>عقيقة</option>
+              <option>مولود جديد</option>
+              <option>أخرى</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>الباقة المطلوبة</label>
+            <select id="fPackage">
+              <option>الباقة الفضية - 40 شيكل</option>
+              <option>الباقة الذهبية - 85 شيكل</option>
+              <option>الباقة البلاتينية - 195 شيكل</option>
+              <option>صفحة دعوة تفاعلية منفردة - 70 شيكل</option>
+              <option>باقة مخصصة</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>تاريخ المناسبة</label>
+            <input type="date" id="fDate">
+          </div>
+          <div class="form-group">
+            <label>كود الخصم (إذا عندك)</label>
+            <input type="text" id="fCode" placeholder="اكتب الكود هنا">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>💳 طريقة الدفع</label>
+          <select id="fPay">
+            <option>بحددها بعدين عالواتساب</option>
+            <option>PayPal</option>
+            <option>BIT — تطبيق بيت</option>
+            <option>تحويل بنكي</option>
+            <option>كاش — القدس</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>تفاصيل إضافية (اختياري)</label>
+          <textarea id="fNotes" rows="3" placeholder="أخبرنا عن تفضيلاتك: الألوان، الأسلوب، الأفكار..."></textarea>
+        </div>
+        <p class="photos-hint">📎 إذا بدك تضيف صوركم على التصميم — ابعتها لنا عبر واتساب بعد إرسال الطلب</p>
+        <button type="submit" class="btn">إرسال الطلب عبر واتساب 💬</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- الفوتر -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="logo-circle.png" alt="فرحتي" style="width:88px;height:88px;border-radius:50%;box-shadow:0 8px 24px rgba(0,0,0,.35)"></div>
+        <p>متخصصون بتصميم الدعوات الرقمية والفيديوهات وفلاتر سناب شات وصفحات الدعوة التفاعلية — لأن لحظتكم تستحق الأجمل.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/farhati.co" title="انستغرام" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.facebook.com/share/1DRjE2YVRX/?mibextid=wwXIfr" title="فيسبوك" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://snapchat.com/t/NvCjWCyL" title="سناب شات" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 2c3.2 0 5.3 2.4 5.3 5.3v2.4c.5.2 1 .1 1.5.1.8 0 1.7.3 1.7 1.2 0 .8-.7 1.1-1.4 1.3-.9.3-1.5.7-1.8 1.4-.1.4-.1.9 0 1.3.5 1.3 1.5 2.3 2.9 2.8.6.2 1.2.4 1.8.7.5.3.8.8.7 1.4-.1.8-.9 1.2-1.7 1.3-.9.1-1.8 0-2.7-.1-1.1-.1-2.2.2-3.2.7-.9.5-1.9.7-2.9.7s-2-.2-2.9-.7c-1-.5-2.1-.8-3.2-.7-.9.1-1.8.2-2.7.1-.8-.1-1.6-.5-1.7-1.3-.1-.6.2-1.1.7-1.4.6-.3 1.2-.5 1.8-.7 1.4-.5 2.4-1.5 2.9-2.8.1-.4.1-.9 0-1.3-.3-.7-.9-1.1-1.8-1.4-.7-.2-1.4-.5-1.4-1.3 0-.9.9-1.2 1.7-1.2.5 0 1 .1 1.5-.1v-2.4C6.7 4.4 8.8 2 12 2z"/></svg></a>
+          <a href="https://www.tiktok.com/@farhati.co" title="تيك توك" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://wa.me/972528365030" title="واتساب" target="_blank"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <a href="#services">خدماتنا</a>
+        <a href="#pricing">الباقات</a>
+        <a href="#works">أعمالنا</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+      </div>
+      <div>
+        <h4>تواصل معنا</h4>
+        <p>📱 واتساب: 972528365030+</p>
+        <p>📍 القدس - فلسطين</p>
+        <p>🚚 نخدم جميع المناطق عن بُعد</p>
+      </div>
+    </div>
+    <div class="footer-bottom">فرحتي © 2026 — جميع الحقوق محفوظة · صُنع بحُب ❤</div>
+  </div>
+</footer>
+
+<!-- زر واتساب العائم -->
+<a href="https://wa.me/972528365030" class="wa-float" title="تواصل واتساب">💬</a>
+
+<script>
+/* ============================================================
+   ⚠️ مهم: غيّر رقم الواتساب الخاص بك في الأسطر التالية
+   رقم الواتساب الحالي: 972528365030 (رقمك بصيغة دولية بدون +)
+   مثال لفلسطين: 9705XXXXXXXX
+============================================================ */
+const WHATSAPP_NUMBER = "972528365030";
+
+/* شاشة التحميل */
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').classList.add('hide'),900);
+});
 
 /* شريط التنقل */
 const nav=document.getElementById('nav');
