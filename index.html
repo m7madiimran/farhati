@@ -420,6 +420,23 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .footer .tl-en{font-size:13px;letter-spacing:10px;margin-top:4px}
 .footer .tl-tag{font-size:11.5px;letter-spacing:4px;margin-top:2px}
 
+
+.swipe-hint{text-align:center;color:var(--muted);font-size:13px;font-weight:700;margin:2px 0 16px;animation:hintBob 1.9s infinite}
+/* horizontal strips — manual control with arrows */
+.testi-grid,.snaps-grid,.demos-grid{display:block}
+.h-strip{display:flex;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:6px 2px 14px;touch-action:pan-x;overscroll-behavior-x:contain;cursor:grab}
+.h-strip::-webkit-scrollbar{display:none}
+.testi-grid .h-strip{gap:18px}
+.snaps-grid .h-strip{gap:16px}
+.demos-grid .h-strip{gap:14px}
+.testi-grid .testi{flex:0 0 330px;scroll-snap-align:start;margin:0}
+.snaps-grid .snap-card{flex:0 0 250px;scroll-snap-align:start;margin:0}
+.demos-grid .demo-card{flex:0 0 225px;scroll-snap-align:start;margin:0}
+@media(max-width:560px){
+ .testi-grid .testi{flex-basis:290px;padding:26px}
+ .snaps-grid .snap-card{flex-basis:222px;padding:30px 20px}
+ .demos-grid .demo-card{flex-basis:198px}
+}
 </style>
 </head>
 <body>
@@ -649,6 +666,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
     <div class="sec-head reveal">
       <span class="sec-tag">👻 فلاتر سناب شات</span>
       <h2>جرّب فلاترنا بنفسك</h2>
+      <p class="swipe-hint">👈 اسحب لعرض المزيد</p>
       <p>اضغط على أي فلتر وبيفتح مباشرة عندك على سناب شات — جرّبه وشوف شغلنا</p>
     </div>
     <div class="snaps-grid">
@@ -680,6 +698,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
     <div class="sec-head reveal">
       <span class="sec-tag">✦ جرّب بنفسك ✦</span>
       <h2>دعواتنا التفاعلية — اضغط وشوف</h2>
+      <p class="swipe-hint">👈 اسحب عشان تشوف شغلنا</p>
       <p>هاي دعوات تجريبية حيّة — افتحها من جوالك وجرّب الظرف المغلق، العدّاد، الخريطة، وتأكيد الحضور</p>
     </div>
     <div class="demos-grid">
@@ -701,32 +720,6 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
         <div class="demo-venue">📍 قصر الزيتونة — الطور</div>
         <span class="demo-btn">افتح الدعوة 👀</span>
       </a>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials">
-  <div class="container">
-    <div class="sec-head reveal">
-      <span class="sec-tag">⭐ شو بيحكوا زبايننا ⭐</span>
-      <h2>كلام زبايننا من قلبهم</h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi reveal">
-        <div class="stars">★★★★★</div>
-        <p>"طلبت كرت لخطبة بنتي.. التصميم طلع نظيف وحلو، وسلّموه قبل الموعد بيوم. بس نصيحة: حددوا الألوان والتفاصيل معاهم بأول مشوار عشان الشغل يطلع مظبوط من أول مرة."</p>
-        <div class="who"><div class="avatar">ش</div><div><h4>شادية</h4><span>الباقة الفضية — العيزرية</span></div></div>
-      </div>
-      <div class="testi reveal">
-        <div class="stars">★★★★★</div>
-        <p>"بصراحة كنت مترددة، بس الشغل طلع أحلى من الصور. كل تعديل طلبته عالواتساب انعمل بسرعة وبدون وجع راس — جربوهم ما بتندموا."</p>
-        <div class="who"><div class="avatar">م</div><div><h4>ملاك</h4><span>الباقة الذهبية — بيت ساحور</span></div></div>
-      </div>
-      <div class="testi reveal">
-        <div class="stars">★★★★★</div>
-        <p>"حجزت البلاتينية — الفلتر والفيديو والصفحة التفاعلية. الضيوق كلهم سألوا من وين طلبنا، والفلتر صار حديث السهرة. شغل منظم وتسليم عالوقت."</p>
-        <div class="who"><div class="avatar">م</div><div><h4>محمد</h4><span>الباقة البلاتينية — القدس</span></div></div>
-      </div>
     </div>
   </div>
 </section>
@@ -848,6 +841,33 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
   </div>
 </section>
 
+<section class="testimonials">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag">⭐ شو بيحكوا زبايننا ⭐</span>
+      <h2>كلام زبايننا من قلبهم</h2>
+      <p class="swipe-hint">👈 اسحب لقراءة المزيد</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"طلبت كرت لخطبة بنتي.. التصميم طلع نظيف وحلو، وسلّموه قبل الموعد بيوم. بس نصيحة: حددوا الألوان والتفاصيل معاهم بأول مشوار عشان الشغل يطلع مظبوط من أول مرة."</p>
+        <div class="who"><div class="avatar">ش</div><div><h4>شادية</h4><span>الباقة الفضية — العيزرية</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"بصراحة كنت مترددة، بس الشغل طلع أحلى من الصور. كل تعديل طلبته عالواتساب انعمل بسرعة وبدون وجع راس — جربوهم ما بتندموا."</p>
+        <div class="who"><div class="avatar">م</div><div><h4>ملاك</h4><span>الباقة الذهبية — بيت ساحور</span></div></div>
+      </div>
+      <div class="testi reveal">
+        <div class="stars">★★★★★</div>
+        <p>"حجزت البلاتينية — الفلتر والفيديو والصفحة التفاعلية. الضيوق كلهم سألوا من وين طلبنا، والفلتر صار حديث السهرة. شغل منظم وتسليم عالوقت."</p>
+        <div class="who"><div class="avatar">م</div><div><h4>محمد</h4><span>الباقة البلاتينية — القدس</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -918,6 +938,31 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
       a.style.maxHeight=a.scrollHeight+'px';
     }
   });
+});
+
+/* horizontal strips: wrap cards; touch swipe locked to horizontal */
+document.querySelectorAll('.testi-grid,.snaps-grid,.demos-grid').forEach(g=>{
+  const track=document.createElement('div');
+  track.className='h-strip';
+  while(g.firstChild)track.appendChild(g.firstChild);
+  track.querySelectorAll('.reveal').forEach(el=>el.classList.remove('reveal'));
+  g.appendChild(track);
+});
+/* mouse drag for desktop */
+document.querySelectorAll('.h-strip').forEach(s=>{
+  let down=false,sx=0,sl=0;
+  s.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='mouse')return;
+    down=true;sx=e.clientX;sl=s.scrollLeft;
+    s.setPointerCapture(e.pointerId);s.style.cursor='grabbing';
+  });
+  s.addEventListener('pointermove',e=>{
+    if(!down)return;
+    s.scrollLeft=sl-(e.clientX-sx);
+  });
+  const up=()=>{down=false;s.style.cursor='grab'};
+  s.addEventListener('pointerup',up);
+  s.addEventListener('pointercancel',up);
 });
 
 document.getElementById('orderForm').addEventListener('submit',e=>{
