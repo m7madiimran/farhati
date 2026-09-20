@@ -404,6 +404,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 </style>
 </head>
 <body>
+<div class="lang-sw"><a href="index.html" class="on">ع</a><a href="index-en.html">EN</a><a href="index-he.html">עב</a></div>
 
 <div id="loader">
   <div class="heart"></div>
@@ -545,7 +546,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
       <div class="plan reveal">
         <h3>الباقة الفضية 🥈</h3>
         <p class="desc">دعوتك الأنيقة ببساطة تليق بك</p>
-        <div class="price"><span class="new"><s>40</s></span> 25 <small>شيكل</small></div>
+        <div class="price">40 <small>شيكل</small></div>
         <ul>
           <li>كرت دعوة رقمية — <b>تصميم خاص فيك من الصفر</b></li>
           <li>أو اختار تصميم جاهز من أعمالنا (إذا متوفر)</li>
@@ -558,7 +559,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
         <span class="plan-badge">⭐ الأكثر طلباً</span>
         <h3>الباقة الذهبية 🥇</h3>
         <p class="desc">التوليفة المثالية بين الصورة والحركة</p>
-        <div class="price"><span class="new"><s>85</s></span> 70 <small>شيكل</small></div>
+        <div class="price">85 <small>شيكل</small></div>
         <ul>
           <li>كل ما في الباقة الفضية</li>
           <li>فيديو دعوة (30-60 ثانية)</li>
@@ -802,10 +803,7 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
             <label>تاريخ المناسبة</label>
             <input type="date" id="fDate">
           </div>
-          <div class="form-group">
-            <label>كود الخصم (إذا عندك)</label>
-            <input type="text" id="fCode" placeholder="اكتب الكود هنا">
-          </div>
+          
         </div>
         <div class="form-group">
           <label>💳 طريقة الدفع</label>
@@ -924,7 +922,6 @@ document.getElementById('orderForm').addEventListener('submit',e=>{
 📅 التاريخ: ${document.getElementById('fDate').value||'غير محدد'}
 📱 جوالي: ${document.getElementById('fPhone').value}
 📝 ملاحظات: ${document.getElementById('fNotes').value||'لا يوجد'}
-🎁 كود الخصم: ${document.getElementById('fCode').value||'لا يوجد'}
 💳 طريقة الدفع: ${document.getElementById('fPay').value}`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank');
 });
