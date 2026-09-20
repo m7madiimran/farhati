@@ -401,6 +401,15 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
 .contest-box input:focus,.contest-box select:focus{border-color:var(--gold)}
 .contest-box .btn{width:100%;justify-content:center}
 
+
+50%{box-shadow:0 8px 20px rgba(18,140,126,.4),0 0 16px rgba(37,211,102,.5)}}
+
+
+
+
+.plan .save-badge{position:absolute;top:20px;right:20px;font-weight:800;font-size:16.5px;background:linear-gradient(135deg,#1e7d4f,#25d366 45%,#128c7e);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 6px rgba(18,140,126,.3));animation:saveFloat 2.6s ease-in-out infinite;z-index:5;white-space:nowrap}
+@keyframes saveFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
 </style>
 </head>
 <body>
@@ -570,13 +579,14 @@ footer{background:var(--wine-dark);color:#e8d5d0;padding:60px 0 0}
         <a href="#order" class="btn btn-primary">اطلب هذه الباقة</a>
       </div>
       <div class="plan reveal">
+        <span class="save-badge">💰 وفّر 85 شيكل</span>
         <h3>الباقة البلاتينية 💠</h3>
         <p class="desc">التجربة الكاملة والفاخرة</p>
         <div class="price">195 <small>شيكل</small></div>
         <ul>
           <li>كل ما في الباقة الذهبية</li>
           <li>فلتر سناب شات خاص بالمناسبة</li>
-          <li>صفحة دعوة تفاعلية برابط خاص <b style="color:var(--gold)">(توفّر 85 شيكل!)</b></li>
+          <li>صفحة دعوة تفاعلية برابط خاص</li>
           <li>أولوية في التسليم</li>
           <li>تهنئة مصممة للعائلة</li>
         </ul>
