@@ -9,7 +9,7 @@
 <meta name="description" content="فرحتي — دعوات تفاعلية فاخرة بثلاث لغات: عداد مباشر، تأكيد حضور، خرائط وموسيقى باختياركم. من قلب القدس لكل العالم.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Cairo:wght@300;400;600;700;800&family=Frank+Ruhl+Libre:wght@400;700;900&family=Heebo:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FBF6EE;--bg-2:#F5EBDC;--bg-3:#EFE2CE;
@@ -18,14 +18,10 @@
   --ink:rgba(74,42,38,.68);--ink-dim:rgba(74,42,38,.42);--line:rgba(201,162,75,.32);
   --serif:'Cairo',sans-serif;--radius:18px;
 }
-html[lang="he"]{--serif:'Frank Ruhl Libre',serif}
-html[lang="en"]{--serif:'Cormorant Garamond',serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{overflow-x:clip}
 body{background:var(--bg);color:var(--cream);font-family:'Tajawal','IBM Plex Sans Arabic',sans-serif;line-height:1.8;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-html[lang="he"] body{font-family:'Heebo',sans-serif}
-html[lang="en"] body{font-family:'Cairo',sans-serif}
 ::selection{background:var(--gold);color:#FBF3EC}
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -75,9 +71,6 @@ nav a::after{content:'';position:absolute;bottom:0;inset-inline-start:0;width:0;
 nav a:hover{color:var(--gold)}
 nav a:hover::after{width:100%}
 .header-actions{display:flex;align-items:center;gap:14px}
-.lang-switch{display:flex;border:1px solid var(--line);border-radius:100px;padding:3px;gap:2px;background:rgba(255,255,255,.55)}
-.lang-switch button{padding:5px 12px;border-radius:100px;font-size:12.5px;font-weight:700;color:var(--ink-dim);transition:all .3s;letter-spacing:.5px}
-.lang-switch button.active{background:var(--gold);color:#FBF3EC}
 .burger{display:none;flex-direction:column;gap:5px;padding:8px}
 .burger span{width:24px;height:1.5px;background:var(--gold);transition:.35s}
 
@@ -314,8 +307,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
   .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
   .burger.open span:nth-child(2){opacity:0}
   .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-  .lang-switch button{padding:4px 10px;font-size:11.5px}
-  .logo-text{font-size:22px}
+    .logo-text{font-size:22px}
 }
   @media(max-width:640px){
   .countdown{gap:7px}
@@ -336,8 +328,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
   .faq-a p{padding:0 18px 18px;font-size:14px}
   .quote{padding:24px}
     .stat b{font-size:42px}
-  .lang-switch button{padding:4px 8px;font-size:11px}
-  .header-actions{gap:8px}
+    .header-actions{gap:8px}
   .sec-title{font-size:30px}
   .hero-ctas{gap:10px}
   .marquee-track span{font-size:16px;padding:0 18px;gap:36px}
@@ -359,6 +350,16 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 .ip-date{color:rgba(255,248,246,.85);font-size:13px;letter-spacing:1px;margin-top:4px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .ip-actions{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:26px}
 .ip-hint{font-size:12.5px;color:var(--ink-dim);margin:0}
+
+/* addons: two columns on tablets/phones */
+@media(max-width:1020px){.addons-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){
+  .addons-grid{gap:12px}
+  .addon{padding:20px 16px}
+  .addon .glyph{font-size:30px;margin-bottom:10px}
+  .addon h3{font-size:17px}
+  .addon p{font-size:13px}
+}
 /* mobile performance: kill heavy effects on phones */
 @media(max-width:768px){
   #petals{display:none}
@@ -406,11 +407,6 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
     <a href="#contact" data-i18n="nav_contact"></a>
   </nav>
   <div class="header-actions">
-    <div class="lang-switch" role="group" aria-label="Language">
-      <button data-lang="ar" class="active">عربي</button>
-      <button data-lang="he">עברית</button>
-      <button data-lang="en">EN</button>
-    </div>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -890,35 +886,24 @@ footer_txt:{ar:"فرحتي — دعوات تفاعلية بتساوي ذكرى �
 
 
 let lang = 'ar';
-try{ lang = localStorage.getItem('farhati-lang') || 'ar'; }catch(e){}
 
-function applyLang(l){
-  lang = l;
-  document.documentElement.lang = l;
-  document.documentElement.dir = (l === 'en') ? 'ltr' : 'rtl';
-  document.title = (l==='ar') ? 'فرحتي — دعوات تفاعلية فاخرة | Farhati'
-                 : (l==='he') ? 'פרחתי — הזמנות אינטראקטיביות יוקרתיות | Farhati'
-                 : 'Farhati — Luxury Interactive Invitations';
+function applyLang(){
+  document.documentElement.lang = 'ar';
+  document.documentElement.dir = 'rtl';
+  document.title = 'فرحتي — دعوات تفاعلية فاخرة | Farhati';
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const k = el.dataset.i18n;
-    if(T[k] && T[k][l] !== undefined) el.innerHTML = T[k][l];
+    if(T[k] && T[k].ar !== undefined) el.innerHTML = T[k].ar;
   });
-  document.querySelectorAll('.lang-switch button').forEach(b=>{
-    b.classList.toggle('active', b.dataset.lang === l);
-  });
-  buildMarquee(l);
-  try{ localStorage.setItem('farhati-lang', l); }catch(e){}
+  buildMarquee();
 }
-document.querySelectorAll('.lang-switch button').forEach(b=>{
-  b.addEventListener('click', ()=>{ applyLang(b.dataset.lang); closeMenu(); });
-});
 
 // marquee (multilingual, rebuilt on language change)
 const OCC_KEYS = ['mq1','mq2','mq3','mq4','mq5','mq6','mq7','mq8'];
-function buildMarquee(l){
+function buildMarquee(){
   const track = document.getElementById('marquee');
   track.innerHTML = '';
-  const words = OCC_KEYS.map(k => T[k][l]);
+  const words = OCC_KEYS.map(k => T[k].ar);
   words.concat(words).forEach(w=>{
     const s = document.createElement('span');
     s.textContent = w;
@@ -1170,7 +1155,7 @@ document.getElementById('musicBtn').addEventListener('click', function(){
   else { clearTimeout(musicTimer); this.classList.remove('playing'); }
 });
 
-applyLang(lang);
+applyLang();
 </script>
 </body>
 </html>
