@@ -119,6 +119,10 @@ td.rowtotal{font-weight:800;color:var(--wine);min-width:70px}
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z"/></svg>
     طباعة / PDF
   </button>
+  <button class="tbtn tbtn-print" id="copyBtn" style="border-color:rgba(255,248,246,.25);color:#FFF8F6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+    نسخ نص الفاتورة
+  </button>
   <button class="tbtn tbtn-clear" id="clearBtn">تفريغ الفاتورة</button>
   <span class="hint">عبّي الخانات واضغط إرسال — الفاتورة بتتوصل للزبون برسالة واتساب مرتبة</span>
 </div>
@@ -167,7 +171,8 @@ td.rowtotal{font-weight:800;color:var(--wine);min-width:70px}
       <div class="box-title">طريقة الدفع:</div>
       <label><input type="checkbox" class="paym" value="نقدًا">نقدًا</label>
       <label><input type="checkbox" class="paym" value="تحويل بنكي">تحويل بنكي</label>
-      <label><input type="checkbox" class="paym" value="الدفع عبر الموقع">الدفع عبر الموقع</label>
+      <label><input type="checkbox" class="paym" value="BIT">BIT</label>
+      <label><input type="checkbox" class="paym" value="أخرى">أخرى</label>
     </div>
   </div>
 
@@ -227,18 +232,13 @@ function normPhone(v){
   return p;
 }
 
-document.getElementById('sendWa').addEventListener('click', ()=>{
-  const name = document.getElementById('custName').value.trim();
-  const phone = normPhone(document.getElementById('custPhone').value);
-  if(!name){ alert('اكتب اسم العميل أولاً'); return; }
-  if(phone.length < 11){ alert('اكتب رقم هاتف الزبون كامل (مثال: 0528365030)'); return; }
-
+function buildMessage(){
   const L = [];
   L.push('🤍 *فرحتي — فاتورة*');
   L.push('━━━━━━━━━━━━━━━');
   L.push('رقم الفاتورة: ' + (document.getElementById('invNo').value.trim() || '—'));
   L.push('التاريخ: ' + document.getElementById('invDate').value);
-  L.push('العميل: ' + name);
+  L.push('العميل: ' + document.getElementById('custName').value.trim());
   L.push('━━━━━━━━━━━━━━━');
   L.push('*الخدمات:*');
   let any = false;
@@ -248,7 +248,7 @@ document.getElementById('sendWa').addEventListener('click', ()=>{
     const p = num(tr.querySelector('.price').value);
     if(s && q > 0){ L.push('• ' + s + ' × ' + q + ' — ' + fmt(q*p) + ' ₪'); any = true; }
   });
-  if(!any){ alert('عبّي خدمة واحدة على الأقل (كمية وسعر)'); return; }
+  if(!any) return null;
   L.push('━━━━━━━━━━━━━━━');
   const sub = num(document.getElementById('subT').value);
   const d = num(document.getElementById('disc').value);
@@ -262,8 +262,28 @@ document.getElementById('sendWa').addEventListener('click', ()=>{
   L.push('━━━━━━━━━━━━━━━');
   L.push('farhati.co · @farhati.co');
   L.push('فرحتي… لأن كل لحظة تستحق بداية أجمل.');
+  return L.join('\n');
+}
 
-  window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(L.join('\n')), '_blank');
+document.getElementById('sendWa').addEventListener('click', ()=>{
+  const name = document.getElementById('custName').value.trim();
+  const phone = normPhone(document.getElementById('custPhone').value);
+  if(!name){ alert('اكتب اسم العميل أولاً'); return; }
+  if(phone.length < 11){ alert('اكتب رقم هاتف الزبون كامل (مثال: 0528365030)'); return; }
+  const msg = buildMessage();
+  if(!msg){ alert('عبّي خدمة واحدة على الأقل (كمية وسعر)'); return; }
+  window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
+});
+
+document.getElementById('copyBtn').addEventListener('click', ()=>{
+  const msg = buildMessage();
+  if(!msg){ alert('عبّي خدمة واحدة على الأقل (كمية وسعر)'); return; }
+  navigator.clipboard.writeText(msg).then(()=>{
+    const b = document.getElementById('copyBtn');
+    const old = b.innerHTML;
+    b.innerHTML = '✓ تم النسخ';
+    setTimeout(()=>{ b.innerHTML = old; }, 1600);
+  }).catch(()=>{ alert('النسخ ما اشتغل — انسخ يدوي'); });
 });
 
 calc();
