@@ -251,19 +251,10 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 #filters{background:var(--bg)}
 .filt-preview{background:radial-gradient(420px circle at 50% 28%,rgba(109,31,56,.55),transparent 70%),linear-gradient(170deg,#25111a,#14090d 70%)}
 .filt-preview::after{content:'';position:absolute;inset:12px;border:1px solid rgba(201,162,75,.22);border-radius:16px;pointer-events:none}
+.filt-img{width:100%;height:100%;object-fit:cover;display:block;border-radius:22px}
 .filt-hint{font-size:12.5px;color:var(--ink-dim);margin:0}
 .filt-box{max-width:480px;margin-inline:auto;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--bg-2);box-shadow:0 30px 80px rgba(0,0,0,.45)}
-.filt-stage{position:relative;aspect-ratio:3/4;background:#0a0406;overflow:hidden}
-.fl-name{position:absolute;top:26px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-weight:800;font-size:26px;color:var(--gold-soft);text-shadow:0 2px 14px rgba(0,0,0,.65);letter-spacing:1px}
-.fl-bottom{position:absolute;bottom:30px;inset-inline:0;text-align:center}
-.fl-bottom b{display:block;font-family:var(--serif);font-weight:800;font-size:clamp(22px,5vw,30px);color:var(--cream);text-shadow:0 2px 14px rgba(0,0,0,.7)}
-.fl-bottom small{color:var(--gold-soft);font-size:14px;letter-spacing:2px;text-shadow:0 1px 8px rgba(0,0,0,.7)}
-.fl-corner{position:absolute;width:46px;height:46px;border:2.5px solid rgba(201,162,75,.9)}
-.fl-corner.tl{top:16px;left:16px;border-right:none;border-bottom:none;border-radius:8px 0 0 0}
-.fl-corner.br{bottom:16px;right:16px;border-left:none;border-top:none;border-radius:0 0 8px 0}
-.fl-spark{position:absolute;color:rgba(232,213,168,.95);font-size:15px;text-shadow:0 1px 6px rgba(0,0,0,.6)}
-.fl-spark.tr{top:24px;right:26px}
-.fl-spark.bl{bottom:24px;left:26px}
+.filt-stage{position:relative;aspect-ratio:9/16;background:#0a0406;overflow:hidden}
 .filt-controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:18px;border-top:1px solid var(--line)}
 /* responsive */
 @media(max-width:1020px){
@@ -524,12 +515,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
     </div>
     <div class="filt-box reveal d1">
       <div class="filt-stage filt-preview">
-        <span class="fl-name">فرحتي</span>
-        <span class="fl-corner tl"></span>
-        <span class="fl-corner br"></span>
-        <span class="fl-spark tr">✦</span>
-        <span class="fl-spark bl">✦</span>
-        <div class="fl-bottom"><b>مراد وسمر</b><small>15 · 11 · 2026</small></div>
+        <img class="filt-img" src="filter-demo.jpg" alt="فلتر سناب شات" loading="lazy">
       </div>
       <div class="filt-controls">
         <a class="btn btn-gold" href="https://snapchat.com/t/yCTJ2KFf" target="_blank" rel="noopener">
