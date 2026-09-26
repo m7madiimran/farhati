@@ -13,18 +13,18 @@
   --cream:#FFF8F6; --rose:#B76E79; --ink:#3B2328; --line:rgba(201,162,75,.4);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Tajawal',sans-serif;background:#EFE7DC;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Tajawal',sans-serif;background:#F1E9DC;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 
 /* ---------- toolbar (screen only) ---------- */
-.toolbar{position:sticky;top:0;z-index:50;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:12px 16px;background:rgba(74,20,38,.96);backdrop-filter:blur(10px)}
+.toolbar{position:sticky;top:0;z-index:50;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:12px 16px;background:rgba(251,246,238,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,162,75,.35);box-shadow:0 4px 20px rgba(120,85,30,.12)}
 .tbtn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:100px;font-size:14px;font-weight:800;border:none;cursor:pointer;font-family:inherit;transition:.25s}
 .tbtn svg{width:16px;height:16px}
 .tbtn-wa{background:linear-gradient(135deg,#E8D5A8,#C9A24B);color:#4A1426}
 .tbtn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(201,162,75,.4)}
-.tbtn-print{background:transparent;color:#E8D5A8;border:1px solid rgba(201,162,75,.5)}
+.tbtn-print{background:transparent;color:#8A6A2A;border:1px solid rgba(201,162,75,.55)}
 .tbtn-print:hover{background:rgba(201,162,75,.12)}
-.tbtn-clear{background:transparent;color:rgba(255,248,246,.65);border:1px solid rgba(255,248,246,.25);font-weight:500}
-.hint{width:100%;text-align:center;font-size:12px;color:rgba(255,248,246,.6)}
+.tbtn-clear{background:transparent;color:rgba(74,42,38,.6);border:1px solid rgba(74,42,38,.2);font-weight:500}
+.hint{width:100%;text-align:center;font-size:12px;color:rgba(74,42,38,.55)}
 
 /* ---------- the invoice sheet ---------- */
 .sheet{width:210mm;min-height:297mm;margin:24px auto;background:#fff;box-shadow:0 20px 60px rgba(60,30,20,.25);padding:16mm 15mm 12mm;position:relative;display:flex;flex-direction:column}
@@ -33,21 +33,21 @@ body{font-family:'Tajawal',sans-serif;background:#EFE7DC;color:var(--ink);-webki
 .orn::after{background:linear-gradient(90deg,var(--gold),transparent)}
 
 /* header */
-.head{text-align:center;padding-bottom:6mm;border-bottom:2px solid var(--wine);position:relative}
+.head{text-align:center;padding-bottom:6mm;border-bottom:2px solid var(--gold);position:relative}
 .head img{width:64px;margin-bottom:2mm}
-.head h1{font-size:34px;font-weight:800;color:var(--wine);letter-spacing:1px}
+.head h1{font-size:34px;font-weight:800;color:var(--gold-deep);letter-spacing:1px}
 .head .thanks{margin-top:1.5mm;font-size:13.5px;color:var(--rose);font-weight:500}
 
 /* meta grid */
 .meta{display:grid;grid-template-columns:1fr 1fr;gap:4mm 8mm;margin:6mm 0 5mm}
 .mfield{display:flex;align-items:flex-end;gap:8px;font-size:14px}
-.mfield label{white-space:nowrap;font-weight:800;color:var(--wine);min-width:86px}
+.mfield label{white-space:nowrap;font-weight:800;color:var(--gold-deep);min-width:86px}
 .mfield input{flex:1;border:none;border-bottom:1.5px dotted var(--line);background:transparent;font-family:inherit;font-size:14.5px;font-weight:500;color:var(--ink);padding:2px 4px;outline:none}
 .mfield input:focus{border-bottom-color:var(--gold)}
 
 /* table */
 table{width:100%;border-collapse:collapse;font-size:13.5px}
-thead th{background:var(--wine);color:#FFF8F6;font-weight:800;padding:9px 10px;font-size:13px}
+thead th{background:linear-gradient(135deg,#EAD9AC,#DCC28A);color:#4A2A26;font-weight:800;padding:9px 10px;font-size:13px}
 thead th:first-child{border-radius:0 8px 8px 0}
 thead th:last-child{border-radius:8px 0 0 8px}
 tbody td{border-bottom:1px solid rgba(201,162,75,.25);padding:7px 10px;text-align:center;vertical-align:middle}
@@ -56,7 +56,7 @@ tbody tr:nth-child(even){background:var(--cream)}
 td input{width:100%;border:none;background:transparent;font-family:inherit;font-size:13.5px;font-weight:500;color:var(--ink);text-align:center;outline:none;padding:2px}
 td input:focus{background:rgba(201,162,75,.08);border-radius:4px}
 td input.svc{text-align:right;font-weight:700}
-td.rowtotal{font-weight:800;color:var(--wine);min-width:70px}
+td.rowtotal{font-weight:800;color:var(--gold-deep);min-width:70px}
 
 /* totals */
 .totals{margin-top:4mm;margin-inline-start:auto;width:88mm;font-size:14px}
@@ -65,20 +65,20 @@ td.rowtotal{font-weight:800;color:var(--wine);min-width:70px}
 .trow .val{display:flex;align-items:center;gap:4px;font-weight:800;min-width:34mm}
 .trow .val input{width:22mm;text-align:center;border:none;border-bottom:1.5px dotted var(--line);background:transparent;font-family:inherit;font-size:14px;font-weight:800;color:var(--ink);outline:none}
 .trow.grand{border-top:2px solid var(--gold);margin-top:2mm;padding-top:7px;font-size:16.5px}
-.trow.grand label{color:var(--wine);font-weight:800}
-.trow.grand .val{color:var(--wine);font-size:18px}
+.trow.grand label{color:var(--gold-deep);font-weight:800}
+.trow.grand .val{color:var(--gold-deep);font-size:18px}
 .trow.grand .val span.cur{font-size:13px;color:var(--gold-deep)}
 
 /* notes + payment */
 .lower{display:grid;grid-template-columns:1.2fr 1fr;gap:8mm;margin-top:7mm}
-.box-title{font-weight:800;color:var(--wine);font-size:14px;margin-bottom:2mm;display:flex;align-items:center;gap:8px}
+.box-title{font-weight:800;color:var(--gold-deep);font-size:14px;margin-bottom:2mm;display:flex;align-items:center;gap:8px}
 .box-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
 .notes textarea{width:100%;height:26mm;border:1px solid rgba(201,162,75,.35);border-radius:8px;background:var(--cream);font-family:inherit;font-size:13px;padding:8px 10px;resize:vertical;outline:none;color:var(--ink)}
 .notes textarea:focus{border-color:var(--gold)}
 .pay{display:flex;flex-direction:column;gap:2.5mm}
 .pay label{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;cursor:pointer}
 .pay input{appearance:none;width:17px;height:17px;border:1.6px solid var(--gold-deep);border-radius:4px;cursor:pointer;position:relative;flex-shrink:0;background:#fff}
-.pay input:checked{background:var(--wine);border-color:var(--wine)}
+.pay input:checked{background:var(--gold);border-color:var(--gold-deep)}
 .pay input:checked::after{content:'';position:absolute;inset:4px;border-radius:1px;background:#E8D5A8}
 
 /* footer */
@@ -95,7 +95,7 @@ td.rowtotal{font-weight:800;color:var(--wine);min-width:70px}
   .sheet{margin:0;box-shadow:none;width:100%;min-height:auto;padding:14mm 14mm 10mm}
   input,textarea{border-color:transparent!important}
   tbody tr:nth-child(even){background:#FFF8F6!important}
-  thead th{background:#6D1F38!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  thead th{background:#E5D09E!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 @media(max-width:640px){
   .sheet{width:100%;min-height:auto;padding:24px 16px;margin:0}
