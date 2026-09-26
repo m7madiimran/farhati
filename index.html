@@ -64,7 +64,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .cursor-ring.hovered{width:56px;height:56px;background:rgba(201,162,75,.08);border-color:var(--gold)}
 @media(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
 
-.logo-text,.f-logo,.sec-num,.feat-num,.step-ball,.feat-dot,.marquee-track span,.invite-names,.invite-amp,.pv-names,.pv-amp,.tpl-body h3,.quote .qmark,.big-phone{font-family:var(--serif);font-weight:800}
+.logo-text,.f-logo,.step-ball,.feat-dot,.marquee-track span,.invite-names,.invite-amp,.pv-names,.pv-amp,.tpl-body h3,.quote .qmark,.big-phone{font-family:var(--serif);font-weight:800}
 /* header */
 header{position:fixed;top:0;inset-inline:0;z-index:100;padding:18px clamp(20px,5vw,64px);display:flex;align-items:center;justify-content:space-between;transition:background .5s,padding .5s,border-color .5s;border-bottom:1px solid transparent}
 header.scrolled{background:rgba(251,243,236,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:12px clamp(20px,5vw,64px);border-bottom-color:var(--line)}
@@ -134,7 +134,6 @@ section{padding:clamp(80px,10vw,140px) clamp(20px,6vw,80px);position:relative}
 .wrap{max-width:1200px;margin-inline:auto}
 .sec-head{max-width:760px;margin-bottom:clamp(44px,6vw,72px)}
 .sec-head.center{margin-inline:auto;text-align:center}
-.sec-num{font-family:var(--serif);color:var(--gold);opacity:.75;font-size:15px;display:block;margin-bottom:14px;font-weight:800}
 .sec-title{font-family:var(--serif);font-size:clamp(34px,5vw,54px);line-height:1.5;padding:.06em 0;color:var(--cream);font-weight:800}
 .sec-title .g{color:var(--gold)}
 .sec-sub{margin-top:18px;color:var(--ink);font-size:clamp(15px,1.8vw,17.5px);font-weight:300}
@@ -151,7 +150,6 @@ section{padding:clamp(80px,10vw,140px) clamp(20px,6vw,80px);position:relative}
 .feat-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .5s;background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(201,162,75,.1),transparent 45%)}
 .feat-card:hover{transform:translateY(-8px);border-color:rgba(201,162,75,.45);box-shadow:0 24px 60px rgba(0,0,0,.4)}
 .feat-card:hover::before{opacity:1}
-.feat-num{font-family:var(--serif);font-size:15px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:22px}
 .feat-icon{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;margin-bottom:24px;background:linear-gradient(140deg,rgba(221,185,126,.4),rgba(201,162,75,.22));border:1px solid rgba(185,137,63,.35);color:var(--gold);transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .feat-card:hover .feat-icon{transform:rotate(-6deg) scale(1.08)}
 .feat-icon svg{width:26px;height:26px}
@@ -302,9 +300,10 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 
 
 /* live invitation preview */
-.inv-preview{position:relative;max-width:390px;margin-inline:auto;aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px rgba(120,85,30,.25);background:#1a090e}
+.inv-preview{position:relative;display:block;max-width:390px;margin-inline:auto;cursor:pointer;transition:transform .45s cubic-bezier(.22,1,.36,1)aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px rgba(120,85,30,.25);background:#1a090e}
 .inv-preview video{width:100%;height:100%;object-fit:cover;display:block}
-.ip-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,9,14,.22),transparent 32%,transparent 58%,rgba(26,9,14,.78))}
+.inv-preview:hover{transform:scale(1.02)}
+.ip-shade{position:absolute:inset:0;background:linear-gradient(180deg,rgba(26,9,14,.22),transparent 32%,transparent 58%,rgba(26,9,14,.78))}
 .ip-live{position:absolute;top:14px;inset-inline-start:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;color:#FFF8F6;background:rgba(26,9,14,.5);backdrop-filter:blur(6px);padding:5px 13px;border-radius:100px;border:1px solid rgba(232,213,168,.35)}
 .ip-live .dot{width:7px;height:7px;border-radius:50%;background:#C9A24B;animation:liveblink 1.6s ease-in-out infinite}
 @keyframes liveblink{50%{opacity:.35}}
@@ -420,34 +419,29 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 <section id="features">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-num" data-i18n="sec_features_num"></span>
       <h2 class="sec-title" data-i18n="sec_features_title"></h2>
       <p class="sec-sub" data-i18n="sec_features_sub"></p>
     </div>
     <div class="features-grid">
       <article class="feat-card reveal d1">
-        <span class="feat-num" data-i18n="s1n"></span>
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2.5h6"/></svg></div>
         <h3 data-i18n="s1t"></h3>
         <p data-i18n="s1d"></p>
         <span class="tagline" data-i18n="s1tag"></span>
       </article>
       <article class="feat-card reveal d2">
-        <span class="feat-num" data-i18n="s2n"></span>
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
         <h3 data-i18n="s2t"></h3>
         <p data-i18n="s2d"></p>
         <span class="tagline" data-i18n="s2tag"></span>
       </article>
       <article class="feat-card reveal d3">
-        <span class="feat-num" data-i18n="s3n"></span>
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
         <h3 data-i18n="s3t"></h3>
         <p data-i18n="s3d"></p>
         <span class="tagline" data-i18n="s3tag"></span>
       </article>
       <article class="feat-card reveal d4">
-        <span class="feat-num" data-i18n="s4n"></span>
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg></div>
         <h3 data-i18n="s4t"></h3>
         <p data-i18n="s4d"></p>
@@ -461,12 +455,11 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 <section id="templates">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-num" data-i18n="tpl_num"></span>
       <h2 class="sec-title" data-i18n="tpl_title"></h2>
       <p class="sec-sub" data-i18n="tpl_sub"></p>
     </div>
     <div class="reveal d1">
-      <div class="inv-preview">
+      <a class="inv-preview" href="invite.html" target="_blank" rel="noopener" aria-label="شوفوا الدعوة الجاهزة">
         <video id="pvVideo" src="farhati1.mp4" autoplay muted loop playsinline></video>
         <div class="ip-shade"></div>
         <span class="ip-live"><span class="dot"></span><span data-i18n="tpl_live"></span></span>
@@ -475,7 +468,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
           <div class="ip-names">مراد <span class="ip-amp">&amp;</span> سمر</div>
           <div class="ip-date" data-i18n="tpl_date"></div>
         </div>
-      </div>
+      </a>
       <div class="ip-actions">
         <a class="btn btn-gold" href="invite.html" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72c0 .8.87 1.3 1.56.88l10.5-6.86a1.04 1.04 0 0 0 0-1.76L9.56 4.26A1.04 1.04 0 0 0 8 5.14Z"/></svg>
@@ -492,7 +485,6 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 <section id="addons">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-num" data-i18n="add_num"></span>
       <h2 class="sec-title" data-i18n="add_title"></h2>
       <p class="sec-sub" data-i18n="add_sub"></p>
     </div>
@@ -516,7 +508,6 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 <section id="filters">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-num" data-i18n="filt_num"></span>
       <h2 class="sec-title" data-i18n="filt_title"></h2>
       <p class="sec-sub" data-i18n="filt_sub"></p>
     </div>
@@ -539,7 +530,6 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 <section id="faq">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-num" data-i18n="faq_num"></span>
       <h2 class="sec-title" data-i18n="faq_title"></h2>
     </div>
     <div class="faq-list">
@@ -569,7 +559,6 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 <section id="process">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-num" data-i18n="process_num"></span>
       <h2 class="sec-title" data-i18n="process_title"></h2>
     </div>
     <div class="timeline">
@@ -609,7 +598,6 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 <section id="contact">
   <div class="wrap">
     <div class="sec-head center reveal">
-            <span class="sec-num" data-i18n="contact_num"></span>
       <h2 class="sec-title" data-i18n="contact_title"></h2>
       <p class="sec-sub" data-i18n="contact_sub"></p>
     </div>
@@ -661,7 +649,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 
 <script>
 const T = {
-mmmmq4:{ar:"تخرج",he:"סיום לימודים",en:"Graduation"},mq5:{ar:"زفاف",he:"חתונה",en:"Wedding"},mq6:{ar:"حنة",he:"חינה",en:"Henna Night"},mq7:{ar:"مولود جديد",he:"תינוק חדש",en:"New Baby"},mq8:{ar:"عقيقة",he:"עקיקה",en:"Aqiqah"},hero_extra_t:{ar:"وبنصمم كمان:",he:"ומעצבים גם:",en:"We also design:"},hero_extra:{ar:"كرت دعوة رقمي + ورقي <span class='sep'>✦</span> فيديو دعوة رقمي <span class='sep'>✦</span> فلتر سناب شات",he:"כרטיס הזמנה דיגיטלי + מודפס <span class='sep'>✦</span> סרטון הזמנה דיגיטלי <span class='sep'>✦</span> פילטר סנאפצ'ט",en:"Digital + printed invitation cards <span class='sep'>✦</span> invitation videos <span class='sep'>✦</span> Snapchat filters"},filt_num:{ar:"٠٤ — فلاتر سناب شات",he:"05 — פילטרי סנאפצ'ט",en:"05 — Snapchat Filters"},filt_title:{ar:"فلتر سناب شات <span class='g'>خاص فيكم</span>",he:"פילטר סנאפצ'ט <span class='g'>רק שלכם</span>",en:"A Snapchat Filter <span class='g'>Made Just for You</span>"},filt_sub:{ar:"ضيوفكم بيستعملوه وقت الفرحة وبتتوثّق الذكرى بستايل واحد فخم — جرّبوا هون كيف بيحسّ.",he:"האורחים משתמשים בו ברגע השמחה והזיכרון מתועד בסגנון יוקרתי אחד — תנסו כאן איך זה מרגיש.",en:"Your guests use it at the celebration and the memory is captured in one luxurious style — try it right here."},filt_try:{ar:"جرّبوا الفلتر عالسناب",he:"נסו את הפילטר בסנאפצ'ט",en:"Try the Filter on Snapchat"},filt_hint:{ar:"بيفتح بسناب شات مباشرة — التجربة كاملة من الجوال",he:"נפתח בסנאפצ'ט ישירות — החוויה המלאה מהטלפון",en:"Opens Snapchat directly — full experience on mobile"},nav_home:{ar:"الرئيسية",he:"בית",en:"Home"},
+mmmmq4:{ar:"تخرج",he:"סיום לימודים",en:"Graduation"},mq5:{ar:"زفاف",he:"חתונה",en:"Wedding"},mq6:{ar:"حنة",he:"חינה",en:"Henna Night"},mq7:{ar:"مولود جديد",he:"תינוק חדש",en:"New Baby"},mq8:{ar:"عقيقة",he:"עקיקה",en:"Aqiqah"},hero_extra_t:{ar:"وبنصمم كمان:",he:"ומעצבים גם:",en:"We also design:"},hero_extra:{ar:"كرت دعوة رقمي + ورقي <span class='sep'>✦</span> فيديو دعوة رقمي <span class='sep'>✦</span> فلتر سناب شات",he:"כרטיס הזמנה דיגיטלי + מודפס <span class='sep'>✦</span> סרטון הזמנה דיגיטלי <span class='sep'>✦</span> פילטר סנאפצ'ט",en:"Digital + printed invitation cards <span class='sep'>✦</span> invitation videos <span class='sep'>✦</span> Snapchat filters"},filt_title:{ar:"فلتر سناب شات <span class='g'>خاص فيكم</span>",he:"פילטר סנאפצ'ט <span class='g'>רק שלכם</span>",en:"A Snapchat Filter <span class='g'>Made Just for You</span>"},filt_sub:{ar:"ضيوفكم بيستعملوه وقت الفرحة وبتتوثّق الذكرى بستايل واحد فخم — جرّبوا هون كيف بيحسّ.",he:"האורחים משתמשים בו ברגע השמחה והזיכרון מתועד בסגנון יוקרתי אחד — תנסו כאן איך זה מרגיש.",en:"Your guests use it at the celebration and the memory is captured in one luxurious style — try it right here."},filt_try:{ar:"جرّبوا الفلتر عالسناب",he:"נסו את הפילטר בסנאפצ'ט",en:"Try the Filter on Snapchat"},filt_hint:{ar:"بيفتح بسناب شات مباشرة — التجربة كاملة من الجوال",he:"נפתח בסנאפצ'ט ישירות — החוויה המלאה מהטלפון",en:"Opens Snapchat directly — full experience on mobile"},nav_home:{ar:"الرئيسية",he:"בית",en:"Home"},
 nav_features:{ar:"المزايا",he:"היתרונות",en:"Features"},
 nav_templates:{ar:"القوالب",he:"תבניות",en:"Templates"},
 
@@ -674,27 +662,27 @@ hero_tag:{ar:"دعوة بتفتحوها فيها عدّاد تنازلي، مو�
 cta_order:{ar:"اطلب دعوتك عالواتساب",he:"הזמינו בוואטסאפ",en:"Order via WhatsApp"},
 cta_see:{ar:"شوف العينة الحية",he:"לדוגמה החיה",en:"See the Live Demo"},
 scroll_hint:{ar:"نزّل تحت",he:"גללו למטה",en:"Scroll Down"},
-sec_features_num:{ar:"٠١ — المزايا",he:"01 — היתרונות",en:"01 — Features"},
+
 sec_features_title:{ar:"ليش الدعوة التفاعلية؟ <span class='g'>لأنها بتخلّي الكل ينبهر</span>",he:"למה הזמנה אינטראקטיבית? <span class='g'>כי היא שווה התפעלות</span>",en:"Why an interactive invitation? <span class='g'>Because it creates awe</span>"},
 sec_features_sub:{ar:"مش مجرد دعوة — تجربة كاملة بتحكي عن مناسبتكم قبل ما تبلش.",he:"לא סתם הזמנה — חוויה שלמה שמספרת על האירוע שלכם עוד לפני שהוא מתחיל.",en:"Not just an invitation — a full experience that tells your story before the event begins."},
-s1n:{ar:"٠١",he:"01",en:"01"},
+
 s1t:{ar:"عدّ تنازلي مباشر",he:"ספירה לאחור חיה",en:"Live Countdown"},
 s1d:{ar:"كل ثانية بتقرب ضيوفكم من ليلة العمر — العدّاد شغّال ٢٤ ساعة، والحماس بيزيد كل يوم.",he:"כל שנייה מקרבת את האורחים שלכם ללילה הגדול — הספירה עובדת 24 שעות, וההתרגשות גדלה כל יום.",en:"Every second brings your guests closer to the big night — the countdown runs 24/7, and excitement builds daily."},
 s1tag:{ar:"حماس من أول يوم",he:"התרגשות מהיום הראשון",en:"Excitement from day one"},
-s2n:{ar:"٠٢",he:"02",en:"02"},
+
 s2t:{ar:"تأكيد حضور بزرّ",he:"אישור הגעה בלחיצה",en:"One-Tap RSVP"},
 s2d:{ar:"الضيوف بيأكدوا حضورهم بضغطة وحدة — وأنتم بتشوفوا مين وافق لحظة بلحظة، بدون اتصالات ولا رسايل.",he:"האורחים מאשרים הגעה בלחיצה אחת — ואתם רואים מי אישר רגע אחר רגע, בלי שיחות ובלי הודעות.",en:"Guests confirm with one tap — and you see who accepted, moment by moment, no calls, no messages."},
 s2tag:{ar:"منظمة ١٠٠٪",he:"100% ארגון",en:"100% organized"},
-s3n:{ar:"٠٣",he:"03",en:"03"},
+
 s3t:{ar:"الموقع بلمسة",he:"מפה בלחיצה",en:"Location in One Tap"},
 s3d:{ar:"زر بيوصّل الضيف مباشرة عالقاعة عالخرائط — من غير ما يسأل حدا ومن غير ما يتوه.",he:"כפתור שמוביל את האורח ישירות לאולם במפות — בלי לשאול אף אחד ובלהתבלבל.",en:"A button that takes guests straight to the venue on maps — no asking anyone, no getting lost."},
 s3tag:{ar:"كل ضيف بيوصل",he:"כל אורח מגיע",en:"Every guest arrives"},
-s4n:{ar:"٠٤",he:"04",en:"04"},
+
 s4t:{ar:"موسيقى باختياركم",he:"מוסיקה לבחירתכם",en:"Music of Your Choice"},
 s4d:{ar:"الأغنية اللي بتحبوها هي اللي بتحيي الدعوة — <b>والزبون هو اللي بختارها.</b> لمسة شخصية من أول ثانية.",he:"השיר שאתם אוהבים הוא זה שמחיה את ההזמנה — <b>הלקוח הוא שבוחר אותו.</b> נגיעה אישית מהשנייה הראשונה.",en:"The song you love is what brings the invitation to life — <b>the client picks the song.</b> A personal touch from the very first second."},
 s4tag:{ar:"الأغنية أغنيتكم",he:"השיר שלכם",en:"Your song"},
-tpl_num:{ar:"٠٢ — القوالب",he:"02 — תבניות",en:"02 — Templates"},
-tpl_title:{ar:"الدعوة الحية <span class='g'>بين إيديكم</span>",he:"ההזמנה החיה <span class='g'>בידיים שלכם</span>",en:"The Live Invitation <span class='g'>in Your Hands</span>"},tpl_sub:{ar:"هاي دعوة مراد وسمر التجريبية — شغّالة قدامكم. افتحوها وجرّبوا كل شي: فيديو الدخول، العدّاد، تأكيد الحضور، والأغنية.",he:"זו הזמנת הדוגמה של מוראד וסמר — פועלת מולכם. פתחו אותה ותנסו הכול: סרטון הכניסה, הספירה לאחור, אישור ההגעה והשיר.",en:"This is Murad & Samar's demo invitation — running live in front of you. Open it and try everything: the entry video, countdown, RSVP and the song."},tpl_live:{ar:"معاينة حية",he:"תצוגה חיה",en:"Live Preview"},tpl_date:{ar:"الأحد · ١٥ · ١١ · ٢٠٢٦",he:"יום ראשון · 15.11.2026",en:"Sunday · 15.11.2026"},tpl_open:{ar:"افتحوا الدعوة كاملة",he:"פתחו את ההזמנה המלאה",en:"Open the Full Invitation"},tpl_hint:{ar:"بتفتح بتاب جديد — من الجوال التجربة أحلى",he:"נפתח בטאב חדש — מהטלפון החוויה מיטבית",en:"Opens in a new tab — best experienced on mobile"},
+
+tpl_title:{ar:"شوف الدعوات التفاعلية <span class='g'>الجاهزة</span>",he:"ההזמנה החיה <span class='g'>בידיים שלכם</span>",en:"The Live Invitation <span class='g'>in Your Hands</span>"},tpl_sub:{ar:"اضغطوا عالمعاينة لتشوفوا الدعوة الجاهزة كاملة — فيديو الدخول، العدّاد، تأكيد الحضور والأغنية.",he:"זו הזמנת הדוגמה של מוראד וסמר — פועלת מולכם. פתחו אותה ותנסו הכול: סרטון הכניסה, הספירה לאחור, אישור ההגעה והשיר.",en:"This is Murad & Samar's demo invitation — running live in front of you. Open it and try everything: the entry video, countdown, RSVP and the song."},tpl_live:{ar:"معاينة حية",he:"תצוגה חיה",en:"Live Preview"},tpl_date:{ar:"الأحد · ١٥ · ١١ · ٢٠٢٦",he:"יום ראשון · 15.11.2026",en:"Sunday · 15.11.2026"},tpl_open:{ar:"افتحوا الدعوة كاملة",he:"פתחו את ההזמנה המלאה",en:"Open the Full Invitation"},tpl_hint:{ar:"بتفتح بتاب جديد — من الجوال التجربة أحلى",he:"נפתח בטאב חדש — מהטלפון החוויה מיטבית",en:"Opens in a new tab — best experienced on mobile"},
 tpl_sub:{ar:"تختاروا القالب اللي بيعجب قلبكم، ومنعدّل عليه مع بعض لحتى يطلع بأسمائكم وتفاصيلكم.",he:"בוחרים את התבנית שהלב אוהב, ואנחנו משפרים אותה יחד עד שהיא יוצאת בשמות ובפרטים שלכם.",en:"Pick the template your heart loves, and we refine it together until it carries your names and details."},
 pv_kicker:{ar:"بكل حب ندعوكم",he:"באהבה נדמה אתכם",en:"With love, we invite you"},
 pv_badge:{ar:"قالب",he:"תבנית",en:"Template"},
@@ -728,7 +716,7 @@ tpl_note:{ar:"والأهم — منعدّل عليه وبنخصصه بأسمائ
 
 
 
-add_num:{ar:"٠٣ — لمسات فخمة",he:"04 — נגיעות יוקרה",en:"04 — Luxury Touches"},
+
 add_title:{ar:"إضافات <span class='g'>ما بتشوفوها ع كل موقع</span>",he:"תוספות <span class='g'>שלא רואים בכל אתר</span>",en:"Extras <span class='g'>You Won't Find Everywhere</span>"},
 add_sub:{ar:"تفاصيل صغيرة بتحوّل الدعوة من حلوة… لدرجة إنها بتصير حديث كل السوالف.",he:"פרטים קטנים שהופכים את ההזמנה מיפה… למשהו שכולם מדברים עליו.",en:"Small details that turn an invitation from pretty… into the talk of the town."},
 a1t:{ar:"خلفية فيديو متحركة",he:"רקע וידאו נע",en:"Animated Video Background"},
@@ -758,7 +746,7 @@ st4:{ar:"تصميم خاص",he:"עיצוב אישי",en:"Custom design"},
 
 
 
-faq_num:{ar:"٠٥ — أسئلة بنسمعها كتير",he:"06 — שאלות ששומעים הרבה",en:"06 — Frequently Asked"},
+
 faq_title:{ar:"عندكم سؤال؟ <span class='g'>غالباً جاوبنا عليه</span>",he:"יש שאלה? <span class='g'>כנראה כבר ענינו עליה</span>",en:"Have a question? <span class='g'>We've probably answered it</span>"},
 faq1q:{ar:"قديش بياخد وقت تجهيز الدعوة؟",he:"כמה זמן לוקחת הכנת ההזמנה?",en:"How long does it take to prepare?"},
 faq1a:{ar:"عادة بين ٢-٥ أيام حسب عدد التعديلات — ومنقلكم موعد التسليم النهائي قبل ما نبلش، حتى تكونوا مرتاحين.",he:"בדרך כלל 2-5 ימים בהתאם למספר השינויים — ואנחנו נותנים לכם מועד מסירה סופי לפני שמתחילים, כדי שתהיו רגועים.",en:"Usually 2–5 days depending on revisions — and we give you a final delivery date before we start, so you can relax."},
@@ -768,7 +756,7 @@ faq3q:{ar:"بقدر أطلب تعديلات على التصميم؟",he:"אפש�
 faq3a:{ar:"أكيد — التعديلات جزء أساسي من الشغل. منعدّل مع بعض لحتى توافقوا على كل تفصيلة ١٠٠٪.",he:"בטוח — השינויים הם חלק בלתי נפרד מהעבודה. אנחנו משפרים יחד עד שאתם מאשרים כל פרט ב-100%.",en:"Absolutely — revisions are an essential part of the work. We refine together until you approve every detail 100%."},
 faq4q:{ar:"كيف بتوصل الدعوة للضيوف؟",he:"איך ההזמנה מגיעה לאורחים?",en:"How does the invitation reach guests?"},
 faq4a:{ar:"برابط واحد بتبعتوا واتساب أو بتنشروه بأي مكان — بيفتح فوراً عالجوال، بدون تطبيقات وبدون تسجيل.",he:"בקישור אחד ששולחים בוואטסאפ או משתפים בכל מקום — נפתח מיד בטלפון, בלי אפליקציות ובלי הרשמה.",en:"One link you send via WhatsApp or share anywhere — it opens instantly on the phone, no apps, no sign-up."},
-process_num:{ar:"٠٦ — طريقتنا",he:"07 — השיטה שלנו",en:"07 — Our Process"},
+
 process_title:{ar:"كيف منشتغل <span class='g'>سوا؟</span>",he:"איך עובדים <span class='g'>יחד?</span>",en:"How do we work <span class='g'>together?</span>"},
 p1t:{ar:"نحكي ونخطط",he:"דיבור ותכנון",en:"Talk & Plan"},
 p1d:{ar:"بنتعرف على مناسبتكم: شو نوعها، إيش ألوانها، وشو التفاصيل اللي بتهمكم — منها منبلش.",he:"אנחנו מכירים את השמחה שלכם: סוגה, הצבעים שלה והפרטים שחשובים לכם — משם מתחילים.",en:"We get to know your occasion: type, colors, and the details that matter — that's where we start."},
@@ -781,7 +769,7 @@ p4d:{ar:"منسلّمكم الدعوة جاهزة بالرابط والموسي�
 cta_title:{ar:"يا هلا فيكم — <span class='g'>يلا نبلّش</span>",he:"יאללה, בואו — <span class='g'>נתחיל</span>",en:"Welcome, welcome — <span class='g'>let's begin</span>"},
 cta_sub:{ar:"احجزوا دعوتكم اليوم وخلّوها أول الحديث بالمناسبة — <b>على راسنا</b>، من أول رسالة لآخر تفصيلة.",he:"הזמינו את ההזמנה שלכם היום והפכו אותה לדיבור הראשון בשמחה — <b>על הראש שלנו</b>, מההודעה הראשונה ועד הפרט האחרון.",en:"Book your invitation today and make it the first topic of the celebration — <b>we've got you</b>, from the first message to the last detail."},
 cta_btn:{ar:"كلمنا عالواتساب",he:"דברו איתנו בוואטסאפ",en:"Message Us on WhatsApp"},
-contact_num:{ar:"٠٧ — تواصلوا معنا",he:"08 — צור קשר",en:"08 — Contact"},
+
 contact_title:{ar:"منرد على الكل — <span class='g'>هلا والله</span>",he:"אנחנו עונים לכולם — <span class='g'>יאללה</span>",en:"We answer everyone — <span class='g'>hello there!</span>"},
 contact_sub:{ar:"واتساب أو اتصال، انستغرام أو تيك توك — وين ما بدكم تلاقونا، موجودين. وبتلاقوا عندنا على الحسابات كل شي زيادة: كروت مطبوعة، فيديوهات، وفلاتر.",he:"וואטסאפ או טלפון, אינסטגרם או טיקטוק — איפה שתחפשו אותנו, אנחנו שם. ובחשבונות שלנו תמצאו גם את כל השאר: כרטיסים מודפסים, סרטונים ופילטרים.",en:"WhatsApp or a call, Instagram or TikTok — wherever you look, we're there. And on our accounts you'll find everything else: printed cards, videos and filters."},
 phone_lbl:{ar:"واتساب + اتصال",he:"וואטסאפ + טלפון",en:"WhatsApp + Call"},
