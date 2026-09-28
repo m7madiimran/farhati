@@ -239,6 +239,8 @@ section{padding:clamp(80px,10vw,140px) clamp(20px,6vw,80px);position:relative}
 .soc b{font-size:14.5px;display:block;color:var(--gold)}
 .soc small{font-size:12px;color:var(--ink-dim)}
 
+.soc-all{margin-top:12px;border-style:dashed}
+.soc-all:hover{border-style:solid}
 /* footer */
 footer{border-top:1px solid var(--line);padding:44px clamp(20px,6vw,80px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--bg-2)}
 footer p{color:var(--ink-dim);font-size:13.5px}
@@ -328,6 +330,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 .hero-tagline{font-family:var(--serif);font-weight:800;font-size:clamp(16px,2.6vw,23px);color:var(--gold);margin-top:16px;position:relative;z-index:2;animation:heroIn 1.4s .35s cubic-bezier(.22,1,.36,1) both}
 .cta-tagline{margin:18px auto 0;color:#F5E7C8;font-weight:800;font-size:clamp(15px,2vw,18px);letter-spacing:1px}
 .foot-tagline{font-family:var(--serif);font-weight:800;color:var(--gold);font-size:15px;margin-bottom:6px}
+.hero-tagline-en{margin-top:16px;font-size:clamp(13px,1.9vw,17px);font-weight:500;letter-spacing:3px;color:rgba(138,106,42,.75);position:relative;z-index:2;animation:heroIn 1.4s .45s cubic-bezier(.22,1,.36,1) both}
 /* mobile performance: kill heavy effects on phones */
 @media(max-width:768px){
   #petals{display:none}
@@ -402,7 +405,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 
     <span class="kicker" data-i18n="hero_kicker"></span>
   <h1 data-i18n="hero_title"></h1>
-  <p class="hero-tagline" data-i18n="tagline"></p>
+  <p class="hero-tagline-en" data-i18n="tagline_en"></p>
   <p class="hero-tag" data-i18n="hero_tag"></p>
   <p class="hero-extra"><b data-i18n="hero_extra_t"></b><span data-i18n="hero_extra"></span></p>
   <div class="hero-ctas">
@@ -638,6 +641,10 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
             <span><b>Facebook</b><small>@farhati.co</small></span>
           </a>
         </div>
+        <a class="soc soc-all" href="links.html">
+          <span class="soc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.1M14 10a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1.1"/></svg></span>
+          <span><b>كل الروابط في مكان واحد</b><small>farhati.co/links</small></span>
+        </a>
       </div>
     </div>
   </div>
@@ -656,7 +663,7 @@ footer .map-wrap{display:flex;align-items:center;gap:12px}
 
 <script>
 const T = {
-mmmmq4:{ar:"تخرج",he:"סיום לימודים",en:"Graduation"},mq5:{ar:"زفاف",he:"חתונה",en:"Wedding"},mq6:{ar:"حنة",he:"חינה",en:"Henna Night"},mq7:{ar:"مولود جديد",he:"תינוק חדש",en:"New Baby"},mq8:{ar:"عقيقة",he:"עקיקה",en:"Aqiqah"},hero_extra_t:{ar:"وبنصمم كمان:",he:"ומעצבים גם:",en:"We also design:"},hero_extra:{ar:"كرت دعوة رقمي + ورقي <span class='sep'>✦</span> فيديو دعوة رقمي <span class='sep'>✦</span> فلتر سناب شات",he:"כרטיס הזמנה דיגיטלי + מודפס <span class='sep'>✦</span> סרטון הזמנה דיגיטלי <span class='sep'>✦</span> פילטר סנאפצ'ט",en:"Digital + printed invitation cards <span class='sep'>✦</span> invitation videos <span class='sep'>✦</span> Snapchat filters"},filt_title:{ar:"فلتر سناب شات <span class='g'>خاص فيكم</span>",he:"פילטר סנאפצ'ט <span class='g'>רק שלכם</span>",en:"A Snapchat Filter <span class='g'>Made Just for You</span>"},filt_sub:{ar:"ضيوفكم بيستعملوه وقت الفرحة وبتتوثّق الذكرى بستايل واحد فخم — جرّبوا هون كيف بيحسّ.",he:"האורחים משתמשים בו ברגע השמחה והזיכרון מתועד בסגנון יוקרתי אחד — תנסו כאן איך זה מרגיש.",en:"Your guests use it at the celebration and the memory is captured in one luxurious style — try it right here."},filt_try:{ar:"جرّبوا الفلتر عالسناب",he:"נסו את הפילטר בסנאפצ'ט",en:"Try the Filter on Snapchat"},filt_hint:{ar:"بيفتح بسناب شات مباشرة — التجربة كاملة من الجوال",he:"נפתח בסנאפצ'ט ישירות — החוויה המלאה מהטלפון",en:"Opens Snapchat directly — full experience on mobile"},tagline:{ar:"لحظاتك. قصتك. فرحتي."},nav_home:{ar:"الرئيسية",he:"בית",en:"Home"},
+mmmmq4:{ar:"تخرج",he:"סיום לימודים",en:"Graduation"},mq5:{ar:"زفاف",he:"חתונה",en:"Wedding"},mq6:{ar:"حنة",he:"חינה",en:"Henna Night"},mq7:{ar:"مولود جديد",he:"תינוק חדש",en:"New Baby"},mq8:{ar:"عقيقة",he:"עקיקה",en:"Aqiqah"},hero_extra_t:{ar:"وبنصمم كمان:",he:"ומעצבים גם:",en:"We also design:"},hero_extra:{ar:"كرت دعوة رقمي + ورقي <span class='sep'>✦</span> فيديو دعوة رقمي <span class='sep'>✦</span> فلتر سناب شات",he:"כרטיס הזמנה דיגיטלי + מודפס <span class='sep'>✦</span> סרטון הזמנה דיגיטלי <span class='sep'>✦</span> פילטר סנאפצ'ט",en:"Digital + printed invitation cards <span class='sep'>✦</span> invitation videos <span class='sep'>✦</span> Snapchat filters"},filt_title:{ar:"فلتر سناب شات <span class='g'>خاص فيكم</span>",he:"פילטר סנאפצ'ט <span class='g'>רק שלכם</span>",en:"A Snapchat Filter <span class='g'>Made Just for You</span>"},filt_sub:{ar:"ضيوفكم بيستعملوه وقت الفرحة وبتتوثّق الذكرى بستايل واحد فخم — جرّبوا هون كيف بيحسّ.",he:"האורחים משתמשים בו ברגע השמחה והזיכרון מתועד בסגנון יוקרתי אחד — תנסו כאן איך זה מרגיש.",en:"Your guests use it at the celebration and the memory is captured in one luxurious style — try it right here."},filt_try:{ar:"جرّبوا الفلتر عالسناب",he:"נסו את הפילטר בסנאפצ'ט",en:"Try the Filter on Snapchat"},filt_hint:{ar:"بيفتح بسناب شات مباشرة — التجربة كاملة من الجوال",he:"נפתח בסנאפצ'ט ישירות — החוויה המלאה מהטלפון",en:"Opens Snapchat directly — full experience on mobile"},tagline:{ar:"لحظاتك. قصتك. فرحتي."},tagline_en:{ar:"Your moments. Your story. Your Farhati."},nav_home:{ar:"الرئيسية",he:"בית",en:"Home"},
 nav_features:{ar:"المزايا",he:"היתרונות",en:"Features"},
 nav_templates:{ar:"القوالب",he:"תבניות",en:"Templates"},
 
