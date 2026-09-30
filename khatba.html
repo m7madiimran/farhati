@@ -2,11 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-store">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>دعوة زفاف | فرحتي</title>
 <meta name="description" content="نتشرف بدعوتكم لحضور حفل زفافنا">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -41,8 +43,8 @@ a{text-decoration:none;color:inherit}
 }
 .hero-inner{position:relative;z-index:2}
 .frame{
-  position:relative;display:inline-block;padding:44px 40px;background:rgba(255,255,255,.85);
-  backdrop-filter:blur(8px);border-radius:6px;box-shadow:0 30px 80px rgba(109,31,56,.15);
+  position:relative;display:inline-block;padding:44px 40px;background:rgba(255,255,255,.97);
+  border-radius:6px;box-shadow:0 20px 50px rgba(109,31,56,.15);
   max-width:560px;
 }
 .frame::before{
@@ -226,10 +228,37 @@ footer a{color:#fff;font-weight:700}
 @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(192,178,131,.45)}50%{box-shadow:0 0 0 16px rgba(192,178,131,0)}}
 
 
+.theme-rose .bg-deco::before{background:radial-gradient(circle,#f9e2e8 0%,transparent 70%)}
+.theme-rose .bg-deco::after{background:radial-gradient(circle,#fdeef2 0%,transparent 70%)}
+.theme-rose .names,.theme-rose .env-names,.theme-rose .tl-title,.theme-rose .verse{font-family:'Reem Kufi',sans-serif!important}
+.theme-rose .welcome-card,.theme-rose .details-card{border-radius:30px;background:linear-gradient(160deg,#fff,#fdf2f5);box-shadow:0 18px 45px rgba(160,74,94,.12)}
+.theme-rose .cd-box{border:1px solid #f2d3db;background:linear-gradient(160deg,#fff,#fdf4f6)}
+.theme-rose .date-line{background:linear-gradient(135deg,#fdeef2,#f9e0e8)}
+.theme-rose .btn-yes{background:linear-gradient(135deg,#c05a72,#a04a5e);box-shadow:0 12px 28px rgba(160,74,94,.35)}
+.theme-rose .p1{background:linear-gradient(150deg,#d49aa4,#a04a5e)}
+.theme-rose .p2{background:linear-gradient(150deg,#eac3cb,#c08793)}
+.theme-rose .p3{background:linear-gradient(150deg,#c9a0aa,#8e5a68)}
+.theme-rose .map-wrap{box-shadow:0 20px 50px rgba(160,74,94,.14)}
+
+
 .photo{background-size:cover;background-position:center 20%;position:relative}
 .photo .ph-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.55))}
 .photo h3,.photo p{position:relative;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
 .photo .ph-ico{display:none}
+
+
+.moment-card{max-width:560px;margin:0 auto;background:linear-gradient(160deg,#fff,#fdf0f4);border:1px solid #f0cdd7;border-radius:30px;padding:44px 26px;box-shadow:0 20px 50px rgba(160,74,94,.14)}
+.ring-ico{font-size:52px}
+@keyframes ringPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.moment-card h2{font-family:'Reem Kufi',sans-serif;color:#A04A5E;font-size:30px;margin:12px 0 10px}
+.moment-card p{color:var(--muted);font-size:16.5px;line-height:2}
+.moment-card b{color:#A04A5E}
+
+
+.music-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:var(--wine);border:2px solid var(--gold);font-size:22px;z-index:150;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:.3s}
+.music-btn:hover{transform:scale(1.12)}
+.music-btn.playing{animation:musicPulse 1.6s infinite}
+@keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.5)}50%{box-shadow:0 0 0 12px rgba(201,162,75,0)}}
 
 
 
@@ -238,7 +267,7 @@ footer a{color:#fff;font-weight:700}
 
 
 html{overflow-x:hidden}
-body{overflow-x:clip}
+body{overflow-x:hidden}
 .hero{overflow:hidden}
 
 
@@ -248,10 +277,6 @@ body{overflow-x:clip}
 .rsvp-form input{width:100%;background:#fff;border:1.5px solid var(--gold-light);border-radius:12px;padding:11px 14px;font-family:inherit;font-size:15px;outline:none;text-align:center;color:var(--ink)}
 .rsvp-form input:focus{border-color:var(--gold)}
 
-.music-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:var(--wine);border:2px solid var(--gold);font-size:22px;z-index:150;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:.3s}
-.music-btn:hover{transform:scale(1.12)}
-.music-btn.playing{animation:musicPulse 1.6s infinite}
-@keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.5)}50%{box-shadow:0 0 0 12px rgba(201,162,75,0)}}
 
 .txt-logo{display:flex;flex-direction:column;align-items:center;line-height:1.3}
 .tl-ar{font-family:'Aref Ruqaa',serif;font-size:27px;background:linear-gradient(135deg,#8e2f47,#6d1f38 45%,#a0525f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 2px rgba(109,31,56,.2))}
@@ -268,16 +293,13 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 </head>
 <body>
 
-<div id="introScreen" class="envelope-bg">
-  <div class="env">
-    <div class="env-flap"></div>
-    <div class="env-card">
-      <div class="env-names intro-names"></div>
-      <div class="env-sub" id="envSub"></div>
-    </div>
-    <div class="env-body"></div>
+<div id="introScreen" class="seal-mode">
+  <div class="seal-letter">
+    <div class="seal-label">دعوة حفل خطبة</div>
+    <div class="intro-names seal-names"></div>
+    <button class="wax-seal" type="button">💌<br>اكسري<br>الختم</button>
   </div>
-  <p class="env-hint">👆 اضغط لفتح الدعوة</p>
+  <p class="intro-hint">👆 اضغطي على الختم يفتح الدعوة</p>
 </div>
 <a href="index.html" class="home-btn">🏠 الرئيسية</a>
 <div class="bg-deco"></div>
@@ -289,7 +311,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
     <div class="frame">
       <p class="bism">بسم الله الرحمن الرحيم</p>
       <h1 class="names" id="heroNames"></h1>
-      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl"></span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
+      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl">حفل خطبة</span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
       <div class="date-line">
         <span id="dayName"></span><span class="d"></span><span id="dateStr"></span><span class="d"></span><span id="timeStr"></span>
       </div>
@@ -301,7 +323,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 
 <section id="verseSec">
   <div class="container" style="text-align:center">
-    <div class="divider">❦</div>
+    <div class="divider">❀</div>
     <p class="verse">﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً﴾</p>
     <p class="verse-src">— سورة الروم · الآية ٢١ —</p>
   </div>
@@ -310,9 +332,21 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 
 <section id="welcomeSec">
   <div class="container" style="text-align:center">
-    <div class="divider">❦</div>
+    <div class="divider">❀</div>
     <h2 style="font-size:clamp(28px,4vw,36px);color:var(--wine-dark)">يسعدنا حضوركم</h2>
-    <div class="welcome-card"><p class="welcome-msg" id="welcomeMsg"></p></div>
+    <div class="welcome-card"><p class="welcome-msg" id="welcomeMsg">بحضوركم تكتمل فرحتنا.. ندعوكم لمشاركتنا لحظة العمر في حفل خطبتنا</p></div>
+  </div>
+</section>
+
+
+
+<section style="padding-top:0">
+  <div class="container" style="text-align:center">
+    <div class="moment-card">
+      <div class="ring-ico">💍</div>
+      <h2>اللحظة المنتظرة</h2>
+      <p>رح نعلن خطبتنا رسمياً <b>الساعة 7:30 مساءً</b><br>كونوا بالموعد — فرحتنا بيكملها وجودكم</p>
+    </div>
   </div>
 </section>
 
@@ -320,7 +354,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">❀</div>
       <h2>متبقّي على الليلة المنتظرة</h2>
     </div>
     <div class="countdown" id="countdown">
@@ -337,13 +371,13 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">❀</div>
       <h2>عروسان تكتمل بهما الفرحة</h2>
     </div>
     <div class="photos">
-      <div class="photo" style="background-image:url('w-z1.jpg')"><div class="ph-shade"></div><h3 id="groomName"></h3><p>العريس</p></div>
-      <div class="photo" style="background-image:url('w-z2.jpg')"><div class="ph-shade"></div><h3>والد العريس والعروسة</h3><p>يحيونكم</p></div>
-      <div class="photo" style="background-image:url('w-z3.jpg')"><div class="ph-shade"></div><h3 id="brideName"></h3><p>العروسة</p></div>
+      <div class="photo" style="background-image:url('w-k1.jpg')"><div class="ph-shade"></div><h3 id="groomName"></h3><p>العريس</p></div>
+      <div class="photo" style="background-image:url('w-k2.jpg')"><div class="ph-shade"></div><h3>والد العريس والعروسة</h3><p>يحيونكم</p></div>
+      <div class="photo" style="background-image:url('w-k3.jpg')"><div class="ph-shade"></div><h3 id="brideName"></h3><p>العروسة</p></div>
     </div>
   </div>
 </section>
@@ -352,7 +386,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">❀</div>
       <h2>تفاصيل الحفل</h2>
     </div>
     <div class="details-card">
@@ -367,9 +401,15 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 
 <section id="scheduleSec">
   <div class="container" style="text-align:center">
-    <div class="divider">❦</div>
+    <div class="divider">❀</div>
     <h2 style="font-size:clamp(28px,4vw,36px);color:var(--wine-dark)">برنامج اليوم</h2>
-    <div class="timeline" id="timeline"></div>
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">17:30</div><div class="tl-title">استقبال الضيوف</div><div class="tl-desc">قهوة وضيافة</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">18:30</div><div class="tl-title">سهرة الدبكة</div><div class="tl-desc">فرح وطبل</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">19:30</div><div class="tl-title">إعلان الخطبة</div><div class="tl-desc">اللحظة المنتظرة 💍</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">21:00</div><div class="tl-title">العشاء</div><div class="tl-desc">مائدة فاخرة</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">22:30</div><div class="tl-title">نختم اليوم</div><div class="tl-desc">مباركة وسلام</div></div>
+    </div>
   </div>
 </section>
 
@@ -377,7 +417,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">❀</div>
       <h2>موقع الحفل</h2>
     </div>
     <div class="map-wrap">
@@ -397,7 +437,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">❀</div>
       <h2>تأكيد الحضور</h2>
       <p style="color:var(--muted)">أكّدوا حضوركم عشان نجهزلكم أحلى استقبال</p>
     </div>
@@ -441,32 +481,35 @@ mBtn.addEventListener('click',()=>{
     bgM.pause();mBtn.textContent='🔇';mBtn.classList.remove('playing');
   }
 });
-</script>
-<script>
+
+
+
+setInterval(()=>{const s=document.createElement('span');s.textContent='💗';s.style.cssText='position:fixed;bottom:-30px;right:'+(Math.random()*100)+'%;font-size:'+(14+Math.random()*16)+'px;opacity:.35;z-index:1;pointer-events:none;transition:transform 9s linear,opacity 9s';document.body.appendChild(s);requestAnimationFrame(()=>{s.style.transform='translateY(-108vh)';s.style.opacity='0'});setTimeout(()=>s.remove(),9300)},2000);
+
 const CONFIG = {
-  theme: "royal",
-  eventType: "حفل زفاف",
+  theme: "rose",
+  eventType: "حفل خطبة",
   groomName: "أحمد",
-  brideName: "وفاء",
-  familyLine: "عائلتا العريس والعروسة",
-  eventDate: "2026-11-20T19:00:00",
-  venueName: "قاعة القصر الأبيض",
-  venueAddress: "العيزرية - القدس",
+  brideName: "ريما",
+  familyLine: "عائلة أبو الهوى وأبو لبن",
+  eventDate: "2026-10-10T18:00:00",
+  venueName: "قاعة فينيسيا",
+  venueAddress: "بيت ساحور",
   whatsapp: "972528365030",
   farhatiPhone: "972528365030",
-  mapEmbedUrl: "https://maps.google.com/maps?q=%D9%82%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%A3%D8%A8%D9%8A%D8%B6%20%D8%A7%D9%84%D8%B9%D9%8A%D8%B2%D8%B1%D9%8A%D8%A9%20-%20%D8%A7%D9%84%D9%82%D8%AF%D8%B3&output=embed",
-  mapLink: "https://www.google.com/maps/search/?api=1&query=%D9%82%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%A3%D8%A8%D9%8A%D8%B6%20%D8%A7%D9%84%D8%B9%D9%8A%D8%B2%D8%B1%D9%8A%D8%A9%20-%20%D8%A7%D9%84%D9%82%D8%AF%D8%B3",
+  mapEmbedUrl: "https://maps.google.com/maps?q=%D9%82%D8%A7%D8%B9%D8%A9%20%D9%81%D9%8A%D9%86%D9%8A%D8%B3%D9%8A%D8%A7%20%D8%A8%D9%8A%D8%AA%20%D8%B3%D8%A7%D8%AD%D9%88%D8%B1&output=embed",
+  mapLink: "https://www.google.com/maps/search/?api=1&query=%D9%82%D8%A7%D8%B9%D8%A9%20%D9%81%D9%8A%D9%86%D9%8A%D8%B3%D9%8A%D8%A7%20%D8%A8%D9%8A%D8%AA%20%D8%B3%D8%A7%D8%AD%D9%88%D8%B1",
   quranVerse: true,
-  welcomeMsg: "يسعدنا ويشرفنا حضوركم ومشاركتكم أجمل لحظات فرحتنا.. ننتظركم لنحتفل معاً ونصنع ذكريات لا تُنسى",
+  welcomeMsg: "بحضوركم تكتمل فرحتنا.. ندعوكم لمشاركتنا لحظة العمر في حفل خطبتنا",
   schedule: [
-    { time: "16:00", title: "استقبال الضيوف", desc: "أهلاً وسهلاً" },
-    { time: "17:00", title: "طلعة العروس", desc: "بوش العروس ✨" },
-    { time: "18:00", title: "الزفة", desc: "زغاريد ودبكة" },
-    { time: "19:00", title: "الزفاف", desc: "دخول العرسان وبدء الفرح" },
-    { time: "22:00", title: "نختم اليوم", desc: "مع السلامة 👋" }
+    { time: "17:30", title: "استقبال الضيوف", desc: "قهوة وضيافة" },
+    { time: "18:30", title: "سهرة الدبكة", desc: "فرح وطبل" },
+    { time: "19:30", title: "إعلان الخطبة", desc: "اللحظة المنتظرة 💍" },
+    { time: "21:00", title: "العشاء", desc: "مائدة فاخرة" },
+    { time: "22:30", title: "نختم اليوم", desc: "مباركة وسلام" }
   ],
   envelope: true,
-  song: "song-zafaf1.mp3"
+  song: "song-khatba.mp3"
 };
 applySong();
 
@@ -558,7 +601,7 @@ function rsvp(attending){
 
 
 const hb=document.getElementById('hearts');
-for(let i=0;i<6;i++){
+for(let i=0;i<3;i++){
   const h=document.createElement('span');
   h.textContent='❤';
   h.style.right=Math.random()*100+'%';

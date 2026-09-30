@@ -2,14 +2,16 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-store">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>دعوة زفاف | فرحتي</title>
 <meta name="description" content="نتشرف بدعوتكم لحضور حفل زفافنا">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
@@ -41,8 +43,8 @@ a{text-decoration:none;color:inherit}
 }
 .hero-inner{position:relative;z-index:2}
 .frame{
-  position:relative;display:inline-block;padding:44px 40px;background:rgba(255,255,255,.85);
-  backdrop-filter:blur(8px);border-radius:6px;box-shadow:0 30px 80px rgba(109,31,56,.15);
+  position:relative;display:inline-block;padding:44px 40px;background:rgba(255,255,255,.97);
+  border-radius:6px;box-shadow:0 20px 50px rgba(109,31,56,.15);
   max-width:560px;
 }
 .frame::before{
@@ -226,10 +228,37 @@ footer a{color:#fff;font-weight:700}
 @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(192,178,131,.45)}50%{box-shadow:0 0 0 16px rgba(192,178,131,0)}}
 
 
+.theme-henna .bg-deco::before{background:radial-gradient(circle,#f0e4fb 0%,transparent 70%)}
+.theme-henna .bg-deco::after{background:radial-gradient(circle,#faeed6 0%,transparent 70%)}
+.theme-henna .names,.theme-henna .env-names,.theme-henna .tl-title,.theme-henna .verse{font-family:'Aref Ruqaa',serif!important}
+.theme-henna .welcome-card,.theme-henna .details-card{border:2px solid rgba(217,166,46,.4);border-radius:26px;background:linear-gradient(160deg,#fff,#fdf7ea);box-shadow:0 18px 45px rgba(91,46,131,.12)}
+.theme-henna .btn-yes{background:linear-gradient(135deg,#D9A62E,#b07c1c);color:#3a2a10;box-shadow:0 12px 28px rgba(217,166,46,.35)}
+.theme-henna .p1{background:linear-gradient(150deg,#8a5bc0,#5B2E83)}
+.theme-henna .p2{background:linear-gradient(150deg,#D9A62E,#a87b1d)}
+.theme-henna .p3{background:linear-gradient(150deg,#9A7BC0,#6d4a9e)}
+.theme-henna .date-line{background:linear-gradient(135deg,#f7ead0,#f0dcba)}
+.theme-henna .tl-dot{box-shadow:0 0 0 3px var(--gold),0 0 16px rgba(217,166,46,.6)}
+.theme-henna .map-wrap{border:2px solid rgba(217,166,46,.45)}
+.theme-henna .cd-box{box-shadow:0 12px 30px rgba(91,46,131,.12)}
+
+
 .photo{background-size:cover;background-position:center 20%;position:relative}
 .photo .ph-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.55))}
 .photo h3,.photo p{position:relative;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.6)}
 .photo .ph-ico{display:none}
+
+
+.henna-party{max-width:560px;margin:0 auto;background:linear-gradient(160deg,#fdf6ea,#f7ead0);border:2px dashed #D9A62E;border-radius:30px;padding:44px 26px}
+.henna-party h2{font-family:'Aref Ruqaa',serif;color:#8a5a10;font-size:32px;margin:12px 0 10px}
+.henna-party p{color:#7a6a4a;font-size:16.5px;line-height:2}
+.drum-btn{margin-top:20px;background:linear-gradient(135deg,#D9A62E,#b07c1c);color:#3a2a10;font-family:inherit;font-weight:800;font-size:17px;padding:13px 36px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 10px 24px rgba(217,166,46,.35);transition:.3s}
+.drum-btn:hover{transform:translateY(-3px) scale(1.04)}
+
+
+.music-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:var(--wine);border:2px solid var(--gold);font-size:22px;z-index:150;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:.3s}
+.music-btn:hover{transform:scale(1.12)}
+.music-btn.playing{animation:musicPulse 1.6s infinite}
+@keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.5)}50%{box-shadow:0 0 0 12px rgba(201,162,75,0)}}
 
 
 
@@ -238,7 +267,7 @@ footer a{color:#fff;font-weight:700}
 
 
 html{overflow-x:hidden}
-body{overflow-x:clip}
+body{overflow-x:hidden}
 .hero{overflow:hidden}
 
 
@@ -248,10 +277,6 @@ body{overflow-x:clip}
 .rsvp-form input{width:100%;background:#fff;border:1.5px solid var(--gold-light);border-radius:12px;padding:11px 14px;font-family:inherit;font-size:15px;outline:none;text-align:center;color:var(--ink)}
 .rsvp-form input:focus{border-color:var(--gold)}
 
-.music-btn{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:var(--wine);border:2px solid var(--gold);font-size:22px;z-index:150;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:.3s}
-.music-btn:hover{transform:scale(1.12)}
-.music-btn.playing{animation:musicPulse 1.6s infinite}
-@keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,75,.5)}50%{box-shadow:0 0 0 12px rgba(201,162,75,0)}}
 
 .txt-logo{display:flex;flex-direction:column;align-items:center;line-height:1.3}
 .tl-ar{font-family:'Aref Ruqaa',serif;font-size:27px;background:linear-gradient(135deg,#8e2f47,#6d1f38 45%,#a0525f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 2px rgba(109,31,56,.2))}
@@ -268,16 +293,10 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 </head>
 <body>
 
-<div id="introScreen" class="envelope-bg">
-  <div class="env">
-    <div class="env-flap"></div>
-    <div class="env-card">
-      <div class="env-names intro-names"></div>
-      <div class="env-sub" id="envSub"></div>
-    </div>
-    <div class="env-body"></div>
-  </div>
-  <p class="env-hint">👆 اضغط لفتح الدعوة</p>
+<div id="introScreen" class="curtain-mode">
+  <div class="curtain c-left"></div>
+  <div class="curtain c-right"></div>
+  <p class="curtain-hint">🎭 اضغط لفتح الستارة</p>
 </div>
 <a href="index.html" class="home-btn">🏠 الرئيسية</a>
 <div class="bg-deco"></div>
@@ -289,7 +308,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
     <div class="frame">
       <p class="bism">بسم الله الرحمن الرحيم</p>
       <h1 class="names" id="heroNames"></h1>
-      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl"></span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
+      <p class="invite-text">يتشرف <span id="familyNames"></span> بدعوتكم لحضور <span id="eventTypeLbl">حنة</span> <span id="coupleShort"></span><br>وفرحتنا ما بتكتمل إلا بوجودكم</p>
       <div class="date-line">
         <span id="dayName"></span><span class="d"></span><span id="dateStr"></span><span class="d"></span><span id="timeStr"></span>
       </div>
@@ -301,7 +320,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 
 <section id="verseSec">
   <div class="container" style="text-align:center">
-    <div class="divider">❦</div>
+    <div class="divider">✿</div>
     <p class="verse">﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً﴾</p>
     <p class="verse-src">— سورة الروم · الآية ٢١ —</p>
   </div>
@@ -310,9 +329,22 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 
 <section id="welcomeSec">
   <div class="container" style="text-align:center">
-    <div class="divider">❦</div>
+    <div class="divider">✿</div>
     <h2 style="font-size:clamp(28px,4vw,36px);color:var(--wine-dark)">يسعدنا حضوركم</h2>
-    <div class="welcome-card"><p class="welcome-msg" id="welcomeMsg"></p></div>
+    <div class="welcome-card"><p class="welcome-msg" id="welcomeMsg">ليلة الحنة ليلة الفرح والألوان.. يسعدنا حضوركم بين أهلنا وأحبابنا</p></div>
+  </div>
+</section>
+
+
+
+<section style="padding-top:0">
+  <div class="container" style="text-align:center">
+    <div class="henna-party">
+      <div style="font-size:52px">🥁</div>
+      <h2>سهرة الحنة</h2>
+      <p>أهازيج وطبول ودبكة حتى الفجر..<br>ليلة الزينة ما بتتعوّض!</p>
+      <button id="drumBtn" class="drum-btn" type="button">دقّ الطبلة 🎉</button>
+    </div>
   </div>
 </section>
 
@@ -320,7 +352,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">✿</div>
       <h2>متبقّي على الليلة المنتظرة</h2>
     </div>
     <div class="countdown" id="countdown">
@@ -337,13 +369,13 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">✿</div>
       <h2>عروسان تكتمل بهما الفرحة</h2>
     </div>
     <div class="photos">
-      <div class="photo" style="background-image:url('w-z1.jpg')"><div class="ph-shade"></div><h3 id="groomName"></h3><p>العريس</p></div>
-      <div class="photo" style="background-image:url('w-z2.jpg')"><div class="ph-shade"></div><h3>والد العريس والعروسة</h3><p>يحيونكم</p></div>
-      <div class="photo" style="background-image:url('w-z3.jpg')"><div class="ph-shade"></div><h3 id="brideName"></h3><p>العروسة</p></div>
+      <div class="photo" style="background-image:url('w-h1.jpg')"><div class="ph-shade"></div><h3 id="groomName"></h3><p>العريس</p></div>
+      <div class="photo" style="background-image:url('w-h2.jpg')"><div class="ph-shade"></div><h3>والد العريس والعروسة</h3><p>يحيونكم</p></div>
+      <div class="photo" style="background-image:url('w-h3.jpg')"><div class="ph-shade"></div><h3 id="brideName"></h3><p>العروسة</p></div>
     </div>
   </div>
 </section>
@@ -352,7 +384,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">✿</div>
       <h2>تفاصيل الحفل</h2>
     </div>
     <div class="details-card">
@@ -367,9 +399,15 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 
 <section id="scheduleSec">
   <div class="container" style="text-align:center">
-    <div class="divider">❦</div>
+    <div class="divider">✿</div>
     <h2 style="font-size:clamp(28px,4vw,36px);color:var(--wine-dark)">برنامج اليوم</h2>
-    <div class="timeline" id="timeline"></div>
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">17:00</div><div class="tl-title">استقبال الضيوف</div><div class="tl-desc">أهلاً وسهلاً</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">18:00</div><div class="tl-title">الحنة</div><div class="tl-desc">زينة وأهازيج</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">19:30</div><div class="tl-title">الطبلة والدبكة</div><div class="tl-desc">ليلة الحنة</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">21:00</div><div class="tl-title">العشاء</div><div class="tl-desc">موائد فاخرة</div></div>
+      <div class="tl-item"><span class="tl-dot"></span><div class="tl-time">22:30</div><div class="tl-title">نختم اليوم</div><div class="tl-desc">مع الفرح 🌙</div></div>
+    </div>
   </div>
 </section>
 
@@ -377,7 +415,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">✿</div>
       <h2>موقع الحفل</h2>
     </div>
     <div class="map-wrap">
@@ -397,7 +435,7 @@ footer .tl-tag,.footer .tl-tag{font-size:11px;letter-spacing:3.5px;margin-top:2p
 <section>
   <div class="container">
     <div class="sec-head">
-      <div class="divider">❦</div>
+      <div class="divider">✿</div>
       <h2>تأكيد الحضور</h2>
       <p style="color:var(--muted)">أكّدوا حضوركم عشان نجهزلكم أحلى استقبال</p>
     </div>
@@ -441,32 +479,48 @@ mBtn.addEventListener('click',()=>{
     bgM.pause();mBtn.textContent='🔇';mBtn.classList.remove('playing');
   }
 });
-</script>
-<script>
+
+
+
+document.getElementById('drumBtn').addEventListener('click',()=>{
+  const colors=['#D9A62E','#5B2E83','#9A7BC0','#F0DCA8','#c05a72'];
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div');
+    p.style.cssText='position:fixed;z-index:500;left:50%;top:62%;width:9px;height:9px;border-radius:2px;pointer-events:none;background:'+colors[i%5]+';transition:all 1.15s cubic-bezier(.2,.8,.3,1);transform:rotate('+Math.random()*360+'deg)';
+    document.body.appendChild(p);
+    requestAnimationFrame(()=>{
+      const a=Math.random()*Math.PI*2,d=100+Math.random()*170;
+      p.style.transform='translate('+Math.cos(a)*d+'px,'+Math.sin(a)*d+'px) rotate('+Math.random()*720+'deg)';
+      p.style.opacity='0';
+    });
+    setTimeout(()=>p.remove(),1250);
+  }
+});
+
 const CONFIG = {
-  theme: "royal",
-  eventType: "حفل زفاف",
-  groomName: "أحمد",
-  brideName: "وفاء",
-  familyLine: "عائلتا العريس والعروسة",
-  eventDate: "2026-11-20T19:00:00",
-  venueName: "قاعة القصر الأبيض",
-  venueAddress: "العيزرية - القدس",
+  theme: "henna",
+  eventType: "حنة",
+  groomName: "نور",
+  brideName: "ملك",
+  familyLine: "عائلة عشاير",
+  eventDate: "2026-10-24T17:00:00",
+  venueName: "قاعة قصر الزيتونة",
+  venueAddress: "الطور",
   whatsapp: "972528365030",
   farhatiPhone: "972528365030",
-  mapEmbedUrl: "https://maps.google.com/maps?q=%D9%82%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%A3%D8%A8%D9%8A%D8%B6%20%D8%A7%D9%84%D8%B9%D9%8A%D8%B2%D8%B1%D9%8A%D8%A9%20-%20%D8%A7%D9%84%D9%82%D8%AF%D8%B3&output=embed",
-  mapLink: "https://www.google.com/maps/search/?api=1&query=%D9%82%D8%A7%D8%B9%D8%A9%20%D8%A7%D9%84%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%A3%D8%A8%D9%8A%D8%B6%20%D8%A7%D9%84%D8%B9%D9%8A%D8%B2%D8%B1%D9%8A%D8%A9%20-%20%D8%A7%D9%84%D9%82%D8%AF%D8%B3",
+  mapEmbedUrl: "https://maps.google.com/maps?q=%D9%82%D8%A7%D8%B9%D8%A9%20%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%B2%D9%8A%D8%AA%D9%88%D9%86%D8%A9%20%D8%A7%D9%84%D8%B7%D9%88%D8%B1&output=embed",
+  mapLink: "https://www.google.com/maps/search/?api=1&query=%D9%82%D8%A7%D8%B9%D8%A9%20%D9%82%D8%B5%D8%B1%20%D8%A7%D9%84%D8%B2%D9%8A%D8%AA%D9%88%D9%86%D8%A9%20%D8%A7%D9%84%D8%B7%D9%88%D8%B1",
   quranVerse: true,
-  welcomeMsg: "يسعدنا ويشرفنا حضوركم ومشاركتكم أجمل لحظات فرحتنا.. ننتظركم لنحتفل معاً ونصنع ذكريات لا تُنسى",
+  welcomeMsg: "ليلة الحنة ليلة الفرح والألوان.. يسعدنا حضوركم بين أهلنا وأحبابنا",
   schedule: [
-    { time: "16:00", title: "استقبال الضيوف", desc: "أهلاً وسهلاً" },
-    { time: "17:00", title: "طلعة العروس", desc: "بوش العروس ✨" },
-    { time: "18:00", title: "الزفة", desc: "زغاريد ودبكة" },
-    { time: "19:00", title: "الزفاف", desc: "دخول العرسان وبدء الفرح" },
-    { time: "22:00", title: "نختم اليوم", desc: "مع السلامة 👋" }
+    { time: "17:00", title: "استقبال الضيوف", desc: "أهلاً وسهلاً" },
+    { time: "18:00", title: "الحنة", desc: "زينة وأهازيج" },
+    { time: "19:30", title: "الطبلة والدبكة", desc: "ليلة الحنة" },
+    { time: "21:00", title: "العشاء", desc: "موائد فاخرة" },
+    { time: "22:30", title: "نختم اليوم", desc: "مع الفرح 🌙" }
   ],
   envelope: true,
-  song: "song-zafaf1.mp3"
+  song: "song-henna.mp3"
 };
 applySong();
 
@@ -558,7 +612,7 @@ function rsvp(attending){
 
 
 const hb=document.getElementById('hearts');
-for(let i=0;i<6;i++){
+for(let i=0;i<3;i++){
   const h=document.createElement('span');
   h.textContent='❤';
   h.style.right=Math.random()*100+'%';
