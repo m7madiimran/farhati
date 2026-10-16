@@ -808,10 +808,11 @@ function applyLang(){
 
 // marquee (multilingual, rebuilt on language change)
 const OCC_KEYS = ['mq1','mq2','mq3','mq4','mq5','mq6','mq7','mq8'];
+const MARQUEE_FALLBACK = ['دعوات تفاعلية','عدّاد تنازلي','تأكيد حضور','موقع القاعة','موسيقى باختياركم','خلفيات متحركة','تصميم خاص','رابط خاص'];
 function buildMarquee(){
   const track = document.getElementById('marquee');
   track.innerHTML = '';
-  const words = OCC_KEYS.map(k => T[k].ar);
+  const words = OCC_KEYS.map((k,i) => T[k]?.ar || MARQUEE_FALLBACK[i]);
   words.concat(words).forEach(w=>{
     const s = document.createElement('span');
     s.textContent = w;
